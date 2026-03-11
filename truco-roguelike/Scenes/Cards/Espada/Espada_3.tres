@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Card" format=3]
+
+[ext_resource type="Script" path="res://Scripts/Card/Card.cs" id="1_qfuxi"]
+
+[resource]
+script = ExtResource("1_qfuxi")
+name = "Espada_3"
+value = 3
