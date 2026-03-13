@@ -1,15 +1,7 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
-public partial class CardView : Node2D
+public partial class CardView : Sprite2D
 {
-	[Export] public Card cardData;
-
-	private Sprite2D sprite;
-
-    public override void _Ready()
-    {
-        sprite = GetNode<Sprite2D>("Sprite2D");
-        sprite.Texture = cardData.texture;
-    }
 }

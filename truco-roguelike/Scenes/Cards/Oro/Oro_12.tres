@@ -1,9 +1,15 @@
-[gd_resource type="Resource" script_class="Card" format=3]
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://drns8scp7f0u1"]
 
-[ext_resource type="Script" path="res://Scripts/Card/Card.cs" id="1_pnptr"]
+[ext_resource type="Script" uid="uid://b11wq8u7e7pjb" path="res://Scripts/Card/Card.cs" id="1_pnptr"]
+[ext_resource type="Texture2D" uid="uid://uoblk3jxxul" path="res://Sprites/Cards.png" id="2_3ai0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie1sh"]
+atlas = ExtResource("2_3ai0v")
+region = Rect2(144, 32, 16, 32)
 
 [resource]
 script = ExtResource("1_pnptr")
 name = "Oro_12"
 value = 12
 suit = 2
+texture = SubResource("AtlasTexture_ie1sh")
