@@ -15,9 +15,28 @@ run/main_scene="uid://csiwbmdydhe33"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
 [dotnet]
 
 project/assembly_name="Truco Roguelike"
+
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "red",
+"res://Scripts/": "green",
+"res://Scripts/Card/": "gray",
+"res://Scripts/Consumable/": "pink",
+"res://Scripts/Enemy/": "red",
+"res://Scripts/Player/": "blue",
+"res://Scripts/Relic/": "yellow",
+"res://Scripts/UI/": "orange",
+"res://Sprites/": "blue"
+}
 
 [physics]
 

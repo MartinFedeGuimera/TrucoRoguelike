@@ -1,60 +1,84 @@
 using Godot;
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
 public partial class CardController : Node2D
 {
-    private Sprite2D sprite;
+	private Card data;
+	private Sprite2D sprite;
 
-    private Card cardData;
+	[Export] private float hooverMult = 1.2f;
+	[Export] private Vector2 cardSize = new Vector2(5f, 5f);
 
-    private PlayerController player;
+    private bool isSelected = false;
 
-    [Export] [Range(1f, 2f)] private float hooverSizeMult;
-
-    [Export] private Vector2 cardSize = new Vector2(5f, 5f);
+	private Hand playerHand;
 
     public override void _Ready()
     {
-        sprite = GetNode<Sprite2D>("Sprite2D");
+		sprite = GetNode<Sprite2D>("Sprite2D");
 
-        player = GetParent<PlayerController>();
+		playerHand.CardSelected += OnCardSelected;
     }
 
-    private void OnMouseEntered()
-    {
-        if(player.GetSelectedCard != null && cardData != player.GetSelectedCard())
-        {
-            Scale = cardSize * hooverSizeMult;
-        }
+    private void OnCardSelected(CardController cardController, int mult)
+	{
+		Card cardData = cardController.GetData();
+
+        if(cardData.name != data.name)
+		{
+			Debug.WriteLine("Selected Card: " + cardData.name + " This Card: " + data.name);
+			Scale = cardSize;
+			isSelected = false;
+		}
     }
 
-    private void OnMouseExited()
-    {
-        if (player.GetSelectedCard != null && cardData != player.GetSelectedCard())
-        {
-            Scale = cardSize;
-        }
-    }
-
-    private void OnClicked(Node viewport, InputEvent @event, int shapeIdx)
-    {
+	public void OnInputEvent(Node viewport, InputEvent @event, int shapeIdx)
+	{
         if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
         {
-            player.SetSelectedCard(cardData, this);
+            isSelected = true;
+
+			playerHand.SetSelectedCard(this);
+
+            Scale = cardSize * hooverMult;
         }
     }
 
-    public void SetCardData(Card data)
-    {
-        cardData = data;
+	public void OnMouseEntered()
+	{
+		if(!isSelected)
+		{
+            Scale = cardSize * hooverMult;
+        }
+	}
 
-        SetUp();
-    }
+	public void OnMouseExited()
+	{
+		if(!isSelected)
+		{
+            Scale = cardSize;
+        }
+	}
 
-    private void SetUp()
+	public void SetUp(Card data, Hand hand)
+	{
+		this.data = data;
+		playerHand = hand;
+
+		sprite = GetNode<Sprite2D>("Sprite2D");
+		sprite.Texture = this.data.texture;
+		GD.Print("Texture applied");
+
+		Scale = cardSize;
+
+		GD.Print("Position: " + Position);
+	}
+
+	public Card GetData() => data;
+
+    public override void _ExitTree()
     {
-        sprite.SetTexture(cardData.texture);
+		playerHand.CardSelected -= OnCardSelected;
     }
 }

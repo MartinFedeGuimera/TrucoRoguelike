@@ -2,26 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cbu5lciui7dq" path="res://Scripts/Card/CardController.cs" id="1_58ae4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1q5o"]
-region = Rect2(0, 0, 16, 32)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntgjb"]
 size = Vector2(16, 32)
 
-[node name="Card" type="Node2D" unique_id=2063065298]
+[node name="Card" type="Node2D" unique_id=14277257]
 script = ExtResource("1_58ae4")
-hooverSizeMult = 1.2
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1658779308]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=869928879]
 texture_filter = 1
 texture_repeat = 1
-texture = SubResource("AtlasTexture_b1q5o")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=627576417]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2052524889]
 shape = SubResource("RectangleShape2D_ntgjb")
 
-[connection signal="input_event" from="Area2D" to="." method="OnClicked"]
+[connection signal="input_event" from="Area2D" to="." method="OnInputEvent"]
 [connection signal="mouse_entered" from="Area2D" to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="OnMouseExited"]

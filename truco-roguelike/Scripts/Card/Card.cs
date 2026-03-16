@@ -3,6 +3,7 @@ using System;
 
 public enum CardSuit
 {
+	None,
 	Espada,
 	Copa,
 	Oro,
