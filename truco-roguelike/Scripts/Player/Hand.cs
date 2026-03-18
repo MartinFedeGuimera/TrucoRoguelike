@@ -18,8 +18,16 @@ public partial class Hand : Node
 
     private int mult = 1;
 
+    public bool canStart = false;
+
     [Signal]
     public delegate void CardSelectedEventHandler(CardController card, int mult);
+
+    [Signal]
+    public delegate void AttackEventHandler(int damage);
+
+    [Signal]
+    public delegate void OutOfCardsEventHandler();
 
     public override void _Ready()
     {
@@ -32,8 +40,10 @@ public partial class Hand : Node
 
     public override void _Process(double delta)
     {
-        if(drawnCards.Count <= 0)
+        if(canStart)
         {
+            canStart = false;
+
             DrawCards();
         }
     }
@@ -81,11 +91,16 @@ public partial class Hand : Node
                 break;
             }
         }
+
+        if (drawnCards.Count <= 0)
+        {
+            EmitSignal("OutOfCards");
+        }
     }
 
-    private void DealDamage(int attack)
+    private void DealDamage(int damage)
     {
-        GD.Print("Damage Dealed: " +  attack * mult);
+        EmitSignal("Attack", damage * mult);
     }
 
     public void SetSelectedCard(CardController card)

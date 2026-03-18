@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ca0wlehqx6l8q" path="res://Scenes/Cards/Card.tscn" id="2_dctr5"]
 [ext_resource type="Script" uid="uid://cl834ig5dw28j" path="res://Scripts/Player/PlayerController.cs" id="2_kldst"]
 [ext_resource type="Script" uid="uid://b8oh0i3pe2j3r" path="res://Scripts/UI/DmgUiController.cs" id="6_7lihs"]
+[ext_resource type="Script" uid="uid://clrd6f22hrh50" path="res://Scripts/Enemy/Enemy.cs" id="7_fgofq"]
 [ext_resource type="Script" uid="uid://bv477fbni1r3y" path="res://Scripts/Player/Hand.cs" id="43_audqb"]
 [ext_resource type="Resource" uid="uid://udi674rbvyul" path="res://Scenes/Cards/Deck.tres" id="44_7w24h"]
 
@@ -11,8 +12,9 @@
 script = ExtResource("1_t2joc")
 playerHand = NodePath("Player/Hand")
 
-[node name="Player" type="Node2D" parent="." unique_id=750952452]
+[node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("enemy")]
 script = ExtResource("2_kldst")
+enemy = NodePath("../Enemy")
 maxHealth = 100
 
 [node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController")]
@@ -44,5 +46,27 @@ text = "Mult: 1"
 layout_mode = 2
 action_mode = 0
 text = "PLAY"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer" unique_id=1598320420]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="DeckButton" type="Button" parent="CanvasLayer/AspectRatioContainer" unique_id=380409216]
+layout_mode = 2
+text = "DECK
+"
+
+[node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("player")]
+script = ExtResource("7_fgofq")
+player = NodePath("../Player")
+maxHealth = 50
+damage = 10
 
 [connection signal="pressed" from="CanvasLayer/DmgVBoxContainer/PlayButton" to="Player/Hand" method="OnCardPlayed"]

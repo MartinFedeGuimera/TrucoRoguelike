@@ -2,6 +2,7 @@ using Godot;
 
 public partial class GameController : Node2D
 {
+    [Export] private PlayerController player;
     [Export] private Hand playerHand;
 
 	private RandomNumberGenerator seed = new RandomNumberGenerator();
@@ -18,7 +19,7 @@ public partial class GameController : Node2D
         GD.Print("Seed: " + seed.Randi());
     }
 
-    public void OnCardSelected(CardController card, int mult)
+    private void OnCardSelected(CardController card, int mult)
     {
         if(IsInstanceValid(card))
             EmitSignal("CardSelected", card, mult);

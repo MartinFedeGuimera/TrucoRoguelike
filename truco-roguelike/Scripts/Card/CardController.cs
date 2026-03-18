@@ -27,7 +27,6 @@ public partial class CardController : Node2D
 
         if(cardData.name != data.name)
 		{
-			Debug.WriteLine("Selected Card: " + cardData.name + " This Card: " + data.name);
 			Scale = cardSize;
 			isSelected = false;
 		}
@@ -68,11 +67,8 @@ public partial class CardController : Node2D
 
 		sprite = GetNode<Sprite2D>("Sprite2D");
 		sprite.Texture = this.data.texture;
-		GD.Print("Texture applied");
 
 		Scale = cardSize;
-
-		GD.Print("Position: " + Position);
 	}
 
 	public Card GetData() => data;
