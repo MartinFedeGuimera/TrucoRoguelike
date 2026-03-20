@@ -21,7 +21,7 @@ public partial class CardController : Node2D
 		playerHand.CardSelected += OnCardSelected;
     }
 
-    private void OnCardSelected(CardController cardController, int mult)
+    private void OnCardSelected(CardController cardController)
 	{
 		Card cardData = cardController.GetData();
 

@@ -5,13 +5,15 @@ public partial class Enemy : Node
 {
     [Export] public PlayerController player;
 
-	[Export] private int maxHealth;
-	private int health;
+	[Export] public int maxHealth;
+	public int health;
 
 	[Export] private int damage;
 
     [Signal]
     public delegate void TurnEndedEventHandler();
+
+    private bool isDead = false;
 
     public override void _Ready()
     {
@@ -22,8 +24,9 @@ public partial class Enemy : Node
 
     public override void _Process(double delta)
     {
-        if(health <= 0)
+        if(health <= 0 && !isDead)
         {
+            isDead = true;
             GD.Print("Enemy Killed");
         }
     }
@@ -39,5 +42,6 @@ public partial class Enemy : Node
     public void TakeDamage(int damage)
     {
         health -= damage;
+        GD.Print("Enemy Health: " + health);
     }
 }

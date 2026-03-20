@@ -6,6 +6,8 @@ public partial class Hand : Node
     [Export] private GameController gameController;
     private RandomNumberGenerator seed;
 
+    private PlayerController player;
+
     [Export] private PackedScene cardScene;
 
 	private int maxCardsDrawn = 3;
@@ -16,12 +18,10 @@ public partial class Hand : Node
 
     private CardController selectedCard;
 
-    private int mult = 1;
-
     public bool canStart = false;
 
     [Signal]
-    public delegate void CardSelectedEventHandler(CardController card, int mult);
+    public delegate void CardSelectedEventHandler(CardController card);
 
     [Signal]
     public delegate void AttackEventHandler(int damage);
@@ -31,6 +31,8 @@ public partial class Hand : Node
 
     public override void _Ready()
     {
+        player = GetParent<PlayerController>();
+
         seed = gameController.GetSeed();
 
         deckResource.Shuffle(seed);
@@ -72,33 +74,54 @@ public partial class Hand : Node
 
     public void OnCardPlayed()
     {
-        for(int i = 0; i < drawnCards.Count;  i++)
+        if (selectedCard != null)
         {
-            Card card = drawnCards[i].GetData();
-
-            Card selectedCardData = selectedCard.GetData();
-
-            if(selectedCardData.name == card.name)
+            for (int i = 0; i < drawnCards.Count; i++)
             {
-                DealDamage(selectedCardData.value);
+                Card card = drawnCards[i].GetData();
 
-                selectedCard = null;
+                Card selectedCardData = selectedCard.GetData();
 
-                drawnCards[i].QueueFree();
+                if (selectedCardData.name == card.name)
+                {
+                    if (player.relics != null)
+                    {
+                        GD.Print("Doing Relics Effects");
 
-                drawnCards.RemoveAt(i);
+                        foreach (RelicController relic in player.relics)
+                        {
+                            relic.SetUp(this);
+                            relic.OnCardPlayed(selectedCardData);
+                        }
+                    }
+                    else
+                        GD.Print("Relics Are NULL");
 
-                break;
+                    DealDamage(selectedCardData.value, selectedCardData.mult);
+
+                    selectedCard = null;
+
+                    drawnCards[i].QueueFree();
+
+                    drawnCards.RemoveAt(i);
+
+                    break;
+                }
             }
-        }
 
-        if (drawnCards.Count <= 0)
-        {
-            EmitSignal("OutOfCards");
+            if (drawnCards.Count <= 0)
+            {
+                foreach (RelicController relic in player.relics)
+                {
+                    relic.OnPlayerTurnFinished();
+                }
+
+                EmitSignal("OutOfCards");
+            }
         }
     }
 
-    private void DealDamage(int damage)
+    private void DealDamage(int damage, int mult)
     {
         EmitSignal("Attack", damage * mult);
     }
@@ -107,6 +130,6 @@ public partial class Hand : Node
     {
         selectedCard = card;
 
-        EmitSignal("CardSelected", selectedCard, mult);
+        EmitSignal("CardSelected", selectedCard);
     }
 }

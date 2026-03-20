@@ -8,7 +8,7 @@ public partial class GameController : Node2D
 	private RandomNumberGenerator seed = new RandomNumberGenerator();
 
     [Signal]
-    public delegate void CardSelectedEventHandler(CardController card, int mult);
+    public delegate void CardSelectedEventHandler(CardController card);
 
     public override void _Ready()
     {
@@ -19,10 +19,10 @@ public partial class GameController : Node2D
         GD.Print("Seed: " + seed.Randi());
     }
 
-    private void OnCardSelected(CardController card, int mult)
+    private void OnCardSelected(CardController card )
     {
         if(IsInstanceValid(card))
-            EmitSignal("CardSelected", card, mult);
+            EmitSignal("CardSelected", card);
     }
 
     public RandomNumberGenerator GetSeed() => seed;

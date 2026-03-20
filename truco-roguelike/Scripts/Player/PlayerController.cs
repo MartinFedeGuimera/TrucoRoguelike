@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 
 public partial class PlayerController : Node
 {
@@ -6,13 +7,19 @@ public partial class PlayerController : Node
 
     private Hand hand;
 
-    [Export] private int maxHealth;
-    private int health;
+    [Export] public int maxHealth;
+    public int health;
 
     private int money = 0;
 
     [Signal]
     public delegate void TurnEndedEventHandler();
+
+    [Export] public Array<RelicController> relics;
+
+    [Export] private Node relicsParent;
+    [Export] private PackedScene relicScene; 
+    private bool relicsLoaded = false;
 
     public override void _Ready()
     {
@@ -31,6 +38,20 @@ public partial class PlayerController : Node
         if(health <= 0)
         {
             GD.Print("Game Over!");
+        }
+        
+        if(!relicsLoaded)
+        {
+            foreach (var relic in relics)
+            {
+                RelicView relicNode = relicScene.Instantiate<RelicView>();
+
+                relicNode.SetUp(relic);
+
+                relicsParent.AddChild(relicNode);
+            }
+            relicsLoaded = true;
+            GD.Print("Relics Loaded!");
         }
     }
 

@@ -16,11 +16,11 @@ public partial class DmgUiController : Node
         gameController.CardSelected += UpdateUI;
     }
 
-    private void UpdateUI(CardController card, int mult)
+    private void UpdateUI(CardController card)
     {
         Card cardData = card.GetData();
 
         attackLabel.Text = "Attack: " + cardData.value;
-        multLabel.Text = "Mult: " + mult;
+        multLabel.Text = "Mult: " + cardData.mult;
     }
 }

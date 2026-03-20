@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://w5u5utajrw80"]
+
+[ext_resource type="Script" uid="uid://dytplfomjq6m0" path="res://Scripts/Relic/RelicView.cs" id="1_giuqx"]
+
+[node name="Relic" type="Control" unique_id=447680689]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_giuqx")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=860619092]
+layout_mode = 0
+offset_left = -51.0
+offset_right = 51.547775
+offset_bottom = 175.0
+expand_mode = 3
+stretch_mode = 5

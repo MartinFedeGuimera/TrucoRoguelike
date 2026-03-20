@@ -3,8 +3,15 @@
 [ext_resource type="Script" uid="uid://bdibbsubjn4md" path="res://Scripts/GameController.cs" id="1_t2joc"]
 [ext_resource type="PackedScene" uid="uid://ca0wlehqx6l8q" path="res://Scenes/Cards/Card.tscn" id="2_dctr5"]
 [ext_resource type="Script" uid="uid://cl834ig5dw28j" path="res://Scripts/Player/PlayerController.cs" id="2_kldst"]
+[ext_resource type="Resource" uid="uid://pm748ktblyn5" path="res://Scripts/Relic/Relics/SuitAddMult/BastoAddMult.tres" id="3_71axn"]
+[ext_resource type="Resource" uid="uid://bhj2jq381o3x6" path="res://Scripts/Relic/Relics/SuitAddMult/CopaAddMult.tres" id="4_dahhg"]
+[ext_resource type="Resource" uid="uid://bgu4gkvhdrjwd" path="res://Scripts/Relic/Relics/SuitAddMult/EspadaAddMult.tres" id="5_3so38"]
+[ext_resource type="PackedScene" uid="uid://w5u5utajrw80" path="res://Scenes/Relic.tscn" id="6_3cx6b"]
 [ext_resource type="Script" uid="uid://b8oh0i3pe2j3r" path="res://Scripts/UI/DmgUiController.cs" id="6_7lihs"]
+[ext_resource type="Resource" uid="uid://7dcvrbh6twcb" path="res://Scripts/Relic/Relics/SuitAddMult/OroAddMult.tres" id="6_wxwew"]
 [ext_resource type="Script" uid="uid://clrd6f22hrh50" path="res://Scripts/Enemy/Enemy.cs" id="7_fgofq"]
+[ext_resource type="Script" uid="uid://bra22crfad4v1" path="res://Scripts/UI/EnemyHealthBar.cs" id="10_dahhg"]
+[ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="11_3so38"]
 [ext_resource type="Script" uid="uid://bv477fbni1r3y" path="res://Scripts/Player/Hand.cs" id="43_audqb"]
 [ext_resource type="Resource" uid="uid://udi674rbvyul" path="res://Scenes/Cards/Deck.tres" id="44_7w24h"]
 
@@ -12,10 +19,13 @@
 script = ExtResource("1_t2joc")
 playerHand = NodePath("Player/Hand")
 
-[node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("enemy")]
+[node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("enemy", "relicsParent")]
 script = ExtResource("2_kldst")
 enemy = NodePath("../Enemy")
 maxHealth = 100
+relics = Array[Object]([ExtResource("3_71axn"), ExtResource("4_dahhg"), ExtResource("5_3so38"), ExtResource("6_wxwew")])
+relicsParent = NodePath("../CanvasLayer/HBoxContainer")
+relicScene = ExtResource("6_3cx6b")
 
 [node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController")]
 script = ExtResource("43_audqb")
@@ -62,6 +72,89 @@ grow_vertical = 0
 layout_mode = 2
 text = "DECK
 "
+
+[node name="EnemyHealthBar" type="Control" parent="CanvasLayer" unique_id=87166461 node_paths=PackedStringArray("enemy")]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = 180.0
+offset_right = 18.0
+offset_bottom = 220.0
+grow_horizontal = 2
+script = ExtResource("10_dahhg")
+enemy = NodePath("../../Enemy")
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/EnemyHealthBar" unique_id=1280894762]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -434.0
+offset_top = 1.0
+offset_right = 434.0
+offset_bottom = 28.0
+grow_horizontal = 2
+show_percentage = false
+
+[node name="HealthText" type="Label" parent="CanvasLayer/EnemyHealthBar" unique_id=620303226]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 0.4
+offset_left = -140.0
+offset_top = 3.0
+offset_right = 140.0
+offset_bottom = 26.0
+horizontal_alignment = 1
+
+[node name="PlayerHealthBar" type="Control" parent="CanvasLayer" unique_id=717539118 node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_3so38")
+player = NodePath("../../Player")
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/PlayerHealthBar" unique_id=549559071]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -434.0
+offset_top = 1.0
+offset_right = 434.0
+offset_bottom = 28.0
+grow_horizontal = 2
+show_percentage = false
+
+[node name="HealthText" type="Label" parent="CanvasLayer/PlayerHealthBar" unique_id=1173211098]
+layout_mode = 0
+offset_left = -140.0
+offset_top = 2.0
+offset_right = 140.0
+offset_bottom = 25.0
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1156214360]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 3.0
+offset_right = 20.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_constants/separation = 120
+alignment = 1
 
 [node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("player")]
 script = ExtResource("7_fgofq")
