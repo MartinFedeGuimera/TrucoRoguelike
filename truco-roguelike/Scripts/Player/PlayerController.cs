@@ -15,11 +15,17 @@ public partial class PlayerController : Node
     [Signal]
     public delegate void TurnEndedEventHandler();
 
+    [ExportGroup("Relics")]
     [Export] public Array<RelicController> relics;
 
     [Export] private Node relicsParent;
     [Export] private PackedScene relicScene; 
     private bool relicsLoaded = false;
+
+    [ExportGroup("Consumables")]
+    [Export] private Array<Consumable> consumables;
+    [Export] private PackedScene consumableScene;
+    [Export] private Node consumablesParent;
 
     public override void _Ready()
     {
@@ -31,6 +37,25 @@ public partial class PlayerController : Node
         hand.OutOfCards += OnOutOfCards;
 
         enemy.TurnEnded += StartTurn;
+
+        foreach (var relic in relics)
+        {
+            RelicView relicNode = relicScene.Instantiate<RelicView>();
+
+            relicNode.SetUp(relic);
+
+            relicsParent.AddChild(relicNode);
+        }
+        GD.Print("Relics Loaded!");
+
+        foreach(var consumable in consumables)
+        {
+            ConsumableController consumableController = consumableScene.Instantiate<ConsumableController>();
+
+            consumableController.SetUp(consumable, hand);
+
+            consumablesParent.AddChild(consumableController);
+        }    
     }
 
     public override void _Process(double delta)
@@ -38,20 +63,6 @@ public partial class PlayerController : Node
         if(health <= 0)
         {
             GD.Print("Game Over!");
-        }
-        
-        if(!relicsLoaded)
-        {
-            foreach (var relic in relics)
-            {
-                RelicView relicNode = relicScene.Instantiate<RelicView>();
-
-                relicNode.SetUp(relic);
-
-                relicsParent.AddChild(relicNode);
-            }
-            relicsLoaded = true;
-            GD.Print("Relics Loaded!");
         }
     }
 

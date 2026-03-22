@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Envido" format=3 uid="uid://b6cqtsa1l6pmh"]
+
+[ext_resource type="Script" uid="uid://b5jxxidlqcuei" path="res://Scripts/Consumable/Canto/Envido.cs" id="1_k6ux3"]
+
+[resource]
+script = ExtResource("1_k6ux3")
+valueUpgrade = 10
+maxLevel = 4
+name = "Envido"
+description = "If there are two cards with the same suit, it adds their envido value and damages the enemy with it, else it uses the highest envido value iin hand"
+price = 5
+value = -10
+metadata/_custom_type_script = "uid://b5jxxidlqcuei"

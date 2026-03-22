@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Truco" format=3 uid="uid://dfvfkd7e31p27"]
+
+[ext_resource type="Script" uid="uid://cy354b5q4afon" path="res://Scripts/Consumable/Canto/Truco.cs" id="1_kwud1"]
+
+[resource]
+script = ExtResource("1_kwud1")
+valueUpgrade = 0.5
+maxLevel = 3
+name = "Truco"
+description = "Multiplies by {value} the damage dealed by you, but also by your enemy."
+price = 5
+value = 1.0
+metadata/_custom_type_script = "uid://cy354b5q4afon"

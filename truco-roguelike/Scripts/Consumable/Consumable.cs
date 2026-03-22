@@ -1,8 +1,18 @@
 using Godot;
-using System;
 
-public partial class Consumable : Node
+[GlobalClass]
+public partial class Consumable : Resource
 {
-	private int startValue;
-	private int level = 0;
+	[Export] public string name;
+	[Export] public string description;
+    [Export] public Texture2D sprite;
+    [Export] public int price;
+	[Export] public float value;
+
+    public Hand hand;
+
+    public virtual void OnUse()
+    {
+        GD.Print("Consumable Used: " + name);
+    }
 }

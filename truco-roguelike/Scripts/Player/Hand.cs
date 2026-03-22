@@ -20,6 +20,12 @@ public partial class Hand : Node
 
     public bool canStart = false;
 
+    private int generalMult = 0;
+    private int permanentMult = 0;
+    private int damageMultiplier = 0;
+
+    public bool hasFlor = false;
+
     [Signal]
     public delegate void CardSelectedEventHandler(CardController card);
 
@@ -46,6 +52,8 @@ public partial class Hand : Node
         {
             canStart = false;
 
+            generalMult = permanentMult;
+
             DrawCards();
         }
     }
@@ -69,6 +77,8 @@ public partial class Hand : Node
             deckResource.RemoveAt(0);
 
             GD.Print("Drawn Card: " + newData.name);
+
+            hasFlor = CheckFlor();
         }
     }
 
@@ -121,9 +131,34 @@ public partial class Hand : Node
         }
     }
 
-    private void DealDamage(int damage, int mult)
+    public void DealDamage(int damage, int mult)
     {
-        EmitSignal("Attack", damage * mult);
+        int finalDamage = damage * (mult + generalMult);
+
+        if(damageMultiplier > 0)
+        {
+            finalDamage *= damageMultiplier;
+        }
+
+        EmitSignal("Attack", finalDamage);
+    }
+
+    private bool CheckFlor()
+    {
+        foreach(CardController card in drawnCards)
+        {
+            CardSuit firstCardSuit = drawnCards[0].GetData().suit;
+
+            for(int i = 1; i < drawnCards.Count; i++)
+            {
+                if(firstCardSuit != drawnCards[i].GetData().suit)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public void SetSelectedCard(CardController card)
@@ -131,5 +166,32 @@ public partial class Hand : Node
         selectedCard = card;
 
         EmitSignal("CardSelected", selectedCard);
+    }
+
+    public void AddGeneralMult(int addedMult)
+    {
+        generalMult += addedMult;
+    }
+
+    public void AddPermaMult(int addedMult)
+    {
+        permanentMult += addedMult;
+    }
+
+    public void AddDamageMultiplier(int addedMultiplier)
+    {
+        damageMultiplier += addedMultiplier;
+    }
+
+    public Array<Card> GetDrawnCards()
+    {
+        Array<Card> cardsData = new Array<Card>();
+
+        foreach(CardController controller in drawnCards)
+        {
+            cardsData.Add(controller.GetData());
+        }
+
+        return cardsData;
     }
 }

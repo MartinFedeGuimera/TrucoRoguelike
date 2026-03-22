@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cfr25ymq0ee4d"]
+
+[ext_resource type="Script" uid="uid://d3iydfp1mxs8v" path="res://Scripts/Consumable/ConsumableView.cs" id="1_7dbh0"]
+[ext_resource type="Script" uid="uid://ck33qigyqbefn" path="res://Scripts/Consumable/ConsumableController.cs" id="1_fttsv"]
+
+[node name="Consumable" type="Control" unique_id=436735757]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fttsv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=60669165 node_paths=PackedStringArray("button")]
+layout_mode = 0
+offset_left = -51.0
+offset_right = 51.547775
+offset_bottom = 32.0
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("1_7dbh0")
+button = NodePath("../Button")
+
+[node name="Button" type="Button" parent="." unique_id=27805114]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 31.0
+
+[connection signal="pressed" from="Button" to="." method="OnButtonPressed"]

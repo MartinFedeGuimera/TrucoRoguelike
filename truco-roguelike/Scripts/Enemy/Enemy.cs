@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Enemy : Node
 {
@@ -33,10 +32,13 @@ public partial class Enemy : Node
 
     private void DealDamage()
     {
-        player.TakeDamage(damage);
-        GD.Print("Damage Taken: " + damage);
+        if(!isDead)
+        {
+            player.TakeDamage(damage);
+            GD.Print("Damage Taken: " + damage);
 
-        EmitSignal("TurnEnded");
+            EmitSignal("TurnEnded");
+        }
     }
 
     public void TakeDamage(int damage)
