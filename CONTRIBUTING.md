@@ -1,4 +1,4 @@
-### 🤝 Contributing Guide
+# 🤝 Contributing Guide
 
 Thank you for your interest in contributing to this project!
 All kinds of contributions are welcome, whether it's code, ideas, bug reports, or improvements.
@@ -29,13 +29,13 @@ You can help in many ways:
 
 ## Development Style
 
-# Code
+### Code
 
 - Use clear and descriptive names
 - Keep functions short and readable
 - Comment only when necessary (explain the "why", not the "what")
 
-# Commits
+### Commits
 
 Use clear commit messages, for example:
 
@@ -45,7 +45,7 @@ Use clear commit messages, for example:
 
 ---
 
-# Testing
+### Testing
 
 Before submitting a Pull Request:
 
@@ -86,7 +86,7 @@ If you have questions, you can:
 
 ---
 
-Final Note
+## Final Note
 
 You don’t need to be an expert to contribute.
 Even small improvements make a big difference.
