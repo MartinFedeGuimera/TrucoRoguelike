@@ -37,13 +37,19 @@ git clone https://github.com/your-username/your-repo.git
 - Play hands with Spanish cards to damage enemies.  
 - Save money and use it to buy upgrades in the shop.  
 - Build powerfull sinergies.  
-- Survive as long as you can.  
+- Survive as long as you can.
+
+---
 
 ## Contributing
 To learn how to contribute in the project you can read CONTRIBUTING.md file for guidelines on how to get started.
 
+---
+
 ## License
 This project is licensed under the terms specified in LICENSE.md
+
+---
 
 ## Future Plans
 At the moment of editing this file (03/23/26),
