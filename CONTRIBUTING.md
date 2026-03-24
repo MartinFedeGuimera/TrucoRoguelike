@@ -21,8 +21,10 @@ You can help in many ways:
 
 1. Fork the repository
 2. Clone your fork:
-   git clone https://github.com/MartinFedeGuimera/TeucoRoguelike.git
-3. Create a new branch:
+```bash
+   git clone https://github.com/MartinFedeGuimera/TrucoRoguelike.git
+```
+4. Create a new branch:
    git checkout -b feature/your-feature-name
 
 ---
@@ -60,9 +62,11 @@ Before submitting a Pull Request:
 When you're ready:
 
 1. Push your changes:
+``` bash
    git push origin feature/your-feature-name
-2. Open a Pull Request
-3. Clearly describe:
+```
+3. Open a Pull Request
+4. Clearly describe:
    - What you did
    - Why you did it
    - How to test it
