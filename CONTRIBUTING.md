@@ -1,41 +1,41 @@
-🤝 Contributing Guide
+### 🤝 Contributing Guide
 
-Thank you for your interest in contributing to this project! 🎮
+Thank you for your interest in contributing to this project!
 All kinds of contributions are welcome, whether it's code, ideas, bug reports, or improvements.
 
 ---
 
-Ways to Contribute
+## Ways to Contribute
 
 You can help in many ways:
 
-- Reporting bugs
-- Suggesting new features
-- Improving existing code
-- Enhancing documentation
-- Contributing assets or UI (if applicable)
+- Reporting bugs.  
+- Suggesting new features.  
+- Improving existing code.  
+- Enhancing documentation.  
+- Contributing assets or UI (if applicable).  
 
 ---
 
-Getting Started
+## Getting Started
 
 1. Fork the repository
 2. Clone your fork:
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/MartinFedeGuimera/TeucoRoguelike.git
 3. Create a new branch:
    git checkout -b feature/your-feature-name
 
 ---
 
-Development Style
+## Development Style
 
-Code
+# Code
 
 - Use clear and descriptive names
 - Keep functions short and readable
 - Comment only when necessary (explain the "why", not the "what")
 
-Commits
+# Commits
 
 Use clear commit messages, for example:
 
@@ -45,17 +45,17 @@ Use clear commit messages, for example:
 
 ---
 
-Testing
+# Testing
 
 Before submitting a Pull Request:
 
-- Make sure everything works correctly
-- Ensure you didn’t break existing features
-- If you added something new, explain how to test it
+- Make sure everything works correctly.  
+- Ensure you didn’t break existing features.  
+- If you added something new, explain how to test it.  
 
 ---
 
-Pull Requests
+## Pull Requests
 
 When you're ready:
 
@@ -69,7 +69,7 @@ When you're ready:
 
 ---
 
-Rules
+## Rules
 
 - Do not submit malicious or unsafe code
 - Respect the project structure
@@ -77,7 +77,7 @@ Rules
 
 ---
 
-Communication
+## Communication
 
 If you have questions, you can:
 
