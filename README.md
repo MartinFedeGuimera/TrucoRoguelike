@@ -8,17 +8,17 @@ Combine strategy, bluff, and powerful relics to defeat your opponents in a run-b
 
 ## Features
 
-- Play with Spanish cards in a Truco-based system  
-- Deal damage to defeat enemies  
-- Buy Relics and Consumables to enhance your build  
-- Upgrade your cards during a run  
-- Roguelike structure with replayability  
+- Play with Spanish cards in a Truco-based system.  
+- Deal damage to defeat enemies.    
+- Buy Relics and Consumables to enhance your build.  
+- Upgrade your cards during a run.  
+- Roguelike structure with replayability.   
 
 ---
 
 ## Technologies
 
-- Godot 4 (.NET)
+- Godot 4 (.NET).  
 - C#
 
 ---
@@ -34,10 +34,10 @@ git clone https://github.com/your-username/your-repo.git
 ---
 
 ## How To Play
--Play hands with Spanish cards to damage enemies.
--Save money and use it to buy upgrades in the shop.
--Build powerfull sinergies.
--Survive as long as you can.
+- Play hands with Spanish cards to damage enemies.  
+- Save money and use it to buy upgrades in the shop.  
+- Build powerfull sinergies.  
+- Survive as long as you can.  
 
 ## Contributing
 To learn how to contribute in the project you can read CONTRIBUTING.md file for guidelines on how to get started.
@@ -49,8 +49,8 @@ This project is licensed under the terms specified in LICENSE.md
 At the moment of editing this file (03/23/26),
 the future features to be implemented are:
 
--Let the player sell his relics and consumables.
--Create the shop and make it work.
--Add descriptions to the relics and consumables.
--Adding bosses with special effects
--Creating more content (Relics, Consumables and Bosses)
+- Let the player sell his relics and consumables.  
+- Create the shop and make it work.  
+- Add descriptions to the relics and consumables.  
+- Adding bosses with special effects.  
+- Creating more content (Relics, Consumables and Bosses).  
