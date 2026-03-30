@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dbuw1vkkmmhx4"]
+
+[ext_resource type="Script" uid="uid://g4ow4es6vpue" path="res://Scripts/Relic/RelicProduct.cs" id="1_kcg4o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5t6fb"]
+font_color = Color(1, 0.8392157, 0, 1)
+
+[node name="RelicProduct" type="Control" unique_id=1934193960]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("1_kcg4o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=734090588]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -64.5
+offset_right = 37.5
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PriceLabel" type="Label" parent="." unique_id=1554841257]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = 69.0
+offset_right = -2.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_5t6fb")
+horizontal_alignment = 1
+
+[node name="BuyButton" type="Button" parent="." unique_id=1045974880]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = 65.0
+offset_right = 38.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BUY"
+
+[connection signal="pressed" from="BuyButton" to="." method="OnTryBuy"]

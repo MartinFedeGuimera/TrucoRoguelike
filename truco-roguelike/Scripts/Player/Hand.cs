@@ -76,8 +76,6 @@ public partial class Hand : Node
 
             deckResource.RemoveAt(0);
 
-            GD.Print("Drawn Card: " + newData.name);
-
             hasFlor = CheckFlor();
         }
     }
@@ -121,9 +119,12 @@ public partial class Hand : Node
 
             if (drawnCards.Count <= 0)
             {
-                foreach (RelicController relic in player.relics)
+                if(player.relics != null)
                 {
-                    relic.OnPlayerTurnFinished();
+                    foreach (RelicController relic in player.relics)
+                    {
+                        relic.OnPlayerTurnFinished();
+                    }
                 }
 
                 EmitSignal("OutOfCards");

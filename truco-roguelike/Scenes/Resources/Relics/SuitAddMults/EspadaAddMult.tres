@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SuitAddMultRelic" format=3 uid="uid://bgu4gkvhdrjwd"]
+
+[ext_resource type="Script" uid="uid://dlvusihc37i7c" path="res://Scripts/Relic/Relics/SuitAddMult/SuitAddMultRelic.cs" id="1_oirbt"]
+[ext_resource type="Texture2D" uid="uid://clgq61aipaaj3" path="res://Sprites/EspadaAddMult.jpeg" id="2_xanqp"]
+
+[resource]
+script = ExtResource("1_oirbt")
+multSuit = 1
+name = "Espadachin"
+description = "Adds 5 to mult when a Espada card is played"
+spriteTexture = ExtResource("2_xanqp")
+value = 2
+price = 10
+metadata/_custom_type_script = "uid://dlvusihc37i7c"

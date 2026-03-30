@@ -4,10 +4,8 @@
 
 [resource]
 script = ExtResource("1_k6ux3")
-valueUpgrade = 10
 maxLevel = 4
 name = "Envido"
 description = "If there are two cards with the same suit, it adds their envido value and damages the enemy with it, else it uses the highest envido value iin hand"
 price = 5
-value = -10
 metadata/_custom_type_script = "uid://b5jxxidlqcuei"

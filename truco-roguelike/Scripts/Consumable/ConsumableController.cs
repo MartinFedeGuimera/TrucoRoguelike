@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class ConsumableController : Node
 {
@@ -15,6 +14,18 @@ public partial class ConsumableController : Node
         data.hand = hand;
         this.data = data;
 	}
+
+	public void SetUp(Consumable data)
+	{
+		view = GetNode<ConsumableView>("TextureRect");
+
+		view.SetUp(data.sprite, data.name);
+
+		data.isUsable = false;
+		this.data = data;
+	}
+
+	public Consumable GetData() => data;
 
 	public void OnButtonPressed()
 	{

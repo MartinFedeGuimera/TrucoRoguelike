@@ -2,13 +2,15 @@ using Godot;
 
 public partial class SceneManager : Node
 {
-	public void LoadSceneFile(string scenePath)
-	{
-		GetTree().ChangeSceneToFile(scenePath);
-	}
+	public static SceneManager Instance;
 
-	public void LoadPackedScene(PackedScene scene)
-	{
-		GetTree().ChangeSceneToPacked(scene);
+    public override void _Ready()
+    {
+        Instance = this;
+    }
+
+    public void Load(string scenePath)
+	{		
+		GetTree().ChangeSceneToFile(scenePath);
 	}
 }

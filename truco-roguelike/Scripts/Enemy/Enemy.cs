@@ -12,6 +12,9 @@ public partial class Enemy : Node
     [Signal]
     public delegate void TurnEndedEventHandler();
 
+    [Signal]
+    public delegate void EnemyDeadEventHandler();
+
     private bool isDead = false;
 
     public override void _Ready()
@@ -27,6 +30,8 @@ public partial class Enemy : Node
         {
             isDead = true;
             GD.Print("Enemy Killed");
+
+            OnDeath();
         }
     }
 
@@ -45,5 +50,10 @@ public partial class Enemy : Node
     {
         health -= damage;
         GD.Print("Enemy Health: " + health);
+    }
+
+    private void OnDeath()
+    {
+        EmitSignal("EnemyDead");
     }
 }

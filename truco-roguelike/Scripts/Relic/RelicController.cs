@@ -8,6 +8,7 @@ public partial class RelicController : Resource
 	[Export] public string description;
 	[Export] public Texture2D spriteTexture;
 	[Export] public int value;
+	[Export] public int price = 5;
 
 	public Hand playerHand;
 

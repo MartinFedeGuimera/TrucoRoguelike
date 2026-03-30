@@ -1,3 +1,166 @@
 [gd_scene format=3 uid="uid://bvx5xh8gndpn5"]
 
-[node name="Shop" type="Node2D" unique_id=1464305482]
+[ext_resource type="Script" uid="uid://b8rukfyuloyjp" path="res://Scripts/ShopController.cs" id="1_twmb6"]
+[ext_resource type="Resource" uid="uid://dmpphthesrspc" path="res://Scenes/Resources/DataSaving/GameData.tres" id="2_l52qc"]
+[ext_resource type="Resource" uid="uid://b1xqyd8rs8jia" path="res://Scenes/Resources/DataSaving/PlayerData.tres" id="3_ikxqi"]
+[ext_resource type="Resource" uid="uid://7dcvrbh6twcb" path="res://Scenes/Resources/Relics/SuitAddMults/OroAddMult.tres" id="4_2vuo2"]
+[ext_resource type="Resource" uid="uid://bhj2jq381o3x6" path="res://Scenes/Resources/Relics/SuitAddMults/CopaAddMult.tres" id="5_i4yym"]
+[ext_resource type="Resource" uid="uid://pm748ktblyn5" path="res://Scenes/Resources/Relics/SuitAddMults/BastoAddMult.tres" id="6_p6pv5"]
+[ext_resource type="Resource" uid="uid://bgu4gkvhdrjwd" path="res://Scenes/Resources/Relics/SuitAddMults/EspadaAddMult.tres" id="7_xt05f"]
+[ext_resource type="PackedScene" uid="uid://dbuw1vkkmmhx4" path="res://Scenes/Prefabs/Relic/RelicProduct.tscn" id="8_virt4"]
+[ext_resource type="Resource" uid="uid://b6cqtsa1l6pmh" path="res://Scenes/Resources/Consumables/Cantos/Envido.tres" id="9_ysgmm"]
+[ext_resource type="Resource" uid="uid://dfvfkd7e31p27" path="res://Scenes/Resources/Consumables/Cantos/Truco.tres" id="10_1hanx"]
+[ext_resource type="PackedScene" uid="uid://cio05dprsoe1l" path="res://Scenes/Prefabs/Consumable/ConsumableProduct.tscn" id="11_qj1uu"]
+[ext_resource type="PackedScene" uid="uid://w5u5utajrw80" path="res://Scenes/Prefabs/Relic/Relic.tscn" id="12_i4yym"]
+[ext_resource type="PackedScene" uid="uid://cfr25ymq0ee4d" path="res://Scenes/Prefabs/Consumable/Consumable.tscn" id="13_p6pv5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l52qc"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_ikxqi"]
+font_size = 32
+font_color = Color(1, 0.8392157, 0, 1)
+
+[node name="Shop" type="Control" unique_id=1733835964]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_twmb6")
+gameData = ExtResource("2_l52qc")
+rerollPrice = 5
+playerData = ExtResource("3_ikxqi")
+relicsData = Array[Object]([ExtResource("4_2vuo2"), ExtResource("5_i4yym"), ExtResource("6_p6pv5"), ExtResource("7_xt05f")])
+relicProductScene = ExtResource("8_virt4")
+consumablesData = Array[Object]([ExtResource("9_ysgmm"), ExtResource("10_1hanx")])
+consumableProductScene = ExtResource("11_qj1uu")
+relicScene = ExtResource("12_i4yym")
+consumableScene = ExtResource("13_p6pv5")
+
+[node name="ShopContent" type="Control" parent="." unique_id=671544109]
+layout_mode = 1
+anchor_top = 0.24700001
+anchor_right = 0.79800004
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.699997
+offset_right = 1.1999512
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ShopLabel" type="Label" parent="ShopContent" unique_id=1659176980]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 88.0
+grow_horizontal = 2
+size_flags_vertical = 1
+text = "SHOP"
+label_settings = SubResource("LabelSettings_l52qc")
+horizontal_alignment = 1
+
+[node name="ProductsContainer" type="VBoxContainer" parent="ShopContent" unique_id=1204793336]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 150
+
+[node name="RelicsContainer" type="HBoxContainer" parent="ShopContent/ProductsContainer" unique_id=310786421]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="ConsumablesContainer" type="HBoxContainer" parent="ShopContent/ProductsContainer" unique_id=904015631]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="ShopContent" unique_id=1084903892]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="ReRollButton" type="Button" parent="ShopContent/ButtonsContainer" unique_id=1767635335]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Re-Roll"
+
+[node name="ContinueButton" type="Button" parent="ShopContent/ButtonsContainer" unique_id=441825363]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Continue"
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1122346287]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "100"
+label_settings = SubResource("LabelSettings_ikxqi")
+horizontal_alignment = 1
+
+[node name="PlayerData" type="Control" parent="." unique_id=1992980344]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RelicsContainer" type="HBoxContainer" parent="PlayerData" unique_id=314939732]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="ConsumablesContainer" type="VBoxContainer" parent="PlayerData" unique_id=1682761381]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -20.0
+offset_right = -24.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[connection signal="pressed" from="ShopContent/ButtonsContainer/ReRollButton" to="." method="OnReRoll"]
+[connection signal="pressed" from="ShopContent/ButtonsContainer/ContinueButton" to="." method="OnContinue"]

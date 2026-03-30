@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SuitAddMultRelic" format=3 uid="uid://pm748ktblyn5"]
+
+[ext_resource type="Script" uid="uid://dlvusihc37i7c" path="res://Scripts/Relic/Relics/SuitAddMult/SuitAddMultRelic.cs" id="1_18liq"]
+[ext_resource type="Texture2D" uid="uid://4klflv05qgjw" path="res://Sprites/BastoAddMult.jpeg" id="2_l4ofw"]
+
+[resource]
+script = ExtResource("1_18liq")
+multSuit = 4
+name = "Indio"
+description = "Adds 5 to mult when a Basto card is played"
+spriteTexture = ExtResource("2_l4ofw")
+value = 2
+price = 10
+metadata/_custom_type_script = "uid://dlvusihc37i7c"
