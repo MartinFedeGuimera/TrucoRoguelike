@@ -2,10 +2,12 @@ using Godot;
 
 public partial class Enemy : Node
 {
-    [Export] public PlayerController player;
+    [Export] private GameController gameController;
 
-	[Export] public int maxHealth;
-	public int health;
+    [Export] private PlayerController player;
+
+	[Export] private int maxHealth;
+	private int health;
 
 	[Export] private int damage;
 
@@ -22,6 +24,8 @@ public partial class Enemy : Node
         health = maxHealth;
 
         player.TurnEnded += DealDamage;
+
+        gameController.DataLoaded += CalculateMaxHealth;
     }
 
     public override void _Process(double delta)
@@ -56,4 +60,13 @@ public partial class Enemy : Node
     {
         EmitSignal("EnemyDead");
     }
+
+    private void CalculateMaxHealth()
+    {
+        maxHealth *= gameController.GetRound();
+        health = maxHealth;
+    }
+
+    public int GetHealth() => health;
+    public int GetMaxHealth() => maxHealth;
 }

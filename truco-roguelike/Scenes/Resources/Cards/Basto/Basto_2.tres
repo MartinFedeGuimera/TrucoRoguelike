@@ -11,5 +11,5 @@ region = Rect2(16, 64, 16, 32)
 script = ExtResource("1_ygje5")
 name = "Basto_2"
 value = 9
-suit = 3
+suit = 4
 texture = SubResource("AtlasTexture_6tokv")

@@ -16,11 +16,11 @@ public partial class EnemyHealthBar : Control
 
     public override void _Process(double delta)
     {
-        progressBar.Value = enemy.health * 100 / enemy.maxHealth;
+        progressBar.Value = enemy.GetHealth() * 100 / enemy.GetMaxHealth();
 
-        if (enemy.health > 0)
+        if (enemy.GetHealth() > 0)
         {
-            healthLabel.Text = enemy.health.ToString();
+            healthLabel.Text = enemy.GetHealth().ToString();
         }
         else
         {

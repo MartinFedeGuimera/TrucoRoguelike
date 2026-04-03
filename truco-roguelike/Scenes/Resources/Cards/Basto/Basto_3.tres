@@ -11,5 +11,5 @@ region = Rect2(32, 64, 16, 32)
 script = ExtResource("1_l4pym")
 name = "Basto_3"
 value = 10
-suit = 3
+suit = 4
 texture = SubResource("AtlasTexture_32k4t")

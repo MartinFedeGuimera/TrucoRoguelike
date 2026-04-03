@@ -28,14 +28,15 @@ data = ExtResource("4_3komb")
 gameController = NodePath("..")
 enemy = NodePath("../Enemy")
 maxHealth = 100
-relicsParent = NodePath("../CanvasLayer/RelicsContainer")
 relicScene = ExtResource("6_3cx6b")
 consumableScene = ExtResource("10_8r6kd")
+relicsParent = NodePath("../CanvasLayer/RelicsContainer")
 consumablesParent = NodePath("../CanvasLayer/ConsumablesContainer")
 
-[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController")]
+[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController", "enemy")]
 script = ExtResource("43_audqb")
 gameController = NodePath("../..")
+enemy = NodePath("../../Enemy")
 cardScene = ExtResource("2_dctr5")
 deckResource = ExtResource("44_7w24h")
 
@@ -52,11 +53,13 @@ gameController = NodePath("../..")
 [node name="AttackLabel" type="Label" parent="CanvasLayer/DmgVBoxContainer" unique_id=443017178]
 layout_mode = 2
 text = "Attack: 0"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MultLabel" type="Label" parent="CanvasLayer/DmgVBoxContainer" unique_id=1415197861]
 layout_mode = 2
 text = "Mult: 1"
+horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/DmgVBoxContainer" unique_id=390539783]
 layout_mode = 2
@@ -176,8 +179,9 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("player")]
+[node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("gameController", "player")]
 script = ExtResource("7_fgofq")
+gameController = NodePath("..")
 player = NodePath("../Player")
 maxHealth = 15
 damage = 10

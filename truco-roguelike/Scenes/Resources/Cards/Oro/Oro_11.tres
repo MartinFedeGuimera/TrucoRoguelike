@@ -11,5 +11,5 @@ region = Rect2(128, 32, 16, 32)
 script = ExtResource("1_43x7t")
 name = "Oro_11"
 value = 6
-suit = 2
+suit = 3
 texture = SubResource("AtlasTexture_564g2")

@@ -25,7 +25,7 @@ public partial class GameController : Node2D
     public delegate void LoadingSceneEventHandler();
 
     [Signal]
-    public delegate void GameDataLoadedEventHandler();
+    public delegate void DataLoadedEventHandler();
 
     public override void _Ready()
     {
@@ -85,7 +85,7 @@ public partial class GameController : Node2D
         round = gameData.round;
         GD.Print("Game Data Loaded");
 
-        player.LoadData();
+        EmitSignal("DataLoaded");
     }
 
     public RandomNumberGenerator GetSeed() => seed;

@@ -1,10 +1,13 @@
 using Godot;
 using Godot.Collections;
+using System.Runtime.InteropServices;
 
 public partial class Hand : Node
 {
     [Export] private GameController gameController;
     private RandomNumberGenerator seed;
+
+    [Export] private Enemy enemy;
 
     private PlayerController player;
 
@@ -20,9 +23,9 @@ public partial class Hand : Node
 
     public bool canStart = false;
 
-    private int generalMult = 0;
-    private int permanentMult = 0;
-    private int damageMultiplier = 0;
+    private float generalMult = 0;
+    private float permanentMult = 0;
+    private float damageMultiplier = 1;
 
     public bool hasFlor = false;
 
@@ -48,7 +51,7 @@ public partial class Hand : Node
 
     public override void _Process(double delta)
     {
-        if(canStart)
+        if (canStart)
         {
             canStart = false;
 
@@ -102,8 +105,6 @@ public partial class Hand : Node
                             relic.OnCardPlayed(selectedCardData);
                         }
                     }
-                    else
-                        GD.Print("Relics Are NULL");
 
                     DealDamage(selectedCardData.value, selectedCardData.mult);
 
@@ -132,27 +133,28 @@ public partial class Hand : Node
         }
     }
 
-    public void DealDamage(int damage, int mult)
+    public void DealDamage(int damage, float mult)
     {
-        int finalDamage = damage * (mult + generalMult);
+        float finalDamage = damage * (mult + generalMult);
 
-        if(damageMultiplier > 0)
+        if (damageMultiplier > 0)
         {
             finalDamage *= damageMultiplier;
+            damageMultiplier = 1;
         }
 
-        EmitSignal("Attack", finalDamage);
+        EmitSignal("Attack", (int)finalDamage);
     }
 
     private bool CheckFlor()
     {
-        foreach(CardController card in drawnCards)
+        for(int i = 0; i < drawnCards.Count; i++)
         {
             CardSuit firstCardSuit = drawnCards[0].GetData().suit;
 
-            for(int i = 1; i < drawnCards.Count; i++)
+            for(int j = 1; j < drawnCards.Count; j++)
             {
-                if(firstCardSuit != drawnCards[i].GetData().suit)
+                if(firstCardSuit != drawnCards[j].GetData().suit)
                 {
                     return false;
                 }

@@ -20,14 +20,15 @@ public partial class PlayerController : Node
 
     [ExportGroup("Relics")]
     [Export] public Array<RelicController> relics = new Array<RelicController>();
-
-    [Export] private Node relicsParent;
     [Export] private PackedScene relicScene;
-    private bool relicsLoaded = false;
 
     [ExportGroup("Consumables")]
     [Export] private Array<Consumable> consumables = new Array<Consumable>();
     [Export] private PackedScene consumableScene;
+
+
+    [ExportGroup("UI")]
+    [Export] private Node relicsParent;
     [Export] private Node consumablesParent;
 
     public override void _Ready()
@@ -44,6 +45,7 @@ public partial class PlayerController : Node
         enemy.TurnEnded += StartTurn;
 
         gameController.LoadingScene += SaveData;
+        gameController.DataLoaded += LoadData;
 
         UpdateUI();
     }
@@ -117,15 +119,18 @@ public partial class PlayerController : Node
 
     public void LoadData()
     {
-        money = data.money;
-        relics = data.relics;
-        consumables = data.consumables;
-        maxHealth = data.maxHealth;
-        health = data.health;
+        if(gameController.GetRound() > 0)
+        {
+            money = data.money;
+            relics = data.relics;
+            consumables = data.consumables;
+            maxHealth = data.maxHealth;
+            health = data.health;
 
-        GD.Print("Player Data Loaded");
+            GD.Print("Player Data Loaded");
 
-        UpdateUI();
+            UpdateUI();
+        }
     }
 
     private void OnOutOfCards() => EmitSignal("TurnEnded");
