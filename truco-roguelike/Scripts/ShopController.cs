@@ -53,8 +53,15 @@ public partial class ShopController : Node
 
         seed = gameData.seed;
 
-        relics = relicsData.Duplicate();
-        consumables = consumablesData.Duplicate();
+        relics = new Array<RelicController>();
+
+        foreach (var relic in relicsData)
+            relics.Add((RelicController)relic.Duplicate(true));
+
+        consumables = new Array<Consumable>();
+
+        foreach (var consumable in consumablesData)
+            consumables.Add((Consumable)consumable.Duplicate(true));
 
         UpdatePlayerDataUI();
 
@@ -131,20 +138,14 @@ public partial class ShopController : Node
                 relic.QueueFree();
             }
 
-            foreach (RelicProduct relic in drawnRelics)
-            {
-                drawnRelics.Remove(relic);
-            }
+            drawnRelics.Clear();
 
             foreach (Node consumable in consumablesProductsContainer.GetChildren())
             {
                 consumable.QueueFree();
             }
 
-            foreach (ConsumableProduct consumable in drawnConsumables)
-            {
-                drawnConsumables.Remove(consumable);
-            }
+            drawnConsumables.Clear();
 
             SetUp();
         }
@@ -265,35 +266,32 @@ public partial class ShopController : Node
 
     private void DrawRelics()
     {
-        int amount = Mathf.Min(maxRelics, relics.Count);
+        int attempts = 0;
 
-        for (int i = 0; i < amount; i++)
+        while (drawnRelics.Count < maxRelics && relics.Count > 0)
         {
             RelicController newRelicData = relics[0];
+            relics.RemoveAt(0);
 
             bool isRepeated = false;
 
-            for (int j = 0; j < playerData.relics.Count; j++)
+            foreach (var ownedRelic in playerData.relics)
             {
-                if (newRelicData.name == playerData.relics[j].name)
+                if (ownedRelic.name == newRelicData.name)
                 {
                     isRepeated = true;
                     break;
                 }
             }
 
-            if(!isRepeated)
-            {
-                RelicProduct newRelic = relicProductScene.Instantiate<RelicProduct>();
+            if (isRepeated)
+                continue;
 
-                newRelic.SetUp(newRelicData, this);
+            RelicProduct newRelic = relicProductScene.Instantiate<RelicProduct>();
+            newRelic.SetUp(newRelicData, this);
 
-                drawnRelics.Add(newRelic);
-
-                relicsProductsContainer.AddChild(newRelic);
-
-                relics.RemoveAt(0);
-            }
+            drawnRelics.Add(newRelic);
+            relicsProductsContainer.AddChild(newRelic);
         }
     }
 
