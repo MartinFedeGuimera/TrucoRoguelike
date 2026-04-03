@@ -10,7 +10,10 @@ public partial class Deck : Resource
 
     public void Shuffle(RandomNumberGenerator seed)
     {
-        cards = deckData;
+        cards = new Array<Card>();
+
+        foreach (var card in deckData)
+            cards.Add((Card)card.Duplicate(true));
 
         for (int i = cards.Count - 1; i > 0; i--)
         {

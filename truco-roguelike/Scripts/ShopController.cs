@@ -266,8 +266,6 @@ public partial class ShopController : Node
 
     private void DrawRelics()
     {
-        int attempts = 0;
-
         while (drawnRelics.Count < maxRelics && relics.Count > 0)
         {
             RelicController newRelicData = relics[0];
