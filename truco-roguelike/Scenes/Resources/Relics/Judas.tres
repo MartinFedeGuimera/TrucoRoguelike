@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Judas" format=3 uid="uid://b4nw7whfwpcb2"]
+
+[ext_resource type="Script" uid="uid://cx34g37cprk75" path="res://Scripts/Relic/Relics/Judas.cs" id="1_kdqf7"]
+[ext_resource type="Resource" uid="uid://ce6ujkbfqtu4s" path="res://Scenes/Resources/Cards/Oro/Oro_7.tres" id="1_skdrk"]
+[ext_resource type="Texture2D" uid="uid://dv1xjp5wptg0b" path="res://Sprites/Judas.jpeg" id="3_0j2u5"]
+
+[resource]
+script = ExtResource("1_kdqf7")
+relicCard = ExtResource("1_skdrk")
+secondValue = 2
+name = "Judas"
+description = "When Oro 7 is played adds 2 to its mult and subtracts 2 to the general mult"
+spriteTexture = ExtResource("3_0j2u5")
+value = 2
+metadata/_custom_type_script = "uid://cx34g37cprk75"

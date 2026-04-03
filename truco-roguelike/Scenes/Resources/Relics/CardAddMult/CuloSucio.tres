@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardAddMult" format=3 uid="uid://bg1kt2x53diyp"]
+
+[ext_resource type="Resource" uid="uid://cmmq8hpfwr5td" path="res://Scenes/Resources/Cards/Oro/Oro_1.tres" id="1_adrpe"]
+[ext_resource type="Script" uid="uid://dabm4nfnad7wj" path="res://Scripts/Relic/Relics/CardAddMult/CardAddMult.cs" id="1_vetxr"]
+[ext_resource type="Texture2D" uid="uid://cayxs3xcxqf2t" path="res://Sprites/CuloSucio.jpeg" id="3_igdrb"]
+
+[resource]
+script = ExtResource("1_vetxr")
+relicCard = ExtResource("1_adrpe")
+name = "Culo Sucio"
+description = "adds 5 mult to Oro 1 when played"
+spriteTexture = ExtResource("3_igdrb")
+value = 5
+price = 10
+metadata/_custom_type_script = "uid://dabm4nfnad7wj"

@@ -33,9 +33,10 @@ consumableScene = ExtResource("10_8r6kd")
 relicsParent = NodePath("../CanvasLayer/RelicsContainer")
 consumablesParent = NodePath("../CanvasLayer/ConsumablesContainer")
 
-[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController", "enemy")]
+[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController", "dmgUiController", "enemy")]
 script = ExtResource("43_audqb")
 gameController = NodePath("../..")
+dmgUiController = NodePath("../../CanvasLayer/DmgVBoxContainer")
 enemy = NodePath("../../Enemy")
 cardScene = ExtResource("2_dctr5")
 deckResource = ExtResource("44_7w24h")

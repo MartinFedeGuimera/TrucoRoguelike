@@ -12,15 +12,13 @@ public partial class DmgUiController : Node
     {
         attackLabel = GetNode<Label>("AttackLabel");
         multLabel = GetNode<Label>("MultLabel");
-
-        gameController.CardSelected += UpdateUI;
     }
 
-    private void UpdateUI(CardController card)
+    public void UpdateUI(CardController card, float generalMult)
     {
         Card cardData = card.GetData();
 
         attackLabel.Text = "Attack: " + cardData.value;
-        multLabel.Text = "Mult: " + cardData.mult;
+        multLabel.Text = "Mult: " + (cardData.mult + generalMult);
     }
 }

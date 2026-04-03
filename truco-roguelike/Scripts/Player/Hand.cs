@@ -7,6 +7,8 @@ public partial class Hand : Node
     [Export] private GameController gameController;
     private RandomNumberGenerator seed;
 
+    [Export] private DmgUiController dmgUiController;
+
     [Export] private Enemy enemy;
 
     private PlayerController player;
@@ -51,6 +53,11 @@ public partial class Hand : Node
 
     public override void _Process(double delta)
     {
+        if(selectedCard != null)
+        {
+            dmgUiController.UpdateUI(selectedCard, generalMult);
+        }
+
         if (canStart)
         {
             canStart = false;

@@ -8,8 +8,11 @@
 [ext_resource type="Resource" uid="uid://pm748ktblyn5" path="res://Scenes/Resources/Relics/SuitAddMults/BastoAddMult.tres" id="6_p6pv5"]
 [ext_resource type="Resource" uid="uid://bgu4gkvhdrjwd" path="res://Scenes/Resources/Relics/SuitAddMults/EspadaAddMult.tres" id="7_xt05f"]
 [ext_resource type="PackedScene" uid="uid://dbuw1vkkmmhx4" path="res://Scenes/Prefabs/Relic/RelicProduct.tscn" id="8_virt4"]
+[ext_resource type="Resource" uid="uid://b4nw7whfwpcb2" path="res://Scenes/Resources/Relics/Judas.tres" id="8_ysgmm"]
+[ext_resource type="Resource" uid="uid://bssrqivv7b28a" path="res://Scenes/Resources/Relics/CardAddGeneralMult/1in40.tres" id="9_1hanx"]
 [ext_resource type="Resource" uid="uid://b6cqtsa1l6pmh" path="res://Scenes/Resources/Consumables/Cantos/Envido.tres" id="9_ysgmm"]
 [ext_resource type="Resource" uid="uid://dfvfkd7e31p27" path="res://Scenes/Resources/Consumables/Cantos/Truco.tres" id="10_1hanx"]
+[ext_resource type="Resource" uid="uid://bg1kt2x53diyp" path="res://Scenes/Resources/Relics/CardAddMult/CuloSucio.tres" id="10_qj1uu"]
 [ext_resource type="PackedScene" uid="uid://cio05dprsoe1l" path="res://Scenes/Prefabs/Consumable/ConsumableProduct.tscn" id="11_qj1uu"]
 [ext_resource type="PackedScene" uid="uid://w5u5utajrw80" path="res://Scenes/Prefabs/Relic/Relic.tscn" id="12_i4yym"]
 [ext_resource type="PackedScene" uid="uid://cfr25ymq0ee4d" path="res://Scenes/Prefabs/Consumable/Consumable.tscn" id="13_p6pv5"]
@@ -33,7 +36,7 @@ script = ExtResource("1_twmb6")
 gameData = ExtResource("2_l52qc")
 rerollPrice = 5
 playerData = ExtResource("3_ikxqi")
-relicsData = Array[Object]([ExtResource("4_2vuo2"), ExtResource("5_i4yym"), ExtResource("6_p6pv5"), ExtResource("7_xt05f")])
+relicsData = Array[Object]([ExtResource("4_2vuo2"), ExtResource("5_i4yym"), ExtResource("6_p6pv5"), ExtResource("7_xt05f"), ExtResource("8_ysgmm"), ExtResource("9_1hanx"), ExtResource("10_qj1uu")])
 relicProductScene = ExtResource("8_virt4")
 consumablesData = Array[Object]([ExtResource("9_ysgmm"), ExtResource("10_1hanx")])
 consumableProductScene = ExtResource("11_qj1uu")
