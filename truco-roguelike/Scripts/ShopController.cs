@@ -39,8 +39,6 @@ public partial class ShopController : Node
 
     public override void _Ready()
     {
-        GD.Print(playerData.GetInstanceId());
-
         moneyLabel = GetNode<Label>("MoneyLabel");
         relicsProductsContainer = GetNode<HBoxContainer>("ShopContent/ProductsContainer/RelicsContainer");
         consumablesProductsContainer = GetNode<HBoxContainer>("ShopContent/ProductsContainer/ConsumablesContainer");
