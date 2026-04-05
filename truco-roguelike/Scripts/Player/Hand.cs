@@ -1,6 +1,6 @@
 using Godot;
 using Godot.Collections;
-using System.Runtime.InteropServices;
+using System.Collections;
 
 public partial class Hand : Node
 {
@@ -53,11 +53,6 @@ public partial class Hand : Node
 
     public override void _Process(double delta)
     {
-        if(selectedCard != null)
-        {
-            dmgUiController.UpdateUI(selectedCard, generalMult);
-        }
-
         if (canStart)
         {
             canStart = false;
@@ -102,6 +97,8 @@ public partial class Hand : Node
 
                 if (selectedCardData.name == card.name)
                 {
+                    int relicsUsed = 0;
+
                     if (player.relics != null)
                     {
                         GD.Print("Doing Relics Effects");
@@ -110,10 +107,13 @@ public partial class Hand : Node
                         {
                             relic.SetUp(this);
                             relic.OnCardPlayed(selectedCardData);
+                            
+                            if(relic.wasUsed == true)
+                                relicsUsed++;
                         }
                     }
 
-                    DealDamage(selectedCardData.value, selectedCardData.mult);
+                    WaitForDamageAnimations(card.value, card.mult, relicsUsed);
 
                     selectedCard = null;
 
@@ -138,6 +138,15 @@ public partial class Hand : Node
                 EmitSignal("OutOfCards");
             }
         }
+    }
+
+    private async void WaitForDamageAnimations(int damage, int mult, int waitTime)
+    {
+        dmgUiController.UpdateUI(selectedCard, generalMult);
+
+        await ToSignal(GetTree().CreateTimer(waitTime), SceneTreeTimer.SignalName.Timeout);
+
+        DealDamage(damage, mult);
     }
 
     public void DealDamage(int damage, float mult)
@@ -174,6 +183,8 @@ public partial class Hand : Node
     public void SetSelectedCard(CardController card)
     {
         selectedCard = card;
+
+        dmgUiController.UpdateUI(selectedCard, generalMult);
 
         EmitSignal("CardSelected", selectedCard);
     }

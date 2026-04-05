@@ -10,6 +10,7 @@ public partial class CardAddGeneralMult : RelicController
     {
         if(card.name == relicCard.name)
         {
+            wasUsed = true;
             playerHand.AddGeneralMult(value);
         }
     }

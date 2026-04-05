@@ -10,6 +10,7 @@ public partial class SuitAddMultRelic : RelicController
     {
         if (card.suit == multSuit)
         {
+            wasUsed = true;
             card.mult = value;
         }
     }

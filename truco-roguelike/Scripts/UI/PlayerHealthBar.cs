@@ -1,30 +1,32 @@
 using Godot;
-using System;
 
 public partial class PlayerHealthBar : Control
 {
-	[Export] private PlayerController player;
+    [Export] private PlayerController player;
 
-	private ProgressBar progressBar;
-	private Label healthLabel;
+    private ProgressBar progressBar;
+    private Label healthLabel;
+
+    float displayedValue;
 
     public override void _Ready()
     {
         progressBar = GetNode<ProgressBar>("HealthBar");
         healthLabel = GetNode<Label>("HealthText");
+
+        displayedValue = player.health;
     }
 
     public override void _Process(double delta)
     {
-        progressBar.Value = player.health * 100 / player.maxHealth;
+        float target = player.health;
 
-        if (player.health > 0)
-        {
-            healthLabel.Text = player.health.ToString();
-        }
-        else
-        {
-            healthLabel.Text = "0";
-        }
+        displayedValue = Mathf.Lerp(displayedValue, target, 8f * (float)delta);
+
+        if (Mathf.Abs(displayedValue - target) < 0.5f)
+            displayedValue = target;
+
+        progressBar.Value = displayedValue / player.maxHealth * 100f;
+        healthLabel.Text = Mathf.RoundToInt(displayedValue).ToString();
     }
 }

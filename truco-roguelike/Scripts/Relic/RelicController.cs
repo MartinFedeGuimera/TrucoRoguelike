@@ -9,6 +9,7 @@ public partial class RelicController : Resource
 	[Export] public Texture2D spriteTexture;
 	[Export] public int value;
 	[Export] public int price = 5;
+	public bool wasUsed = false;
 
 	public Hand playerHand;
 
@@ -21,5 +22,6 @@ public partial class RelicController : Resource
 	public void SetUp(Hand hand)
 	{
 		playerHand = hand;
+		wasUsed = false;
 	}
 }
