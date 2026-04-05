@@ -21,11 +21,12 @@ public partial class PlayerController : Node
     [ExportGroup("Relics")]
     [Export] public Array<RelicController> relics = new Array<RelicController>();
     [Export] private PackedScene relicScene;
+    [Export] private int maxRelics;
 
     [ExportGroup("Consumables")]
     [Export] private Array<Consumable> consumables = new Array<Consumable>();
     [Export] private PackedScene consumableScene;
-
+    [Export] private int maxConsumables;
 
     [ExportGroup("UI")]
     [Export] private Node relicsParent;
@@ -121,7 +122,9 @@ public partial class PlayerController : Node
         {
             money = data.money;
             relics = data.relics;
+            maxRelics = data.maxRelics;
             consumables = data.consumables;
+            maxConsumables = data.maxConsumables;
             maxHealth = data.maxHealth;
             health = data.health;
 

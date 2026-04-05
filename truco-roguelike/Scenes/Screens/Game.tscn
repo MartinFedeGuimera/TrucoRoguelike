@@ -29,7 +29,9 @@ gameController = NodePath("..")
 enemy = NodePath("../Enemy")
 maxHealth = 100
 relicScene = ExtResource("6_3cx6b")
+maxRelics = 4
 consumableScene = ExtResource("10_8r6kd")
+maxConsumables = 2
 relicsParent = NodePath("../CanvasLayer/RelicsContainer")
 consumablesParent = NodePath("../CanvasLayer/ConsumablesContainer")
 
