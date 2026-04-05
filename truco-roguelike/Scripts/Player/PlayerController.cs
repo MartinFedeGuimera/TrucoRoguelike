@@ -33,8 +33,6 @@ public partial class PlayerController : Node
 
     public override void _Ready()
     {
-        GD.Print(data.GetInstanceId());
-
         health = maxHealth;
 
         hand = GetNode<Hand>("Hand");
