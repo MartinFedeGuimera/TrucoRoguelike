@@ -160,7 +160,7 @@ public partial class ShopController : Node
 
     public void TryBuyRelic(RelicController relicData)
     {
-        if (playerData.money >= relicData.price)
+        if (playerData.money >= relicData.price && playerData.relics.Count + 1 <= playerData.maxRelics)
         {
             playerData.money -= relicData.price;
 
@@ -205,7 +205,7 @@ public partial class ShopController : Node
 
     public void TryBuyConsumable(Consumable consumableData)
     {
-        if (playerData.money >= consumableData.price)
+        if (playerData.money >= consumableData.price && playerData.consumables.Count + 1 <= playerData.maxConsumables)
         {
             playerData.money -= consumableData.price;
 

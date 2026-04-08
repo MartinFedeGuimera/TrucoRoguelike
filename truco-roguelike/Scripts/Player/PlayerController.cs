@@ -112,7 +112,7 @@ public partial class PlayerController : Node
 
     private void SaveData()
     {
-        data.Save(money, relics, consumables, maxHealth, health);
+        data.Save(money, relics, maxRelics, consumables, maxConsumables, maxHealth, health);
         GD.Print("Player Data Saved");
     }
 

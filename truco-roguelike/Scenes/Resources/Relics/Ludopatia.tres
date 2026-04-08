@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ludopatia" format=3 uid="uid://bdh8gjcptfc0r"]
+
+[ext_resource type="Script" uid="uid://ds5xnu77tkahi" path="res://Scripts/Relic/Relics/Ludopatia.cs" id="1_n5bae"]
+[ext_resource type="Texture2D" uid="uid://buc82xr4wj0br" path="res://Sprites/Ludopatia.jpeg" id="2_jgy6j"]
+
+[resource]
+script = ExtResource("1_n5bae")
+name = "Ludopatia"
+description = "Adds a mult between 0 and 12"
+spriteTexture = ExtResource("2_jgy6j")
+value = 12
+price = 10
+metadata/_custom_type_script = "uid://ds5xnu77tkahi"
