@@ -8,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://w5u5utajrw80" path="res://Scenes/Prefabs/Relic/Relic.tscn" id="6_3cx6b"]
 [ext_resource type="Script" uid="uid://b8oh0i3pe2j3r" path="res://Scripts/UI/DmgUiController.cs" id="6_7lihs"]
 [ext_resource type="Script" uid="uid://clrd6f22hrh50" path="res://Scripts/Enemy/Enemy.cs" id="7_fgofq"]
+[ext_resource type="AudioStream" uid="uid://budk7itdgh2j2" path="res://Sounds/DrawCard.wav" id="8_fhspi"]
+[ext_resource type="AudioStream" uid="uid://2lws7gd3npa" path="res://Sounds/PlayCard.wav" id="9_5wh84"]
 [ext_resource type="PackedScene" uid="uid://cfr25ymq0ee4d" path="res://Scenes/Prefabs/Consumable/Consumable.tscn" id="10_8r6kd"]
 [ext_resource type="Script" uid="uid://bra22crfad4v1" path="res://Scripts/UI/EnemyHealthBar.cs" id="10_dahhg"]
 [ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="11_3so38"]
+[ext_resource type="AudioStream" uid="uid://bpxwxgo34li7a" path="res://Sounds/Mult.wav" id="13_m4ykv"]
 [ext_resource type="Script" uid="uid://bv477fbni1r3y" path="res://Scripts/Player/Hand.cs" id="43_audqb"]
 [ext_resource type="Resource" uid="uid://udi674rbvyul" path="res://Scenes/Resources/Cards/Deck.tres" id="44_7w24h"]
 
@@ -35,13 +38,17 @@ maxConsumables = 2
 relicsParent = NodePath("../CanvasLayer/RelicsContainer")
 consumablesParent = NodePath("../CanvasLayer/ConsumablesContainer")
 
-[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController", "dmgUiController", "enemy")]
+[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController", "enemy", "dmgUiController")]
 script = ExtResource("43_audqb")
+drawCardSound = ExtResource("8_fhspi")
+playCardSound = ExtResource("9_5wh84")
 gameController = NodePath("../..")
-dmgUiController = NodePath("../../CanvasLayer/DmgVBoxContainer")
 enemy = NodePath("../../Enemy")
+dmgUiController = NodePath("../../CanvasLayer/DmgVBoxContainer")
 cardScene = ExtResource("2_dctr5")
 deckResource = ExtResource("44_7w24h")
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="Player/Hand" unique_id=1706380860]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1664855381]
 
@@ -52,6 +59,7 @@ offset_bottom = 475.0
 grow_vertical = 2
 script = ExtResource("6_7lihs")
 gameController = NodePath("../..")
+multSound = ExtResource("13_m4ykv")
 
 [node name="AttackLabel" type="Label" parent="CanvasLayer/DmgVBoxContainer" unique_id=443017178]
 layout_mode = 2
@@ -68,6 +76,8 @@ horizontal_alignment = 1
 layout_mode = 2
 action_mode = 0
 text = "PLAY"
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="CanvasLayer/DmgVBoxContainer" unique_id=859127522]
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer" unique_id=1598320420]
 anchors_preset = 3
@@ -188,5 +198,8 @@ gameController = NodePath("..")
 player = NodePath("../Player")
 maxHealth = 15
 damage = 10
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=952824322]
+position = Vector2(800, 450)
 
 [connection signal="pressed" from="CanvasLayer/DmgVBoxContainer/PlayButton" to="Player/Hand" method="OnCardPlayed"]

@@ -19,7 +19,7 @@ public partial class RelicController : Resource
 
 	public virtual void OnEnemyAttacks(){}
 
-	public void SetUp(Hand hand)
+	public virtual void SetUp(Hand hand)
 	{
 		playerHand = hand;
 		wasUsed = false;

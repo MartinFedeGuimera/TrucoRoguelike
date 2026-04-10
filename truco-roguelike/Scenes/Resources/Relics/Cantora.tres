@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Cantora" format=3 uid="uid://ofpacq7c6m64"]
+
+[ext_resource type="Script" uid="uid://cq263rapflya1" path="res://Scripts/Relic/Relics/Cantora.cs" id="1_dwm45"]
+
+[resource]
+script = ExtResource("1_dwm45")
+substractValue = 5
+name = "Cantora"
+description = "+10 permanent mult if played card suit equals specified suit"
+value = 10
+metadata/_custom_type_script = "uid://cq263rapflya1"

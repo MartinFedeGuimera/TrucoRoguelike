@@ -4,22 +4,28 @@ using System.Collections;
 
 public partial class Hand : Node
 {
+    [ExportGroup("Sounds")]
+    [Export] private AudioStream drawCardSound;
+    [Export] private AudioStream playCardSound;
+    private AudioStreamPlayer2D sfxPlayer;
+
+    [ExportGroup("Objects")]
     [Export] private GameController gameController;
     private RandomNumberGenerator seed;
 
-    [Export] private DmgUiController dmgUiController;
-
     [Export] private Enemy enemy;
+
+    [Export] private DmgUiController dmgUiController;
 
     private PlayerController player;
 
+    [ExportGroup("Data")]
     [Export] private PackedScene cardScene;
+    [Export] private Deck deckResource;
 
-	private int maxCardsDrawn = 3;
+    private int maxCardsDrawn = 3;
 
 	private Array<CardController> drawnCards = new Array<CardController>();
-
-	[Export] private Deck deckResource;
 
     private CardController selectedCard;
 
@@ -43,6 +49,7 @@ public partial class Hand : Node
     public override void _Ready()
     {
         player = GetParent<PlayerController>();
+        sfxPlayer = GetNode<AudioStreamPlayer2D>("SfxPlayer");
 
         seed = gameController.GetSeed();
 
@@ -63,18 +70,19 @@ public partial class Hand : Node
         }
     }
 
-    private void DrawCards()
+    private async void DrawCards()
     {
-        for(int i = 0; i < maxCardsDrawn; i++)
+        for (int i = 0; i < maxCardsDrawn; i++)
         {
+            if (deckResource.GetCards().Count == 0)
+                return;
+
             Card newData = deckResource.GetCards()[0];
 
             CardController newCard = cardScene.Instantiate<CardController>();
-
             newCard.SetUp(newData, this);
 
             drawnCards.Add(newCard);
-
             AddChild(newCard);
 
             newCard.Position = new Vector2(600 + 100 * (i + 1), 700);
@@ -82,6 +90,15 @@ public partial class Hand : Node
             deckResource.RemoveAt(0);
 
             hasFlor = CheckFlor();
+
+            sfxPlayer.Stream = drawCardSound; 
+            sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f);
+            sfxPlayer.Play();
+
+            await ToSignal(
+                GetTree().CreateTimer(0.15f),
+                SceneTreeTimer.SignalName.Timeout
+            );
         }
     }
 
@@ -143,6 +160,10 @@ public partial class Hand : Node
     private async void WaitForDamageAnimations(int damage, int mult, int waitTime)
     {
         dmgUiController.UpdateUI(selectedCard, generalMult);
+
+        sfxPlayer.Stream = playCardSound; 
+        sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f); 
+        sfxPlayer.Play();
 
         await ToSignal(GetTree().CreateTimer(waitTime), SceneTreeTimer.SignalName.Timeout);
 
