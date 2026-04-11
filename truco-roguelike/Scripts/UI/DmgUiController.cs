@@ -62,7 +62,6 @@ public partial class DmgUiController : Node
         multSoundPitch += 0.05f;
 
         sfxPlayer.Play();
-        GD.Print("Mult Sound Played");
     }
 
     public void UpdateUI(CardController card, float generalMult)

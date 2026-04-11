@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\ui\\dmguicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\ui\\dmguicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\player\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\player\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,25 +19,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DmgUiController.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\UI\\DmgUiController.cs",
-              "RelativeDocumentMoniker": "Scripts\\UI\\DmgUiController.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\UI\\DmgUiController.cs",
-              "RelativeToolTip": "Scripts\\UI\\DmgUiController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAowEAAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T23:47:46.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Hand.cs",
               "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
               "RelativeDocumentMoniker": "Scripts\\Player\\Hand.cs",
               "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
               "RelativeToolTip": "Scripts\\Player\\Hand.cs",
-              "ViewState": "AgIAAI4AAAAAAAAAAAAowKMAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAuwN4AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-10T23:09:48.018Z",
               "EditorCaption": ""

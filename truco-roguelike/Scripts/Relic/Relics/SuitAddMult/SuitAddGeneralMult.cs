@@ -1,8 +1,7 @@
 using Godot;
-using Godot.Collections;
 
 [GlobalClass]
-public partial class SuitAddMultRelic : RelicController
+public partial class SuitAddGeneralMult : RelicController
 {
 	[Export] public CardSuit multSuit;
 
@@ -11,7 +10,7 @@ public partial class SuitAddMultRelic : RelicController
         if (card.suit == multSuit)
         {
             wasUsed = true;
-            card.mult = value;
+            playerHand.AddGeneralMult(value);
         }
     }
 }

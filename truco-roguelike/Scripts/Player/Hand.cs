@@ -31,6 +31,7 @@ public partial class Hand : Node
 
     public bool canStart = false;
 
+    private float tempMult = 0;
     private float generalMult = 0;
     private float permanentMult = 0;
     private float damageMultiplier = 1;
@@ -104,6 +105,8 @@ public partial class Hand : Node
 
     public void OnCardPlayed()
     {
+        tempMult = 0;
+
         if (selectedCard != null)
         {
             for (int i = 0; i < drawnCards.Count; i++)
@@ -172,7 +175,7 @@ public partial class Hand : Node
 
     public void DealDamage(int damage, float mult)
     {
-        float finalDamage = damage * (mult + generalMult);
+        float finalDamage = damage * (mult + generalMult + tempMult);
 
         if (damageMultiplier > 0)
         {
@@ -208,6 +211,11 @@ public partial class Hand : Node
         dmgUiController.UpdateUI(selectedCard, generalMult);
 
         EmitSignal("CardSelected", selectedCard);
+    }
+
+    public void AddTempMult(int addedMult)
+    {
+        tempMult += addedMult;
     }
 
     public void AddGeneralMult(int addedMult)
