@@ -1,3 +1,21 @@
-# Godot 4+ specific ignores
+# Godot cache
 .godot/
-/android/
+.import/
+
+# Imports
+*.import
+
+# Export templates
+.export/
+
+# Mono / C#
+.mono/
+data_*/
+
+# Builds
+bin/
+obj/
+
+# OS
+.DS_Store
+Thumbs.db
