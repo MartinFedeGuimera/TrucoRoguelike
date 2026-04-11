@@ -162,7 +162,7 @@ public partial class Hand : Node
 
     private async void WaitForDamageAnimations(int damage, int mult, int waitTime)
     {
-        dmgUiController.UpdateUI(selectedCard, generalMult);
+        dmgUiController.UpdateUI(selectedCard, generalMult, tempMult);
 
         sfxPlayer.Stream = playCardSound; 
         sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f); 
@@ -208,7 +208,7 @@ public partial class Hand : Node
     {
         selectedCard = card;
 
-        dmgUiController.UpdateUI(selectedCard, generalMult);
+        dmgUiController.UpdateUI(selectedCard, generalMult, tempMult);
 
         EmitSignal("CardSelected", selectedCard);
     }
@@ -221,6 +221,7 @@ public partial class Hand : Node
     public void AddGeneralMult(int addedMult)
     {
         generalMult += addedMult;
+        GD.Print("General Mult: " + generalMult);
     }
 
     public void AddPermaMult(int addedMult)

@@ -64,12 +64,12 @@ public partial class DmgUiController : Node
         sfxPlayer.Play();
     }
 
-    public void UpdateUI(CardController card, float generalMult)
+    public void UpdateUI(CardController card, float generalMult, float tempMult)
     {
         Card cardData = card.GetData();
 
         targetAttack = cardData.value;
-        targetMult = cardData.mult + generalMult;
+        targetMult = cardData.mult + generalMult + tempMult;
 
         multSoundPitch = 0.8f;
         lastPlayedMult = 0;
