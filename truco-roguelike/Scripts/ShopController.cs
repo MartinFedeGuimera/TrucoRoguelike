@@ -37,6 +37,12 @@ public partial class ShopController : Node
     private HBoxContainer relicsProductsContainer;
     private HBoxContainer consumablesProductsContainer;
 
+    [ExportGroup("Sounds")]
+    private AudioStreamPlayer2D sfxPlayer;
+    [Export] private AudioStream buySound;
+
+    RandomNumberGenerator rng = new RandomNumberGenerator();
+
     public override void _Ready()
     {
         moneyLabel = GetNode<Label>("MoneyLabel");
@@ -46,10 +52,13 @@ public partial class ShopController : Node
         relicsContainer = GetNode<HBoxContainer>("PlayerData/RelicsContainer");
         consumablesContainer = GetNode<VBoxContainer>("PlayerData/ConsumablesContainer");
 
+        sfxPlayer = GetNode<AudioStreamPlayer2D>("SfxPlayer");
+
         drawnRelics = new Array<RelicProduct>();
         drawnConsumables = new Array<ConsumableProduct>();
 
         seed = gameData.seed;
+        rng.Randomize();
 
         relics = new Array<RelicController>();
 
@@ -131,6 +140,10 @@ public partial class ShopController : Node
         {
             rerollPrice += 2;
 
+            sfxPlayer.PitchScale = rng.RandfRange(0.8f, 1.1f);
+            sfxPlayer.Stream = buySound;
+            sfxPlayer.Play();
+
             foreach (Node relic in relicsProductsContainer.GetChildren())
             {
                 relic.QueueFree();
@@ -163,6 +176,10 @@ public partial class ShopController : Node
         if (playerData.money >= relicData.price && playerData.relics.Count + 1 <= playerData.maxRelics)
         {
             playerData.money -= relicData.price;
+
+            sfxPlayer.PitchScale = rng.RandfRange(0.8f, 1.1f);
+            sfxPlayer.Stream = buySound;
+            sfxPlayer.Play();
 
             GD.Print(relicData.name + "Added to Relics");
             playerData.relics.Add(relicData);
@@ -208,6 +225,10 @@ public partial class ShopController : Node
         if (playerData.money >= consumableData.price && playerData.consumables.Count + 1 <= playerData.maxConsumables)
         {
             playerData.money -= consumableData.price;
+
+            sfxPlayer.PitchScale = rng.RandfRange(0.8f, 1.1f);
+            sfxPlayer.Stream = buySound;
+            sfxPlayer.Play();
 
             playerData.consumables.Add(consumableData);
 

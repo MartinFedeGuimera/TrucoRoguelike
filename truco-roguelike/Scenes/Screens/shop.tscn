@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://bdh8gjcptfc0r" path="res://Scenes/Resources/Relics/Ludopatia.tres" id="11_ysgmm"]
 [ext_resource type="PackedScene" uid="uid://w5u5utajrw80" path="res://Scenes/Prefabs/Relic/Relic.tscn" id="12_i4yym"]
 [ext_resource type="PackedScene" uid="uid://cfr25ymq0ee4d" path="res://Scenes/Prefabs/Consumable/Consumable.tscn" id="13_p6pv5"]
+[ext_resource type="AudioStream" uid="uid://r250u1q1a837" path="res://Sounds/Buy.wav" id="18_1hanx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l52qc"]
 font_size = 64
@@ -43,6 +44,7 @@ consumablesData = Array[Object]([ExtResource("9_ysgmm"), ExtResource("10_1hanx")
 consumableProductScene = ExtResource("11_qj1uu")
 relicScene = ExtResource("12_i4yym")
 consumableScene = ExtResource("13_p6pv5")
+buySound = ExtResource("18_1hanx")
 
 [node name="ShopContent" type="Control" parent="." unique_id=671544109]
 layout_mode = 1
@@ -165,6 +167,8 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 50
 alignment = 1
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="." unique_id=82380767]
 
 [connection signal="pressed" from="ShopContent/ButtonsContainer/ReRollButton" to="." method="OnReRoll"]
 [connection signal="pressed" from="ShopContent/ButtonsContainer/ContinueButton" to="." method="OnContinue"]
