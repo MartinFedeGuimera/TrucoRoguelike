@@ -29,6 +29,7 @@ Combine strategy, bluff, and powerful relics to defeat your opponents in a run-b
 - Play Card: https://freesound.org/people/SilverDubloons/sounds/817579/
 - Draw Card: https://freesound.org/people/SilverDubloons/sounds/817551/
 - Mult Added: https://freesound.org/people/SilverDubloons/sounds/817553/
+- Buying: https://freesound.org/people/Anthousai/sounds/336579/
 
 ---
 
