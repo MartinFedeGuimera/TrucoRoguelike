@@ -23,6 +23,15 @@ Combine strategy, bluff, and powerful relics to defeat your opponents in a run-b
 
 ---
 
+## Resources
+
+### Sounds 
+- Play Card: https://freesound.org/people/SilverDubloons/sounds/817579/
+- Draw Card: https://freesound.org/people/SilverDubloons/sounds/817551/
+- Mult Added: https://freesound.org/people/SilverDubloons/sounds/817553/
+
+---
+
 ## Installation
 
 1. Clone the repository:
