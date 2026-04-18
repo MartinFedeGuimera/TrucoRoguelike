@@ -12,24 +12,20 @@ public partial class ShopController : Node
     [Export] private int rerollPrice;
 
     [ExportGroup("Data Settings")]
-    [Export] private PlayerData playerData;
-
     [Export] private Array<RelicController> relicsData;
     private Array<RelicController> relics;
     [Export] private PackedScene relicProductScene;
 
     [Export] private Array<Consumable> consumablesData;
-    [Export] private Array<Consumable> consumables;
+    private Array<Consumable> consumables;
     [Export] private PackedScene consumableProductScene;
 
     [Export] private PackedScene relicScene;
     [Export] private PackedScene consumableScene;
 
-    // General Vars
     private Array<RelicProduct> drawnRelics;
     private Array<ConsumableProduct> drawnConsumables;
 
-    // Child Nodes
     private HBoxContainer relicsContainer;
     private VBoxContainer consumablesContainer;
 
@@ -57,6 +53,8 @@ public partial class ShopController : Node
         drawnRelics = new Array<RelicProduct>();
         drawnConsumables = new Array<ConsumableProduct>();
 
+        PlayerData.Instance.DataChanged += UpdatePlayerDataUI;
+
         seed = gameData.seed;
         rng.Randomize();
 
@@ -80,46 +78,38 @@ public partial class ShopController : Node
         if (relicsContainer.GetChildren() != null)
         {
             foreach (Node child in relicsContainer.GetChildren())
-            {
                 child.QueueFree();
-            }
         }
 
         if (consumablesContainer.GetChildren() != null)
         {
             foreach (Node child in consumablesContainer.GetChildren())
-            {
                 child.QueueFree();
-            }
         }
     }
 
     private void UpdatePlayerDataUI()
     {
-        moneyLabel.Text = "$" + playerData.money;
+        moneyLabel.Text = "$" + PlayerData.Instance.money;
 
         ClearPlayerDataUI();
 
-        if (playerData.relics != null)
+        if (PlayerData.Instance.relics != null)
         {
-            foreach (RelicController relic in playerData.relics)
+            foreach (RelicController relic in PlayerData.Instance.relics)
             {
                 RelicView relicView = relicScene.Instantiate<RelicView>();
-
                 relicView.SetUp(relic);
-
                 relicsContainer.AddChild(relicView);
             }
         }
 
-        if (playerData.consumables != null)
+        if (PlayerData.Instance.consumables != null)
         {
-            foreach (Consumable consumable in playerData.consumables)
+            foreach (Consumable consumable in PlayerData.Instance.consumables)
             {
                 ConsumableController controller = consumableScene.Instantiate<ConsumableController>();
-
                 controller.SetUp(consumable);
-
                 consumablesContainer.AddChild(controller);
             }
         }
@@ -136,7 +126,7 @@ public partial class ShopController : Node
 
     public void OnReRoll()
     {
-        if (playerData.money >= rerollPrice)
+        if (PlayerData.Instance.money >= rerollPrice)
         {
             rerollPrice += 2;
 
@@ -145,16 +135,12 @@ public partial class ShopController : Node
             sfxPlayer.Play();
 
             foreach (Node relic in relicsProductsContainer.GetChildren())
-            {
                 relic.QueueFree();
-            }
 
             drawnRelics.Clear();
 
             foreach (Node consumable in consumablesProductsContainer.GetChildren())
-            {
                 consumable.QueueFree();
-            }
 
             drawnConsumables.Clear();
 
@@ -173,43 +159,37 @@ public partial class ShopController : Node
 
     public void TryBuyRelic(RelicController relicData)
     {
-        if (playerData.money >= relicData.price && playerData.relics.Count + 1 <= playerData.maxRelics)
+        if (PlayerData.Instance.money >= relicData.price &&
+            PlayerData.Instance.relics.Count + 1 <= PlayerData.Instance.maxRelics)
         {
-            playerData.money -= relicData.price;
+            PlayerData.Instance.money -= relicData.price;
 
             sfxPlayer.PitchScale = rng.RandfRange(0.8f, 1.1f);
             sfxPlayer.Stream = buySound;
             sfxPlayer.Play();
 
             GD.Print(relicData.name + "Added to Relics");
-            playerData.relics.Add(relicData);
+            PlayerData.Instance.relics.Add(relicData);
 
             for (int i = drawnRelics.Count - 1; i >= 0; i--)
             {
                 if (drawnRelics[i].GetData().name == relicData.name)
-                {
                     drawnRelics.RemoveAt(i);
-                }
             }
 
             for (int i = relics.Count - 1; i >= 0; i--)
             {
                 if (relics[i].name == relicData.name)
-                {
                     relics.RemoveAt(i);
-                }
             }
 
             for (int i = relicsProductsContainer.GetChildren().Count - 1; i >= 0; i--)
             {
                 Node child = relicsProductsContainer.GetChildren()[i];
-
                 RelicProduct childRelic = child as RelicProduct;
 
                 if (childRelic != null && childRelic.GetData().name == relicData.name)
-                {
                     child.QueueFree();
-                }
             }
 
             UpdatePlayerDataUI();
@@ -222,42 +202,37 @@ public partial class ShopController : Node
 
     public void TryBuyConsumable(Consumable consumableData)
     {
-        if (playerData.money >= consumableData.price && playerData.consumables.Count + 1 <= playerData.maxConsumables)
+        if (PlayerData.Instance.money >= consumableData.price &&
+            PlayerData.Instance.consumables.Count + 1 <= PlayerData.Instance.maxConsumables)
         {
-            playerData.money -= consumableData.price;
+            PlayerData.Instance.money -= consumableData.price;
 
             sfxPlayer.PitchScale = rng.RandfRange(0.8f, 1.1f);
             sfxPlayer.Stream = buySound;
             sfxPlayer.Play();
 
-            playerData.consumables.Add(consumableData);
+            PlayerData.Instance.consumables.Add(consumableData);
 
             for (int i = drawnConsumables.Count - 1; i >= 0; i--)
             {
                 if (drawnConsumables[i].GetData().name == consumableData.name)
-                {
                     drawnConsumables.RemoveAt(i);
-                }
             }
 
             for (int i = consumables.Count - 1; i >= 0; i--)
             {
                 if (consumables[i].name == consumableData.name)
-                {
                     consumables.RemoveAt(i);
-                }
             }
 
             for (int i = consumablesProductsContainer.GetChildren().Count - 1; i >= 0; i--)
             {
                 Node child = consumablesProductsContainer.GetChildren()[i];
-
                 ConsumableProduct childConsumable = child as ConsumableProduct;
 
-                if (childConsumable != null && childConsumable.GetData().name == consumableData.name)
-                {
+                if (childConsumable != null &&
+                    childConsumable.GetData().name == consumableData.name)
                     child.QueueFree();
-                }
             }
 
             UpdatePlayerDataUI();
@@ -270,7 +245,7 @@ public partial class ShopController : Node
 
     private void ShuffleRelics()
     {
-        if(relics != null)
+        if (relics != null)
         {
             for (int i = relics.Count - 1; i > 0; i--)
             {
@@ -292,7 +267,7 @@ public partial class ShopController : Node
 
             bool isRepeated = false;
 
-            foreach (var ownedRelic in playerData.relics)
+            foreach (var ownedRelic in PlayerData.Instance.relics)
             {
                 if (ownedRelic.name == newRelicData.name)
                 {
@@ -314,7 +289,7 @@ public partial class ShopController : Node
 
     private void ShuffleConsumables()
     {
-        if(consumables != null)
+        if (consumables != null)
         {
             for (int i = consumables.Count - 1; i > 0; i--)
             {
@@ -337,23 +312,23 @@ public partial class ShopController : Node
 
             bool isRepeated = false;
 
-            for(int j = 0; j < playerData.consumables.Count; j++)
+            for (int j = 0; j < PlayerData.Instance.consumables.Count; j++)
             {
-                if(newConsumableData.name == playerData.consumables[j].name)
+                if (newConsumableData.name ==
+                    PlayerData.Instance.consumables[j].name)
                 {
                     isRepeated = true;
                     break;
                 }
             }
 
-            if(!isRepeated)
+            if (!isRepeated)
             {
                 ConsumableProduct newConsumable = consumableProductScene.Instantiate<ConsumableProduct>();
 
                 newConsumable.SetUp(newConsumableData, this);
 
                 drawnConsumables.Add(newConsumable);
-
                 consumablesProductsContainer.AddChild(newConsumable);
 
                 consumables.RemoveAt(0);

@@ -3,30 +3,17 @@ using Godot.Collections;
 
 public partial class PlayerController : Node
 {
-    [Export] private PlayerData data;
-
     [Export] private GameController gameController;
     [Export] public Enemy enemy;
 
     private Hand hand;
 
-    [Export] public int maxHealth;
-    public int health;
-
-    private int money = 0;
-
     [Signal]
     public delegate void TurnEndedEventHandler();
 
-    [ExportGroup("Relics")]
-    [Export] public Array<RelicController> relics = new Array<RelicController>();
+    [ExportGroup("Scenes")]
     [Export] private PackedScene relicScene;
-    [Export] private int maxRelics;
-
-    [ExportGroup("Consumables")]
-    [Export] private Array<Consumable> consumables = new Array<Consumable>();
     [Export] private PackedScene consumableScene;
-    [Export] private int maxConsumables;
 
     [ExportGroup("UI")]
     [Export] private Node relicsParent;
@@ -34,8 +21,6 @@ public partial class PlayerController : Node
 
     public override void _Ready()
     {
-        health = maxHealth;
-
         hand = GetNode<Hand>("Hand");
 
         hand.Attack += DealDamage;
@@ -43,7 +28,6 @@ public partial class PlayerController : Node
 
         enemy.TurnEnded += StartTurn;
 
-        gameController.LoadingScene += SaveData;
         gameController.DataLoaded += LoadData;
 
         UpdateUI();
@@ -51,88 +35,75 @@ public partial class PlayerController : Node
 
     public override void _Process(double delta)
     {
-        if (health <= 0)
-        {
+        if (PlayerData.Instance.health <= 0)
             GD.Print("Game Over!");
-        }
     }
+
+    // ---------------- DAMAGE ----------------
 
     private void DealDamage(int damage)
     {
         enemy.TakeDamage(damage);
-
         GD.Print("Damage Dealed: " + damage);
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        PlayerData.Instance.health -= damage;
     }
+
+    // ---------------- TURN ----------------
 
     private void StartTurn()
     {
         hand.canStart = true;
-
-        GD.Print("Health: " + health);
+        GD.Print("Health: " + PlayerData.Instance.health);
     }
 
-    public void AddMoney(int adddedMoney)
+    // ---------------- MONEY ----------------
+
+    public void AddMoney(int addedMoney)
     {
-        money += adddedMoney;
-
-        SaveData();
+        PlayerData.Instance.money += addedMoney;
     }
+
+    // ---------------- UI ----------------
 
     private void UpdateUI()
     {
-        if (relics != null)
+        foreach (Node child in relicsParent.GetChildren())
+            child.QueueFree();
+
+        foreach (var relic in PlayerData.Instance.relics)
         {
-            foreach (var relic in relics)
-            {
-                RelicView relicNode = relicScene.Instantiate<RelicView>();
-
-                relicNode.SetUp(relic);
-
-                relicsParent.AddChild(relicNode);
-            }
+            RelicView relicNode = relicScene.Instantiate<RelicView>();
+            relicNode.SetUp(relic);
+            relicsParent.AddChild(relicNode);
         }
 
-        if (consumables != null)
+        foreach (Node child in consumablesParent.GetChildren())
+            child.QueueFree();
+
+        foreach (var consumable in PlayerData.Instance.consumables)
         {
-            foreach (var consumable in consumables)
-            {
-                ConsumableController consumableController = consumableScene.Instantiate<ConsumableController>();
+            ConsumableController controller =
+                consumableScene.Instantiate<ConsumableController>();
 
-                consumableController.SetUp(consumable, hand);
-
-                consumablesParent.AddChild(consumableController);
-            }
+            controller.SetUp(consumable, hand);
+            consumablesParent.AddChild(controller);
         }
     }
 
-    private void SaveData()
-    {
-        data.Save(money, relics, maxRelics, consumables, maxConsumables, maxHealth, health);
-        GD.Print("Player Data Saved");
-    }
+    // ---------------- LOAD ----------------
 
     public void LoadData()
     {
-        if(gameController.GetRound() > 0)
-        {
-            money = data.money;
-            relics = data.relics;
-            maxRelics = data.maxRelics;
-            consumables = data.consumables;
-            maxConsumables = data.maxConsumables;
-            maxHealth = data.maxHealth;
-            health = data.health;
-
-            GD.Print("Player Data Loaded");
-
-            UpdateUI();
-        }
+        GD.Print("Player Data Loaded");
+        UpdateUI();
     }
 
-    private void OnOutOfCards() => EmitSignal("TurnEnded");
+    private void OnOutOfCards()
+    {
+        EmitSignal(SignalName.TurnEnded);
+    }
 }

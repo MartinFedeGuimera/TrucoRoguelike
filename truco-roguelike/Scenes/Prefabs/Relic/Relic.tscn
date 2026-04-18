@@ -17,3 +17,18 @@ offset_right = 51.547775
 offset_bottom = 175.0
 expand_mode = 3
 stretch_mode = 5
+
+[node name="SellButton" type="Button" parent="." unique_id=662072477]
+visible = false
+layout_mode = 1
+offset_left = -22.0
+offset_top = 175.0
+offset_right = 22.0
+offset_bottom = 206.0
+text = "SELL"
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="OnMouseExited"]
+[connection signal="mouse_entered" from="SellButton" to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="SellButton" to="." method="OnMouseExited"]
+[connection signal="pressed" from="SellButton" to="." method="OnSell"]

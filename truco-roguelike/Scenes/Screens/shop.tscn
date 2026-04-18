@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b8rukfyuloyjp" path="res://Scripts/ShopController.cs" id="1_twmb6"]
 [ext_resource type="Resource" uid="uid://dmpphthesrspc" path="res://Scenes/Resources/DataSaving/GameData.tres" id="2_l52qc"]
-[ext_resource type="Resource" uid="uid://b1xqyd8rs8jia" path="res://Scenes/Resources/DataSaving/PlayerData.tres" id="3_ikxqi"]
 [ext_resource type="Resource" uid="uid://7dcvrbh6twcb" path="res://Scenes/Resources/Relics/SuitAddMults/OroAddGeneralMult.tres" id="4_2vuo2"]
 [ext_resource type="Resource" uid="uid://bhj2jq381o3x6" path="res://Scenes/Resources/Relics/SuitAddMults/CopaAddGeneralMult.tres" id="5_i4yym"]
 [ext_resource type="Resource" uid="uid://pm748ktblyn5" path="res://Scenes/Resources/Relics/SuitAddMults/BastoAddGeneralMult.tres" id="6_p6pv5"]
@@ -37,7 +36,6 @@ mouse_filter = 2
 script = ExtResource("1_twmb6")
 gameData = ExtResource("2_l52qc")
 rerollPrice = 5
-playerData = ExtResource("3_ikxqi")
 relicsData = Array[Object]([ExtResource("4_2vuo2"), ExtResource("5_i4yym"), ExtResource("6_p6pv5"), ExtResource("7_xt05f"), ExtResource("8_ysgmm"), ExtResource("9_1hanx"), ExtResource("10_qj1uu"), ExtResource("11_ysgmm")])
 relicProductScene = ExtResource("8_virt4")
 consumablesData = Array[Object]([ExtResource("9_ysgmm"), ExtResource("10_1hanx")])

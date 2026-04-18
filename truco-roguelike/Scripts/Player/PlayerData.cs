@@ -1,28 +1,47 @@
 using Godot;
 using Godot.Collections;
 
-[GlobalClass]
-public partial class PlayerData : Resource
+public partial class PlayerData : Node
 {
-	public int money = 0;
+    public static PlayerData Instance { get; private set; }
 
-	public Array<RelicController> relics;
-	public int maxRelics;
+    public int money = 0;
 
-	public Array<Consumable> consumables;
-    public int maxConsumables;
+	public Array<RelicController> relics = new Array<RelicController>();
+	public int maxRelics = 4;
 
-    [Export] public int maxHealth;
+	public Array<Consumable> consumables = new Array<Consumable>();
+    public int maxConsumables = 2;
+
+    public int maxHealth = 100;
 	public int health;
 
-	public void Save(int money, Array<RelicController> relics, int maxRelics, Array<Consumable> consumables, int maxConsumables, int maxHealth, int health)
+    [Signal]
+    public delegate void DataChangedEventHandler();
+
+    public override void _Ready()
+    {
+		Instance = this;
+		health = maxHealth;
+    }
+
+	public void AddMoney(int addedMoney)
 	{
-		this.money = money;
-		this.relics = relics;
-		this.maxRelics = maxRelics;
-		this.consumables = consumables;
-		this.maxConsumables = maxConsumables;
-		this.maxHealth = maxHealth;
-		this.health = health;
+		money += addedMoney;
+
+		EmitSignal("DataChanged");
 	}
+
+	public void RemoveRelic(string relicName)
+	{
+        for (int i = 0; i < relics.Count; i++)
+        {
+            if (relicName == relics[i].name)
+            {
+                relics.RemoveAt(i);
+            }
+        }
+
+        EmitSignal("DataChanged");
+    }
 }

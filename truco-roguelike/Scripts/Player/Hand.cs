@@ -1,6 +1,5 @@
 using Godot;
 using Godot.Collections;
-using System.Collections;
 
 public partial class Hand : Node
 {
@@ -119,11 +118,11 @@ public partial class Hand : Node
                 {
                     int relicsUsed = 0;
 
-                    if (player.relics != null)
+                    if (PlayerData.Instance.relics != null)
                     {
                         GD.Print("Doing Relics Effects");
 
-                        foreach (RelicController relic in player.relics)
+                        foreach (RelicController relic in PlayerData.Instance.relics)
                         {
                             relic.SetUp(this);
                             relic.OnCardPlayed(selectedCardData);
@@ -147,9 +146,9 @@ public partial class Hand : Node
 
             if (drawnCards.Count <= 0)
             {
-                if(player.relics != null)
+                if(PlayerData.Instance.relics != null)
                 {
-                    foreach (RelicController relic in player.relics)
+                    foreach (RelicController relic in PlayerData.Instance.relics)
                     {
                         relic.OnPlayerTurnFinished();
                     }

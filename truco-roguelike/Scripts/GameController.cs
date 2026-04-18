@@ -1,5 +1,4 @@
 using Godot;
-using System.Collections;
 
 public partial class GameController : Node2D
 {

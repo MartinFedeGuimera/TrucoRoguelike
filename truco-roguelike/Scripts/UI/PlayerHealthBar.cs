@@ -2,8 +2,6 @@ using Godot;
 
 public partial class PlayerHealthBar : Control
 {
-    [Export] private PlayerController player;
-
     private ProgressBar progressBar;
     private Label healthLabel;
 
@@ -14,19 +12,19 @@ public partial class PlayerHealthBar : Control
         progressBar = GetNode<ProgressBar>("HealthBar");
         healthLabel = GetNode<Label>("HealthText");
 
-        displayedValue = player.health;
+        displayedValue = PlayerData.Instance.health;
     }
 
     public override void _Process(double delta)
     {
-        float target = player.health;
+        float target = PlayerData.Instance.health;
 
         displayedValue = Mathf.Lerp(displayedValue, target, 8f * (float)delta);
 
         if (Mathf.Abs(displayedValue - target) < 0.5f)
             displayedValue = target;
 
-        progressBar.Value = displayedValue / player.maxHealth * 100f;
+        progressBar.Value = displayedValue / PlayerData.Instance.maxHealth * 100f;
         healthLabel.Text = Mathf.RoundToInt(displayedValue).ToString();
     }
 }

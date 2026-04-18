@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bdibbsubjn4md" path="res://Scripts/GameController.cs" id="1_t2joc"]
 [ext_resource type="Resource" uid="uid://dmpphthesrspc" path="res://Scenes/Resources/DataSaving/GameData.tres" id="2_83kr7"]
-[ext_resource type="PackedScene" uid="uid://ca0wlehqx6l8q" path="res://Scenes/Resources/Cards/Card.tscn" id="2_dctr5"]
+[ext_resource type="PackedScene" uid="uid://ca0wlehqx6l8q" path="res://Scenes/Prefabs/Card.tscn" id="2_dctr5"]
 [ext_resource type="Script" uid="uid://cl834ig5dw28j" path="res://Scripts/Player/PlayerController.cs" id="2_kldst"]
-[ext_resource type="Resource" uid="uid://b1xqyd8rs8jia" path="res://Scenes/Resources/DataSaving/PlayerData.tres" id="4_3komb"]
 [ext_resource type="PackedScene" uid="uid://w5u5utajrw80" path="res://Scenes/Prefabs/Relic/Relic.tscn" id="6_3cx6b"]
 [ext_resource type="Script" uid="uid://b8oh0i3pe2j3r" path="res://Scripts/UI/DmgUiController.cs" id="6_7lihs"]
 [ext_resource type="Script" uid="uid://clrd6f22hrh50" path="res://Scripts/Enemy/Enemy.cs" id="7_fgofq"]
@@ -27,7 +26,6 @@ roundWinPrize = 10
 
 [node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("gameController", "enemy", "relicsParent", "consumablesParent")]
 script = ExtResource("2_kldst")
-data = ExtResource("4_3komb")
 gameController = NodePath("..")
 enemy = NodePath("../Enemy")
 maxHealth = 100
