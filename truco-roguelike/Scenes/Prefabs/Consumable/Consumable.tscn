@@ -14,8 +14,8 @@ script = ExtResource("1_fttsv")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=60669165 node_paths=PackedStringArray("button")]
 layout_mode = 0
-offset_left = -51.0
-offset_right = 51.547775
+offset_left = -21.0
+offset_right = 81.547775
 offset_bottom = 32.0
 expand_mode = 3
 stretch_mode = 5
@@ -28,4 +28,18 @@ layout_mode = 0
 offset_right = 60.0
 offset_bottom = 31.0
 
+[node name="SellButton" type="Button" parent="." unique_id=825657181]
+visible = false
+layout_mode = 0
+offset_left = -35.0
+offset_top = 3.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 12
+text = "SELL"
+
+[connection signal="mouse_entered" from="Button" to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="Button" to="." method="OnMouseExited"]
 [connection signal="pressed" from="Button" to="." method="OnButtonPressed"]
+[connection signal="mouse_entered" from="SellButton" to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="SellButton" to="." method="OnMouseExited"]
+[connection signal="pressed" from="SellButton" to="." method="OnSell"]

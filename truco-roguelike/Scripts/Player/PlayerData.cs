@@ -44,4 +44,17 @@ public partial class PlayerData : Node
 
         EmitSignal("DataChanged");
     }
+
+    public void RemoveConsumable(string consumableName)
+    {
+        for (int i = 0; i < consumables.Count; i++)
+        {
+            if (consumableName == consumables[i].name)
+            {
+                consumables.RemoveAt(i);
+            }
+        }
+
+        EmitSignal("DataChanged");
+    }
 }
