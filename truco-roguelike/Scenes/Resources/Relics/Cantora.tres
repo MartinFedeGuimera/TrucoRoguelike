@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Cantora" format=3 uid="uid://ofpacq7c6m64"]
 
 [ext_resource type="Script" uid="uid://cq263rapflya1" path="res://Scripts/Relic/Relics/Cantora.cs" id="1_dwm45"]
+[ext_resource type="Texture2D" uid="uid://cyeur5q6agus7" path="res://Sprites/Cantora.jpeg" id="2_0hov4"]
 
 [resource]
 script = ExtResource("1_dwm45")
-substractValue = 5
+substractValue = 2
 name = "Cantora"
-description = "+10 permanent mult if played card suit equals specified suit"
-value = 10
+description = "+4 permanent mult if played card suit equals specified suit else -2"
+spriteTexture = ExtResource("2_0hov4")
+value = 4
+price = 10
 metadata/_custom_type_script = "uid://cq263rapflya1"

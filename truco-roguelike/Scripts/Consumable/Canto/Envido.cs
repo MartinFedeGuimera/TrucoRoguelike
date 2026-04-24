@@ -16,7 +16,7 @@ public partial class Envido : Canto
 
             envidoValue = CalculateEnvidoValue(hand.GetDrawnCards());
 
-            hand.DealDamage((int)value + envidoValue, 1);
+            hand.CreateExternalAttack((int)value + envidoValue);
         }
     }
 

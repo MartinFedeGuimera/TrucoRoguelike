@@ -66,12 +66,20 @@ public partial class DmgUiController : Node
 
     public void UpdateUI(CardController card, float generalMult, float tempMult)
     {
-        Card cardData = card.GetData();
+        if(card != null)
+        {
+            Card cardData = card.GetData();
 
-        targetAttack = cardData.value;
-        targetMult = cardData.mult + generalMult + tempMult;
+            targetAttack = cardData.value;
+            targetMult = cardData.mult + generalMult + tempMult;
+        }
+        else
+        {
+            targetAttack = 0;
+            targetMult = generalMult + tempMult;
+        }    
 
-        multSoundPitch = 0.8f;
+            multSoundPitch = 0.8f;
         lastPlayedMult = 0;
     }
 }

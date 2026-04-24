@@ -13,11 +13,25 @@ public partial class RelicController : Resource
 
 	public Hand playerHand;
 
-	public virtual void OnCardPlayed(Card card){}
+	public virtual void OnCardPlayed(Card card)
+	{
+		wasUsed = true;
+	}
 
-	public virtual void OnPlayerTurnFinished(){}
+	public virtual void OnPlayerTurnStarted() 
+	{
+        wasUsed = true;
+    }
 
-	public virtual void OnEnemyAttacks(){}
+	public virtual void OnPlayerTurnFinished()
+	{
+        wasUsed = true;
+    }
+
+	public virtual void OnEnemyAttacks()
+	{
+        wasUsed = true;
+    }
 
 	public virtual void SetUp(Hand hand)
 	{

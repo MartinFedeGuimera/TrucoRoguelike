@@ -10,13 +10,12 @@ public partial class Hand : Node
 
     [ExportGroup("Objects")]
     [Export] private GameController gameController;
-    private RandomNumberGenerator seed;
 
     [Export] private Enemy enemy;
-
     [Export] private DmgUiController dmgUiController;
 
     private PlayerController player;
+    private RandomNumberGenerator seed;
 
     [ExportGroup("Data")]
     [Export] private PackedScene cardScene;
@@ -24,27 +23,49 @@ public partial class Hand : Node
 
     private int maxCardsDrawn = 3;
 
-	private Array<CardController> drawnCards = new Array<CardController>();
+    private Array<CardController> drawnCards = new();
 
     private CardController selectedCard;
 
-    public bool canStart = false;
+    public bool canStart = true;
 
     private float tempMult = 0;
     private float generalMult = 0;
     private float permanentMult = 0;
-    private float damageMultiplier = 1;
+    private float damageMultiplier = 1f;
 
     public bool hasFlor = false;
 
-    [Signal]
-    public delegate void CardSelectedEventHandler(CardController card);
+    [Signal] public delegate void CardSelectedEventHandler(CardController card);
+    [Signal] public delegate void AttackEventHandler(int damage);
+    [Signal] public delegate void OutOfCardsEventHandler();
 
-    [Signal]
-    public delegate void AttackEventHandler(int damage);
+    private struct AttackData
+    {
+        public int damage;
+        public float cardMult;
+        public float generalMult;
+        public float tempMult;
+        public float damageMultiplier;
+        public CardController card;
+    }
 
-    [Signal]
-    public delegate void OutOfCardsEventHandler();
+    public void CreateExternalAttack(int damage, float mult = 1f, float extraTempMult = 0f)
+    {
+        AttackData attack = new AttackData
+        {
+            damage = damage,
+            cardMult = mult,
+            generalMult = generalMult,
+            tempMult = tempMult + extraTempMult,
+            damageMultiplier = damageMultiplier,
+            card = null
+        };
+
+        damageMultiplier = 1f;
+
+        WaitForDamageAnimations(attack);
+    }
 
     public override void _Ready()
     {
@@ -52,22 +73,27 @@ public partial class Hand : Node
         sfxPlayer = GetNode<AudioStreamPlayer2D>("SfxPlayer");
 
         seed = gameController.GetSeed();
-
         deckResource.Shuffle(seed);
-
-        DrawCards();
     }
 
     public override void _Process(double delta)
     {
-        if (canStart)
+        if (!canStart) return;
+
+        canStart = false;
+
+        generalMult = permanentMult;
+
+        if (PlayerData.Instance.relics != null)
         {
-            canStart = false;
-
-            generalMult = permanentMult;
-
-            DrawCards();
+            foreach (RelicController relic in PlayerData.Instance.relics)
+            {
+                relic.SetUp(this);
+                relic.OnPlayerTurnStarted();
+            }
         }
+
+        DrawCards();
     }
 
     private async void DrawCards()
@@ -91,113 +117,101 @@ public partial class Hand : Node
 
             hasFlor = CheckFlor();
 
-            sfxPlayer.Stream = drawCardSound; 
+            sfxPlayer.Stream = drawCardSound;
             sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f);
             sfxPlayer.Play();
 
-            await ToSignal(
-                GetTree().CreateTimer(0.15f),
-                SceneTreeTimer.SignalName.Timeout
-            );
+            await ToSignal(GetTree().CreateTimer(0.15f),
+                SceneTreeTimer.SignalName.Timeout);
         }
     }
 
     public void OnCardPlayed()
     {
+        if (selectedCard == null)
+            return;
+
         tempMult = 0;
 
-        if (selectedCard != null)
+        CardController playedCard = selectedCard;
+        Card cardData = playedCard.GetData();
+
+        if (PlayerData.Instance.relics != null)
         {
-            for (int i = 0; i < drawnCards.Count; i++)
+            foreach (RelicController relic in PlayerData.Instance.relics)
             {
-                Card card = drawnCards[i].GetData();
+                relic.SetUp(this);
+                relic.OnCardPlayed(cardData);
+            }
+        }
 
-                Card selectedCardData = selectedCard.GetData();
+        AttackData attack = new AttackData
+        {
+            damage = cardData.value,
+            cardMult = cardData.mult,
+            generalMult = generalMult,
+            tempMult = tempMult,
+            damageMultiplier = damageMultiplier,
+            card = playedCard
+        };
 
-                if (selectedCardData.name == card.name)
-                {
-                    int relicsUsed = 0;
+        damageMultiplier = 1f;
 
-                    if (PlayerData.Instance.relics != null)
-                    {
-                        GD.Print("Doing Relics Effects");
+        drawnCards.Remove(playedCard);
+        playedCard.QueueFree();
+        selectedCard = null;
 
-                        foreach (RelicController relic in PlayerData.Instance.relics)
-                        {
-                            relic.SetUp(this);
-                            relic.OnCardPlayed(selectedCardData);
-                            
-                            if(relic.wasUsed == true)
-                                relicsUsed++;
-                        }
-                    }
+        WaitForDamageAnimations(attack);
 
-                    WaitForDamageAnimations(card.value, card.mult, relicsUsed);
-
-                    selectedCard = null;
-
-                    drawnCards[i].QueueFree();
-
-                    drawnCards.RemoveAt(i);
-
-                    break;
-                }
+        if (drawnCards.Count == 0)
+        {
+            if (PlayerData.Instance.relics != null)
+            {
+                foreach (RelicController relic in PlayerData.Instance.relics)
+                    relic.OnPlayerTurnFinished();
             }
 
-            if (drawnCards.Count <= 0)
-            {
-                if(PlayerData.Instance.relics != null)
-                {
-                    foreach (RelicController relic in PlayerData.Instance.relics)
-                    {
-                        relic.OnPlayerTurnFinished();
-                    }
-                }
-
-                EmitSignal("OutOfCards");
-            }
+            EmitSignal("OutOfCards");
         }
     }
 
-    private async void WaitForDamageAnimations(int damage, int mult, int waitTime)
+    private async void WaitForDamageAnimations(AttackData attack)
     {
-        dmgUiController.UpdateUI(selectedCard, generalMult, tempMult);
+        dmgUiController.UpdateUI(
+            attack.card,
+            attack.generalMult,
+            attack.tempMult);
 
-        sfxPlayer.Stream = playCardSound; 
-        sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f); 
+        sfxPlayer.Stream = playCardSound;
+        sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f);
         sfxPlayer.Play();
 
-        await ToSignal(GetTree().CreateTimer(waitTime), SceneTreeTimer.SignalName.Timeout);
+        await ToSignal(GetTree().CreateTimer(0.3f),
+            SceneTreeTimer.SignalName.Timeout);
 
-        DealDamage(damage, mult);
+        DealDamage(attack);
     }
 
-    public void DealDamage(int damage, float mult)
+    private void DealDamage(AttackData attack)
     {
-        float finalDamage = damage * (mult + generalMult + tempMult);
+        float finalDamage = attack.damage * (attack.cardMult + attack.generalMult + attack.tempMult);
 
-        if (damageMultiplier > 0)
-        {
-            finalDamage *= damageMultiplier;
-            damageMultiplier = 1;
-        }
+        finalDamage *= attack.damageMultiplier;
 
         EmitSignal("Attack", (int)finalDamage);
     }
 
     private bool CheckFlor()
     {
-        for(int i = 0; i < drawnCards.Count; i++)
-        {
-            CardSuit firstCardSuit = drawnCards[0].GetData().suit;
+        if (drawnCards.Count == 0)
+            return false;
 
-            for(int j = 1; j < drawnCards.Count; j++)
-            {
-                if(firstCardSuit != drawnCards[j].GetData().suit)
-                {
-                    return false;
-                }
-            }
+        CardSuit firstSuit = drawnCards[0].GetData().suit;
+
+        for (int i = 1; i < drawnCards.Count; i++)
+        {
+            if (drawnCards[i].GetData().suit != firstSuit)
+                return false;
         }
 
         return true;
@@ -208,39 +222,29 @@ public partial class Hand : Node
         selectedCard = card;
 
         dmgUiController.UpdateUI(selectedCard, generalMult, tempMult);
-
         EmitSignal("CardSelected", selectedCard);
     }
 
-    public void AddTempMult(int addedMult)
-    {
-        tempMult += addedMult;
-    }
+    public void AddTempMult(int addedMult) => tempMult += addedMult;
 
-    public void AddGeneralMult(int addedMult)
-    {
-        generalMult += addedMult;
-        GD.Print("General Mult: " + generalMult);
-    }
+    public void AddGeneralMult(int addedMult) => generalMult += addedMult;
 
     public void AddPermaMult(int addedMult)
     {
-        permanentMult += addedMult;
+        permanentMult = Mathf.Max(0, permanentMult + addedMult);
     }
 
-    public void AddDamageMultiplier(int addedMultiplier)
+    public void AddDamageMultiplier(float mult)
     {
-        damageMultiplier += addedMultiplier;
+        damageMultiplier *= mult;
     }
 
     public Array<Card> GetDrawnCards()
     {
-        Array<Card> cardsData = new Array<Card>();
+        Array<Card> cardsData = new();
 
-        foreach(CardController controller in drawnCards)
-        {
+        foreach (CardController controller in drawnCards)
             cardsData.Add(controller.GetData());
-        }
 
         return cardsData;
     }

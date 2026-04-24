@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardAddTempMult" format=3 uid="uid://c6gdlvn2dlujr"]
+
+[ext_resource type="Resource" uid="uid://c4l6rnpxf0ium" path="res://Scenes/Resources/Cards/Copa/Copa_10.tres" id="1_oebi4"]
+[ext_resource type="Script" uid="uid://c08rp86jv6p4i" path="res://Scripts/Relic/Relics/CardAddTempMult.cs" id="1_sbbhi"]
+[ext_resource type="Resource" uid="uid://vdmb6ee5ip3y" path="res://Scenes/Resources/Cards/Oro/Oro_10.tres" id="2_5rnod"]
+[ext_resource type="Resource" uid="uid://bcncyr8eojmg2" path="res://Scenes/Resources/Cards/Basto/Basto_10.tres" id="3_xffp3"]
+[ext_resource type="Resource" uid="uid://dr4swexgfq1dm" path="res://Scenes/Resources/Cards/Espada/Espada_10.tres" id="4_5q23y"]
+[ext_resource type="Texture2D" uid="uid://t2vitsb4qyi7" path="res://Sprites/10de10.jpeg" id="6_ex6ns"]
+
+[resource]
+script = ExtResource("1_sbbhi")
+relicCards = Array[Object]([ExtResource("1_oebi4"), ExtResource("2_5rnod"), ExtResource("3_xffp3"), ExtResource("4_5q23y")])
+name = "10de10"
+description = "+10 Temp Mult when a 10 is played"
+spriteTexture = ExtResource("6_ex6ns")
+value = 10
+price = 15
+metadata/_custom_type_script = "uid://c08rp86jv6p4i"

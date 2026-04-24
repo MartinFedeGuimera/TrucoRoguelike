@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\relic\\relicview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\relic\\relicview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\player\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\player\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\relic\\relics\\cantora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\relic\\relics\\cantora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\ui\\dmguicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\ui\\dmguicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\relic\\relics\\billeteramatagalan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\relic\\relics\\billeteramatagalan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\relic\\relics\\cardmultmult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\relic\\relics\\cardmultmult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\relic\\relics\\cardaddtempmult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\relic\\relics\\cardaddtempmult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,46 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerData.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\PlayerData.cs",
-              "RelativeDocumentMoniker": "Scripts\\Player\\PlayerData.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\PlayerData.cs",
-              "RelativeToolTip": "Scripts\\Player\\PlayerData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T17:59:33.602Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ShopController.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\ShopController.cs",
-              "RelativeDocumentMoniker": "Scripts\\ShopController.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\ShopController.cs",
-              "RelativeToolTip": "Scripts\\ShopController.cs",
-              "ViewState": "AgIAADABAAAAAAAAAADwv0gBAAA5AAAAAAAAAA==",
+              "Title": "DmgUiController.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\UI\\DmgUiController.cs",
+              "RelativeDocumentMoniker": "Scripts\\UI\\DmgUiController.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\UI\\DmgUiController.cs",
+              "RelativeToolTip": "Scripts\\UI\\DmgUiController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAEwE4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T17:58:20.912Z",
+              "WhenOpened": "2026-04-20T00:17:44.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RelicView.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\RelicView.cs",
-              "RelativeDocumentMoniker": "Scripts\\Relic\\RelicView.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\RelicView.cs",
-              "RelativeToolTip": "Scripts\\Relic\\RelicView.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAZAAAAAAAAAA==",
+              "Title": "Hand.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
+              "RelativeDocumentMoniker": "Scripts\\Player\\Hand.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
+              "RelativeToolTip": "Scripts\\Player\\Hand.cs",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAIwDcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T17:51:49.559Z",
+              "WhenOpened": "2026-04-20T00:12:56.514Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cantora.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\Cantora.cs",
+              "RelativeDocumentMoniker": "Scripts\\Relic\\Relics\\Cantora.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\Cantora.cs",
+              "RelativeToolTip": "Scripts\\Relic\\Relics\\Cantora.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T00:12:00.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BilleteraMataGalan.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\BilleteraMataGalan.cs",
+              "RelativeDocumentMoniker": "Scripts\\Relic\\Relics\\BilleteraMataGalan.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\BilleteraMataGalan.cs",
+              "RelativeToolTip": "Scripts\\Relic\\Relics\\BilleteraMataGalan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T00:08:06.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CardMultMult.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\CardMultMult.cs",
+              "RelativeDocumentMoniker": "Scripts\\Relic\\Relics\\CardMultMult.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\CardMultMult.cs",
+              "RelativeToolTip": "Scripts\\Relic\\Relics\\CardMultMult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T00:04:25.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CardAddTempMult.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\CardAddTempMult.cs",
+              "RelativeDocumentMoniker": "Scripts\\Relic\\Relics\\CardAddTempMult.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\CardAddTempMult.cs",
+              "RelativeToolTip": "Scripts\\Relic\\Relics\\CardAddTempMult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T23:30:19.435Z"
             }
           ]
         }

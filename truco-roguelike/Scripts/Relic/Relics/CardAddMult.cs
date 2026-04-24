@@ -9,8 +9,9 @@ public partial class CardAddMult : RelicController
     {
         if (card.name == relicCard.name)
         {
-            wasUsed = true;
             card.mult += value;
         }
+
+        base.OnCardPlayed(card);
     }
 }

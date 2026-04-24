@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardAddGeneralMult" format=3 uid="uid://bssrqivv7b28a"]
 
 [ext_resource type="Resource" uid="uid://d4m3qji1yf6uu" path="res://Scenes/Resources/Cards/Espada/Espada_1.tres" id="1_wonax"]
-[ext_resource type="Script" uid="uid://dexvl7ibkfdpo" path="res://Scripts/Relic/Relics/CardAddGeneralMult/CardAddGeneralMult.cs" id="2_h88aq"]
+[ext_resource type="Script" uid="uid://dexvl7ibkfdpo" path="res://Scripts/Relic/Relics/CardAddGeneralMult.cs" id="2_h88aq"]
 [ext_resource type="Texture2D" uid="uid://cg5pctwqyqb2a" path="res://Sprites/1en40.jpeg" id="3_h88aq"]
 
 [resource]

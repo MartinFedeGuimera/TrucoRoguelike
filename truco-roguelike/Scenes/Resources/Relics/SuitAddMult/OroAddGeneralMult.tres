@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SuitAddMultRelic" format=3 uid="uid://7dcvrbh6twcb"]
 
-[ext_resource type="Script" uid="uid://dlvusihc37i7c" path="res://Scripts/Relic/Relics/SuitAddMult/SuitAddGeneralMult.cs" id="1_stdm8"]
+[ext_resource type="Script" uid="uid://dlvusihc37i7c" path="res://Scripts/Relic/Relics/SuitAddGeneralMult.cs" id="1_stdm8"]
 [ext_resource type="Texture2D" uid="uid://6nbjeke55x3a" path="res://Sprites/OroAddMult.jpeg" id="2_fl8yr"]
 
 [resource]

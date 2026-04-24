@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BilleteraMataGalan" format=3 uid="uid://ckjxol631gnix"]
+
+[ext_resource type="Script" uid="uid://d4lffeuchimaw" path="res://Scripts/Relic/Relics/BilleteraMataGalan.cs" id="1_uj0o0"]
+[ext_resource type="Texture2D" uid="uid://26xok8q3jgrf" path="res://Sprites/BilleteraMataGalan.jpeg" id="2_k2kdl"]
+
+[resource]
+script = ExtResource("1_uj0o0")
+name = "Billetera Mata Galan"
+description = "+2 General Mult for each $1"
+spriteTexture = ExtResource("2_k2kdl")
+value = 2
+price = 15
+metadata/_custom_type_script = "uid://d4lffeuchimaw"

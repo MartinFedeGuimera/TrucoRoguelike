@@ -73,6 +73,11 @@ public partial class ShopController : Node
         SetUp();
     }
 
+    public override void _ExitTree()
+    {
+        PlayerData.Instance.DataChanged -= UpdatePlayerDataUI;
+    }
+
     private void ClearPlayerDataUI()
     {
         if (relicsContainer.GetChildren() != null)

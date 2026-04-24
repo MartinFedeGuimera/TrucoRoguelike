@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardAddMult" format=3 uid="uid://bg1kt2x53diyp"]
 
 [ext_resource type="Resource" uid="uid://cmmq8hpfwr5td" path="res://Scenes/Resources/Cards/Oro/Oro_1.tres" id="1_adrpe"]
-[ext_resource type="Script" uid="uid://dabm4nfnad7wj" path="res://Scripts/Relic/Relics/CardAddMult/CardAddMult.cs" id="1_vetxr"]
+[ext_resource type="Script" uid="uid://dabm4nfnad7wj" path="res://Scripts/Relic/Relics/CardAddMult.cs" id="1_vetxr"]
 [ext_resource type="Texture2D" uid="uid://cayxs3xcxqf2t" path="res://Sprites/CuloSucio.jpeg" id="3_igdrb"]
 
 [resource]

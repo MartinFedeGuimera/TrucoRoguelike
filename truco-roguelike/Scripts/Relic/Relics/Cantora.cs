@@ -23,6 +23,8 @@ public partial class Cantora : RelicController
         rng.Randomize();
 
         suit = (CardSuit)rng.RandiRange(0, Enum.GetValues(typeof(CardSuit)).Length - 1);
+
+        GD.Print("Suit Selected: " + suit);
     }
 
     public override void OnCardPlayed(Card card)

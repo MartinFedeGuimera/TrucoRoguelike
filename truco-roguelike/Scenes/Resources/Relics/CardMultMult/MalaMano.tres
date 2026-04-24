@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CardMultMult" format=3 uid="uid://8568flfh8hsa"]
+
+[ext_resource type="Resource" uid="uid://bor5yp574dbh3" path="res://Scenes/Resources/Cards/Basto/Basto_4.tres" id="1_2ynal"]
+[ext_resource type="Script" uid="uid://bbmija3e2suhd" path="res://Scripts/Relic/Relics/CardMultMult.cs" id="1_jd5my"]
+[ext_resource type="Resource" uid="uid://bscqa1o0mucfr" path="res://Scenes/Resources/Cards/Basto/Basto_5.tres" id="2_h1f44"]
+[ext_resource type="Resource" uid="uid://dgk53vr7nsuil" path="res://Scenes/Resources/Cards/Basto/Basto_6.tres" id="3_ud8ik"]
+[ext_resource type="Resource" uid="uid://bdvq42w00jv6n" path="res://Scenes/Resources/Cards/Copa/Copa_4.tres" id="4_t3dcr"]
+[ext_resource type="Resource" uid="uid://cx7c6myqnx8i8" path="res://Scenes/Resources/Cards/Copa/Copa_5.tres" id="5_8kqj1"]
+[ext_resource type="Resource" uid="uid://b4rovi1lj3anu" path="res://Scenes/Resources/Cards/Copa/Copa_6.tres" id="6_pukk6"]
+[ext_resource type="Resource" uid="uid://cuig8pseufmen" path="res://Scenes/Resources/Cards/Espada/Espada_4.tres" id="7_upetc"]
+[ext_resource type="Resource" uid="uid://db20x3vuium2m" path="res://Scenes/Resources/Cards/Espada/Espada_5.tres" id="8_5b07g"]
+[ext_resource type="Resource" uid="uid://ca1vdnkqgxkst" path="res://Scenes/Resources/Cards/Espada/Espada_6.tres" id="9_twbay"]
+[ext_resource type="Resource" uid="uid://b4noiuf7gedhe" path="res://Scenes/Resources/Cards/Oro/Oro_4.tres" id="10_aw2oc"]
+[ext_resource type="Resource" uid="uid://l3hl2fbildud" path="res://Scenes/Resources/Cards/Oro/Oro_5.tres" id="11_olyit"]
+[ext_resource type="Resource" uid="uid://kj7cvk7p76lw" path="res://Scenes/Resources/Cards/Oro/Oro_6.tres" id="12_shqxb"]
+[ext_resource type="Texture2D" uid="uid://ggca53pcr8yh" path="res://Sprites/MalaMano.jpeg" id="14_h1f44"]
+
+[resource]
+script = ExtResource("1_jd5my")
+relicCards = Array[Object]([ExtResource("1_2ynal"), ExtResource("2_h1f44"), ExtResource("3_ud8ik"), ExtResource("4_t3dcr"), ExtResource("5_8kqj1"), ExtResource("6_pukk6"), ExtResource("7_upetc"), ExtResource("8_5b07g"), ExtResource("9_twbay"), ExtResource("10_aw2oc"), ExtResource("11_olyit"), ExtResource("12_shqxb")])
+name = "MalaMano"
+description = "If the card played is <7, x3 card mult"
+spriteTexture = ExtResource("14_h1f44")
+value = 3
+price = 10
+metadata/_custom_type_script = "uid://bbmija3e2suhd"
