@@ -28,11 +28,8 @@ roundWinPrize = 10
 script = ExtResource("2_kldst")
 gameController = NodePath("..")
 enemy = NodePath("../Enemy")
-maxHealth = 100
 relicScene = ExtResource("6_3cx6b")
-maxRelics = 4
 consumableScene = ExtResource("10_8r6kd")
-maxConsumables = 2
 relicsParent = NodePath("../CanvasLayer/RelicsContainer")
 consumablesParent = NodePath("../CanvasLayer/ConsumablesContainer")
 
@@ -129,7 +126,7 @@ offset_right = 140.0
 offset_bottom = 26.0
 horizontal_alignment = 1
 
-[node name="PlayerHealthBar" type="Control" parent="CanvasLayer" unique_id=717539118 node_paths=PackedStringArray("player")]
+[node name="PlayerHealthBar" type="Control" parent="CanvasLayer" unique_id=717539118]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -142,7 +139,6 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("11_3so38")
-player = NodePath("../../Player")
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/PlayerHealthBar" unique_id=549559071]
 layout_mode = 1

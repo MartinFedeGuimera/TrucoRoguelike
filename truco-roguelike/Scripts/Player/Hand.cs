@@ -74,6 +74,8 @@ public partial class Hand : Node
 
         seed = gameController.GetSeed();
         deckResource.Shuffle(seed);
+
+        permanentMult = PlayerData.Instance.permanentMult;
     }
 
     public override void _Process(double delta)
@@ -177,10 +179,7 @@ public partial class Hand : Node
 
     private async void WaitForDamageAnimations(AttackData attack)
     {
-        dmgUiController.UpdateUI(
-            attack.card,
-            attack.generalMult,
-            attack.tempMult);
+        dmgUiController.UpdateUI(attack.card, attack.generalMult, attack.tempMult);
 
         sfxPlayer.Stream = playCardSound;
         sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f);
@@ -232,6 +231,9 @@ public partial class Hand : Node
     public void AddPermaMult(int addedMult)
     {
         permanentMult = Mathf.Max(0, permanentMult + addedMult);
+        generalMult = Mathf.Max(0, generalMult + addedMult);
+
+        PlayerData.Instance.permanentMult = permanentMult;
     }
 
     public void AddDamageMultiplier(float mult)

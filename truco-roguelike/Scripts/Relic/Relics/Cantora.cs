@@ -7,22 +7,16 @@ public partial class Cantora : RelicController
     public CardSuit suit = CardSuit.None;
     [Export] public int substractValue;
 
-    public override void SetUp(Hand hand)
-    {
-        base.SetUp(hand);
-
-        RandomNumberGenerator rng = new RandomNumberGenerator();
-        rng.Randomize();
-
-        suit = (CardSuit)rng.RandiRange(0, Enum.GetValues(typeof(CardSuit)).Length - 1);
-    }
-
-    public override void OnPlayerTurnFinished()
+    public override void OnPlayerTurnStarted()
     {
         RandomNumberGenerator rng = new RandomNumberGenerator();
         rng.Randomize();
 
-        suit = (CardSuit)rng.RandiRange(0, Enum.GetValues(typeof(CardSuit)).Length - 1);
+        do
+        {
+            suit = (CardSuit)rng.RandiRange(0, Enum.GetValues(typeof(CardSuit)).Length - 1);
+        }
+        while( suit == CardSuit.None );
 
         GD.Print("Suit Selected: " + suit);
     }
@@ -31,10 +25,16 @@ public partial class Cantora : RelicController
     {
         if(card.suit == suit)
         {
+            GD.Print("Cantora added perma mult.");
+            GD.Print("Suit played: " + card.suit + " Relic suit: " + suit);
+
             playerHand.AddPermaMult(value);
         }
         else
         {
+            GD.Print("Cantora substracted perma mult");
+            GD.Print("Suit played: " + card.suit + " Relic suit: " + suit);
+
             playerHand.AddPermaMult(-substractValue);
         }
     }

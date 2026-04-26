@@ -16,6 +16,8 @@ public partial class PlayerData : Node
     public int maxHealth = 100;
 	public int health;
 
+    public float permanentMult;
+
     [Signal]
     public delegate void DataChangedEventHandler();
 
@@ -31,6 +33,11 @@ public partial class PlayerData : Node
 
 		EmitSignal("DataChanged");
 	}
+
+    public void AddPermaMult(float addedPermaMult)
+    {
+        permanentMult += addedPermaMult;
+    }
 
 	public void RemoveRelic(string relicName)
 	{
