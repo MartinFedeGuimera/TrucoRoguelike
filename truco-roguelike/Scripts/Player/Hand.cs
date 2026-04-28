@@ -86,12 +86,16 @@ public partial class Hand : Node
 
         generalMult = permanentMult;
 
+        dmgUiController.ResetRound();
+
         if (PlayerData.Instance.relics != null)
         {
             foreach (RelicController relic in PlayerData.Instance.relics)
             {
                 relic.SetUp(this);
                 relic.OnPlayerTurnStarted();
+
+                dmgUiController.ApplyPerkMult(GetCurrentMult());
             }
         }
 
@@ -144,6 +148,8 @@ public partial class Hand : Node
             {
                 relic.SetUp(this);
                 relic.OnCardPlayed(cardData);
+
+                dmgUiController.ApplyPerkMult(GetCurrentMult());
             }
         }
 
@@ -179,8 +185,6 @@ public partial class Hand : Node
 
     private async void WaitForDamageAnimations(AttackData attack)
     {
-        dmgUiController.UpdateUI(attack.card, attack.generalMult, attack.tempMult);
-
         sfxPlayer.Stream = playCardSound;
         sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f);
         sfxPlayer.Play();
@@ -220,13 +224,19 @@ public partial class Hand : Node
     {
         selectedCard = card;
 
-        dmgUiController.UpdateUI(selectedCard, generalMult, tempMult);
+        dmgUiController.UpdateFromCard(selectedCard, generalMult, tempMult);
         EmitSignal("CardSelected", selectedCard);
     }
 
-    public void AddTempMult(int addedMult) => tempMult += addedMult;
+    public void AddTempMult(int addedMult)
+    {
+        tempMult += addedMult;
+    }
 
-    public void AddGeneralMult(int addedMult) => generalMult += addedMult;
+    public void AddGeneralMult(int addedMult)
+    {
+        generalMult += addedMult;
+    }
 
     public void AddPermaMult(int addedMult)
     {
@@ -249,5 +259,15 @@ public partial class Hand : Node
             cardsData.Add(controller.GetData());
 
         return cardsData;
+    }
+
+    private float GetCurrentMult()
+    {
+        if (selectedCard == null)
+            return generalMult + tempMult;
+
+        Card data = selectedCard.GetData();
+
+        return data.mult + generalMult + tempMult;
     }
 }

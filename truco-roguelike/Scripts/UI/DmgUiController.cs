@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 public partial class DmgUiController : Node
 {
@@ -11,14 +11,17 @@ public partial class DmgUiController : Node
     private Label attackLabel;
     private Label multLabel;
 
-    float displayedAttack;
+    int displayedAttack;
     float displayedMult;
 
-    float targetAttack;
-    float targetMult;
+    float lastMult;
 
     float multSoundPitch = 0.8f;
     int lastPlayedMult = 0;
+
+    private Queue<float> multQueue = new();
+
+    private bool processingQueue = false;
 
     public override void _Ready()
     {
@@ -29,26 +32,6 @@ public partial class DmgUiController : Node
 
         displayedAttack = 0;
         displayedMult = 0;
-        targetAttack = 0;
-        targetMult = 0;
-    }
-
-    public override void _Process(double delta)
-    {
-        displayedAttack = Mathf.Lerp(displayedAttack, targetAttack, 10f * (float)delta);
-        displayedMult = Mathf.Lerp(displayedMult, targetMult, 10f * (float)delta);
-
-        int roundedAttack = Mathf.RoundToInt(displayedAttack);
-        int roundedMult = Mathf.RoundToInt(displayedMult);
-
-        attackLabel.Text = $"Attack: {roundedAttack}";
-        multLabel.Text = $"Mult: {roundedMult}";
-
-        if (roundedMult > lastPlayedMult && targetMult > 1)
-        {
-            PlayMultSound();
-            lastPlayedMult = roundedMult;
-        }
     }
 
     private void PlayMultSound()
@@ -64,22 +47,88 @@ public partial class DmgUiController : Node
         sfxPlayer.Play();
     }
 
-    public void UpdateUI(CardController card, float generalMult, float tempMult)
+    private async void ProcessQueue()
     {
-        if(card != null)
-        {
-            Card cardData = card.GetData();
+        if (processingQueue)
+            return;
 
-            targetAttack = cardData.value;
-            targetMult = cardData.mult + generalMult + tempMult;
+        processingQueue = true;
+
+        float delay = 0.2f;
+
+        while (multQueue.Count > 0)
+        {
+            float nextMult = multQueue.Dequeue();
+
+            displayedMult = nextMult;
+            UpdateLabels();
+
+            PlayMultSound();
+
+            lastMult = displayedMult;
+
+            await ToSignal(
+                GetTree().CreateTimer(delay),
+                SceneTreeTimer.SignalName.Timeout);
+
+            delay *= 0.8f;
+            delay = Mathf.Max(0.03f, delay);
         }
-        else
-        {
-            targetAttack = 0;
-            targetMult = generalMult + tempMult;
-        }    
 
-            multSoundPitch = 0.8f;
-        lastPlayedMult = 0;
+        multSoundPitch = 0.8f;
+        processingQueue = false;
+    }
+
+    public void UpdateFromCard(CardController card, float generalMult, float tempMult)
+    {
+        multQueue.Clear();
+
+        multSoundPitch = 0.8f;
+
+        int attack = 0;
+        float mult = generalMult + tempMult;
+
+        if (card != null)
+        {
+            Card data = card.GetData();
+            attack = data.value;
+            mult += data.mult;
+        }
+
+        displayedAttack = attack;
+        displayedMult = mult;
+        lastMult = mult;
+
+        UpdateLabels();
+    }
+
+    public void ApplyPerkMult(float newMult)
+    {
+        if (newMult <= lastMult)
+            return;
+
+        multQueue.Enqueue(newMult);
+
+        ProcessQueue();
+    }
+
+    private void UpdateLabels()
+    {
+        attackLabel.Text = $"Attack: {displayedAttack}";
+        multLabel.Text = $"Mult: {displayedMult}";
+    }
+
+    public void ResetRound()
+    {
+        multQueue.Clear();
+        processingQueue = false;
+
+        displayedAttack = 0;
+        displayedMult = 0;
+        lastMult = 0;
+
+        multSoundPitch = 0.8f;
+
+        UpdateLabels();
     }
 }
