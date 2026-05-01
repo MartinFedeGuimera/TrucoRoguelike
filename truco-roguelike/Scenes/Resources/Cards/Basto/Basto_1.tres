@@ -11,5 +11,6 @@ region = Rect2(0, 64, 16, 32)
 script = ExtResource("1_rkthw")
 name = "Basto_1"
 value = 14
+envidoValue = 1
 suit = 4
 texture = SubResource("AtlasTexture_wwnb6")

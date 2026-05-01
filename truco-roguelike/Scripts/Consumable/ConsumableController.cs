@@ -16,6 +16,8 @@ public partial class ConsumableController : Node
 
         data.hand = hand;
         this.data = data;
+
+		data.ConsumableUsed += OnUsed;
 	}
 
 	public void SetUp(Consumable data)
@@ -34,7 +36,15 @@ public partial class ConsumableController : Node
 	public void OnButtonPressed()
 	{
 		data.OnUse();
-	}
+    }
+
+	private void OnUsed()
+	{
+		GD.Print("Consumable Destroyed");
+
+        PlayerData.Instance.RemoveConsumable(data.name);
+        QueueFree();
+    }
 
 	private void OnSell()
 	{
@@ -53,4 +63,9 @@ public partial class ConsumableController : Node
 	{
 		sellButton.Visible = false;
 	}
+
+    public override void _ExitTree()
+    {
+        data.ConsumableUsed -= OnUsed;
+    }
 }

@@ -8,67 +8,55 @@ public partial class Envido : Canto
     
     public override void OnUse()
     {
-        bool hasFlor = hand.hasFlor;
-
-        if(!hasFlor)
+        if(hand != null)
         {
-            base.OnUse();
-
-            envidoValue = CalculateEnvidoValue(hand.GetDrawnCards());
-
-            hand.CreateExternalAttack((int)value + envidoValue);
+            isUsable = true;
         }
+
+        base.OnUse();
+
+        envidoValue = CalculateEnvidoValue(hand.GetDrawnCards());
+
+        hand.CreateExternalAttack((int)value + envidoValue);
     }
 
     public int CalculateEnvidoValue(Array<Card> handCards)
     {
-        bool sameSuitEnvido = false;
+        if (handCards.Count == 0)
+            return 0;
 
-        Card firstCard = handCards[0];
+        Dictionary<CardSuit, Array<int>> suits = new();
 
-        for (int i = 1; i < handCards.Count; i++)
+        foreach (Card card in handCards)
         {
-            Card currentCard = handCards[i];
+            if (!suits.ContainsKey(card.suit))
+                suits[card.suit] = new Array<int>();
 
-            if (firstCard.suit == currentCard.suit)
+            suits[card.suit].Add(card.envidoValue);
+        }
+
+        int bestPairValue = -1;
+        int highestSingle = 0;
+
+        foreach (var suit in suits.Keys)
+        {
+            var values = suits[suit];
+
+            values.Sort();
+            values.Reverse();
+
+            highestSingle = Mathf.Max(highestSingle, values[0]);
+
+            if (values.Count >= 2)
             {
-                sameSuitEnvido = true;
+                int pairValue = values[0] + values[1] + 20;
+                bestPairValue = Mathf.Max(bestPairValue, pairValue);
             }
         }
 
-        int firstEnvidoValue = 0;
-        int secondEnvidoValue = 0;
+        if (bestPairValue >= 0)
+            return bestPairValue;
 
-        if (sameSuitEnvido)
-        {
-            foreach (Card card in handCards)
-            {
-                int value = card.envidoValue;
-
-                if (value > firstEnvidoValue)
-                {
-                    secondEnvidoValue = firstEnvidoValue;
-                    firstEnvidoValue = value;
-                }
-                else if (value > secondEnvidoValue)
-                {
-                    secondEnvidoValue = value;
-                }
-            }
-
-            return firstEnvidoValue + secondEnvidoValue + 10;
-        }
-        else
-        {
-            foreach (Card card in handCards)
-            {
-                if (card.envidoValue > firstEnvidoValue)
-                {
-                    firstEnvidoValue = card.envidoValue;
-                }
-            }
-
-            return firstEnvidoValue;
-        }
+        return highestSingle;
     }
 }

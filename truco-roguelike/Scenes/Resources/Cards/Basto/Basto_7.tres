@@ -11,5 +11,6 @@ region = Rect2(96, 64, 16, 32)
 script = ExtResource("1_puvys")
 name = "Basto_7"
 value = 4
+envidoValue = 7
 suit = 4
 texture = SubResource("AtlasTexture_phri4")

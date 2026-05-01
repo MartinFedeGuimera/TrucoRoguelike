@@ -11,6 +11,8 @@ public partial class Consumable : Resource
     [Export] public int price;
 	[Export] public float value;
 
+    [Signal] public delegate void ConsumableUsedEventHandler();
+
     public Hand hand;
 
     public virtual void OnUse()
@@ -22,5 +24,6 @@ public partial class Consumable : Resource
         }
 
         GD.Print("Consumable Used: " + name);
+        EmitSignal("ConsumableUsed");
     }
 }

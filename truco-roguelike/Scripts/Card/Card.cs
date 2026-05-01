@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public enum CardSuit
 {

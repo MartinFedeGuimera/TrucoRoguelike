@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\card\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\card\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\consumable\\consumable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\consumable\\consumable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\consumable\\canto\\envido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\consumable\\canto\\envido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\player\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\player\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\ACaraDePerro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\Relic\\Relics\\ACaraDePerro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\ui\\dmguicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\ui\\dmguicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\consumable\\consumablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\consumable\\consumablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ACaraDePerro.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\ACaraDePerro.cs",
-              "RelativeDocumentMoniker": "Scripts\\Relic\\Relics\\ACaraDePerro.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Relic\\Relics\\ACaraDePerro.cs",
-              "RelativeToolTip": "Scripts\\Relic\\Relics\\ACaraDePerro.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Card\\Card.cs",
+              "RelativeDocumentMoniker": "Scripts\\Card\\Card.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Card\\Card.cs",
+              "RelativeToolTip": "Scripts\\Card\\Card.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwBUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T23:04:56.213Z",
+              "WhenOpened": "2026-05-01T19:00:07.315Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Enemy\\Enemy.cs",
-              "RelativeDocumentMoniker": "Scripts\\Enemy\\Enemy.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Enemy\\Enemy.cs",
-              "RelativeToolTip": "Scripts\\Enemy\\Enemy.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Title": "Envido.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Canto\\Envido.cs",
+              "RelativeDocumentMoniker": "Scripts\\Consumable\\Canto\\Envido.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Canto\\Envido.cs",
+              "RelativeToolTip": "Scripts\\Consumable\\Canto\\Envido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-29T22:57:36.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Hand.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
-              "RelativeDocumentMoniker": "Scripts\\Player\\Hand.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
-              "RelativeToolTip": "Scripts\\Player\\Hand.cs",
-              "ViewState": "AgIAANoAAAAAAAAAAIAwwOQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T21:27:00.436Z",
+              "WhenOpened": "2026-05-01T18:44:03.631Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DmgUiController.cs",
-              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\UI\\DmgUiController.cs",
-              "RelativeDocumentMoniker": "Scripts\\UI\\DmgUiController.cs",
-              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\UI\\DmgUiController.cs",
-              "RelativeToolTip": "Scripts\\UI\\DmgUiController.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAYwIQAAAAFAAAAAAAAAA==",
+              "Title": "Hand.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
+              "RelativeDocumentMoniker": "Scripts\\Player\\Hand.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\Hand.cs",
+              "RelativeToolTip": "Scripts\\Player\\Hand.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T21:03:01.013Z",
+              "WhenOpened": "2026-05-01T18:39:27.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Consumable.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Consumable.cs",
+              "RelativeDocumentMoniker": "Scripts\\Consumable\\Consumable.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Consumable.cs",
+              "RelativeToolTip": "Scripts\\Consumable\\Consumable.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T18:37:01.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConsumableController.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\ConsumableController.cs",
+              "RelativeDocumentMoniker": "Scripts\\Consumable\\ConsumableController.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\ConsumableController.cs",
+              "RelativeToolTip": "Scripts\\Consumable\\ConsumableController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA7wB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T18:34:41.479Z",
               "EditorCaption": ""
             }
           ]

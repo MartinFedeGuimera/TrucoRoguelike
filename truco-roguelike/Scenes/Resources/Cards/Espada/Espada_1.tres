@@ -11,5 +11,6 @@ region = Rect2(0, 0, 16, 32)
 script = ExtResource("1_s8cjl")
 name = "Espada_1"
 value = 15
+envidoValue = 1
 suit = 1
 texture = SubResource("AtlasTexture_kwgxu")

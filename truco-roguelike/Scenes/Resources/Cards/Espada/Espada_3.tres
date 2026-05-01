@@ -11,5 +11,6 @@ region = Rect2(32, 0, 16, 32)
 script = ExtResource("1_qfuxi")
 name = "Espada_3"
 value = 10
+envidoValue = 3
 suit = 1
 texture = SubResource("AtlasTexture_pwef2")
