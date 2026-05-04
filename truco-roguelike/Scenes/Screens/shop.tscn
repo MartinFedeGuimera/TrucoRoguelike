@@ -59,10 +59,19 @@ anchor_bottom = 1.0
 offset_left = 1.0
 offset_top = 1.699997
 offset_right = 1.1999512
-offset_bottom = 2.0
+offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="ShopContent" unique_id=770397441]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74161845, 1, 0.68767875, 0.11372549)
 
 [node name="ShopLabel" type="Label" parent="ShopContent" unique_id=1659176980]
 layout_mode = 1
@@ -106,10 +115,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -76.0
-offset_right = -1.0
-offset_bottom = -45.0
+offset_top = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -124,41 +130,6 @@ text = "Re-Roll"
 layout_mode = 2
 size_flags_vertical = 0
 text = "Continue"
-
-[node name="PlayerHealthBar" type="Control" parent="ShopContent" unique_id=54687845]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 140.5
-offset_top = -42.0
-offset_right = 180.5
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("23_ou7or")
-
-[node name="HealthBar" type="ProgressBar" parent="ShopContent/PlayerHealthBar" unique_id=366371885]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -434.0
-offset_top = 1.0
-offset_right = 434.0
-offset_bottom = 28.0
-grow_horizontal = 2
-show_percentage = false
-
-[node name="HealthText" type="Label" parent="ShopContent/PlayerHealthBar" unique_id=1167251857]
-layout_mode = 0
-offset_left = -140.0
-offset_top = 2.0
-offset_right = 140.0
-offset_bottom = 25.0
-horizontal_alignment = 1
 
 [node name="MoneyLabel" type="Label" parent="." unique_id=1122346287]
 layout_mode = 1
@@ -212,6 +183,40 @@ theme_override_constants/separation = 50
 alignment = 1
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="." unique_id=82380767]
+
+[node name="PlayerHealthBar" type="Control" parent="." unique_id=54687845]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("23_ou7or")
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerHealthBar" unique_id=366371885]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -434.0
+offset_top = 1.0
+offset_right = 434.0
+offset_bottom = 28.0
+grow_horizontal = 2
+show_percentage = false
+
+[node name="HealthText" type="Label" parent="PlayerHealthBar" unique_id=1167251857]
+layout_mode = 0
+offset_left = -140.0
+offset_top = 2.0
+offset_right = 140.0
+offset_bottom = 25.0
+horizontal_alignment = 1
 
 [connection signal="pressed" from="ShopContent/ButtonsContainer/ReRollButton" to="." method="OnReRoll"]
 [connection signal="pressed" from="ShopContent/ButtonsContainer/ContinueButton" to="." method="OnContinue"]
