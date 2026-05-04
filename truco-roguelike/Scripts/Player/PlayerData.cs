@@ -39,6 +39,11 @@ public partial class PlayerData : Node
         permanentMult += addedPermaMult;
     }
 
+    public void AddHealth(int addedHealth)
+    {
+        health = Mathf.Clamp(health + addedHealth, 0, maxHealth);
+    }
+
 	public void RemoveRelic(string relicName)
 	{
         for (int i = 0; i < relics.Count; i++)

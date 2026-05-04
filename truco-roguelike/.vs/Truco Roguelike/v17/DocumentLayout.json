@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Guiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\Consumable\\Guiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|c:\\repos\\trucoroguelike\\truco-roguelike\\scripts\\consumable\\canto\\truco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8443B162-943D-4D42-8EC4-4A00B14B3083}|Truco Roguelike.csproj|solutionrelative:scripts\\consumable\\canto\\truco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,11 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerData.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\PlayerData.cs",
+              "RelativeDocumentMoniker": "Scripts\\Player\\PlayerData.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Player\\PlayerData.cs",
+              "RelativeToolTip": "Scripts\\Player\\PlayerData.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwCsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T17:05:48.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Guiso.cs",
+              "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Guiso.cs",
+              "RelativeDocumentMoniker": "Scripts\\Consumable\\Guiso.cs",
+              "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Guiso.cs",
+              "RelativeToolTip": "Scripts\\Consumable\\Guiso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T17:03:08.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Truco.cs",
               "DocumentMoniker": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Canto\\Truco.cs",
               "RelativeDocumentMoniker": "Scripts\\Consumable\\Canto\\Truco.cs",

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Guiso" format=3 uid="uid://cnrlerc586ajl"]
+
+[ext_resource type="Script" uid="uid://bftcu145rwmgv" path="res://Scripts/Consumable/Guiso.cs" id="1_rdkrn"]
+
+[resource]
+script = ExtResource("1_rdkrn")
+name = "Guiso"
+description = "+10 health"
+price = 10
+value = 10.0
+metadata/_custom_type_script = "uid://bftcu145rwmgv"

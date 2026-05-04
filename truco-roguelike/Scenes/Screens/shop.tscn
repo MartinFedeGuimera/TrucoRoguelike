@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://ckjxol631gnix" path="res://Scenes/Resources/Relics/BilleteraMataGalan.tres" id="14_04hdb"]
 [ext_resource type="Resource" uid="uid://cwqjcbg2dlb3m" path="res://Scenes/Resources/Relics/ACaraDePerro.tres" id="15_dom4b"]
 [ext_resource type="AudioStream" uid="uid://r250u1q1a837" path="res://Sounds/Buy.wav" id="18_1hanx"]
+[ext_resource type="Resource" uid="uid://cnrlerc586ajl" path="res://Scenes/Resources/Consumables/Guiso.tres" id="19_m4ouy"]
 [ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="23_ou7or"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l52qc"]
@@ -44,7 +45,7 @@ gameData = ExtResource("2_l52qc")
 rerollPrice = 5
 relicsData = Array[Object]([ExtResource("4_2vuo2"), ExtResource("5_i4yym"), ExtResource("6_p6pv5"), ExtResource("7_xt05f"), ExtResource("8_ysgmm"), ExtResource("9_1hanx"), ExtResource("10_qj1uu"), ExtResource("11_ysgmm"), ExtResource("11_h2dji"), ExtResource("12_04hdb"), ExtResource("13_dom4b"), ExtResource("14_04hdb"), ExtResource("15_dom4b")])
 relicProductScene = ExtResource("8_virt4")
-consumablesData = Array[Object]([ExtResource("9_ysgmm"), ExtResource("10_1hanx")])
+consumablesData = Array[Object]([ExtResource("9_ysgmm"), ExtResource("10_1hanx"), ExtResource("19_m4ouy")])
 consumableProductScene = ExtResource("11_qj1uu")
 relicScene = ExtResource("12_i4yym")
 consumableScene = ExtResource("13_p6pv5")
