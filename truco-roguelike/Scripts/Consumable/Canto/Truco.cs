@@ -5,8 +5,10 @@ public partial class Truco : Canto
 {
     public override void OnUse()
     {
+        isUsable = true;
+
         base.OnUse();
 
-        hand.AddDamageMultiplier((int)value);
+        hand.AddGeneralMult((int)value);
     }
 }

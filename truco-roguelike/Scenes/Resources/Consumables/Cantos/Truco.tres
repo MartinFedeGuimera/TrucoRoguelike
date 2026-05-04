@@ -9,5 +9,5 @@ maxLevel = 3
 name = "Truco"
 description = "Multiplies by {value} the damage dealed by you, but also by your enemy."
 price = 5
-value = 1.0
+value = 2.0
 metadata/_custom_type_script = "uid://cy354b5q4afon"

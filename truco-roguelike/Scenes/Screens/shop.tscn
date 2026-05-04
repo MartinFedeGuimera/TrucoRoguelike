@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://ckjxol631gnix" path="res://Scenes/Resources/Relics/BilleteraMataGalan.tres" id="14_04hdb"]
 [ext_resource type="Resource" uid="uid://cwqjcbg2dlb3m" path="res://Scenes/Resources/Relics/ACaraDePerro.tres" id="15_dom4b"]
 [ext_resource type="AudioStream" uid="uid://r250u1q1a837" path="res://Sounds/Buy.wav" id="18_1hanx"]
+[ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="23_ou7or"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l52qc"]
 font_size = 64
@@ -104,7 +105,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -31.0
+offset_left = -1.0
+offset_top = -76.0
+offset_right = -1.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -119,6 +123,41 @@ text = "Re-Roll"
 layout_mode = 2
 size_flags_vertical = 0
 text = "Continue"
+
+[node name="PlayerHealthBar" type="Control" parent="ShopContent" unique_id=54687845]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 140.5
+offset_top = -42.0
+offset_right = 180.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("23_ou7or")
+
+[node name="HealthBar" type="ProgressBar" parent="ShopContent/PlayerHealthBar" unique_id=366371885]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -434.0
+offset_top = 1.0
+offset_right = 434.0
+offset_bottom = 28.0
+grow_horizontal = 2
+show_percentage = false
+
+[node name="HealthText" type="Label" parent="ShopContent/PlayerHealthBar" unique_id=1167251857]
+layout_mode = 0
+offset_left = -140.0
+offset_top = 2.0
+offset_right = 140.0
+offset_bottom = 25.0
+horizontal_alignment = 1
 
 [node name="MoneyLabel" type="Label" parent="." unique_id=1122346287]
 layout_mode = 1
