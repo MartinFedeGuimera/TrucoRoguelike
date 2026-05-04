@@ -6,18 +6,21 @@ public partial class Envido : Canto
 {
     public int envidoValue = 0;
     
-    public override void OnUse()
+    public override bool OnUse()
     {
         if(hand != null)
         {
             isUsable = true;
         }
 
-        base.OnUse();
+        if (!base.OnUse())
+            return false;
 
         envidoValue = CalculateEnvidoValue(hand.GetDrawnCards());
 
         hand.CreateExternalAttack((int)value + envidoValue);
+
+        return true;
     }
 
     public int CalculateEnvidoValue(Array<Card> handCards)

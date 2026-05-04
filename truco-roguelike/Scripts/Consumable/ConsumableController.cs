@@ -9,6 +9,8 @@ public partial class ConsumableController : Node
 
 	public void SetUp(Consumable data, Hand hand)
 	{
+		GD.Print("Set Up called");
+
 		view = GetNode<ConsumableView>("TextureRect");
 		sellButton = GetNode<Button>("SellButton");
 
@@ -22,19 +24,24 @@ public partial class ConsumableController : Node
 
 	public void SetUp(Consumable data)
 	{
-		view = GetNode<ConsumableView>("TextureRect");
+        GD.Print("Set Up called");
+
+        view = GetNode<ConsumableView>("TextureRect");
         sellButton = GetNode<Button>("SellButton");
 
         view.SetUp(data.sprite, data.name);
 
 		data.isUsable = false;
 		this.data = data;
-	}
+
+        data.ConsumableUsed += OnUsed;
+    }
 
 	public Consumable GetData() => data;
 
 	public void OnButtonPressed()
 	{
+		GD.Print("Consumable used");
 		data.OnUse();
     }
 

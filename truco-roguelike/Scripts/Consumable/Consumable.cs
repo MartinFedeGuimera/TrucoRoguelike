@@ -15,15 +15,23 @@ public partial class Consumable : Resource
 
     public Hand hand;
 
-    public virtual void OnUse()
+    public virtual bool OnUse()
     {
         if (!isUsable)
         {
-            GD.Print("Can't be used");
-            return;
+            GD.Print("Consumable can't be used");
+            return false;
+        }
+
+        if (hand == null)
+        {
+            GD.Print("Hand is NULL");
+            return false;
         }
 
         GD.Print("Consumable Used: " + name);
         EmitSignal("ConsumableUsed");
+
+        return true;
     }
 }

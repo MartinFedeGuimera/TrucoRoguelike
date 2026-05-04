@@ -19,11 +19,14 @@ public partial class Canto : Consumable
         }
     }
 
-    public override void OnUse()
+    public override bool OnUse()
     {
-        base.OnUse();
+        if (!base.OnUse())
+            return false;
 
         OnLevelUp();
+
+        return true;
     }
 
     public string GetDescription()

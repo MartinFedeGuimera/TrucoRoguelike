@@ -3,12 +3,18 @@ using Godot;
 [GlobalClass]
 public partial class Truco : Canto
 {
-    public override void OnUse()
+    public override bool OnUse()
     {
-        isUsable = true;
+        if(hand != null)
+        {
+            isUsable = true;
+        }
 
-        base.OnUse();
+        if (!base.OnUse())
+            return false;
 
         hand.AddGeneralMult((int)value);
+
+        return true;
     }
 }

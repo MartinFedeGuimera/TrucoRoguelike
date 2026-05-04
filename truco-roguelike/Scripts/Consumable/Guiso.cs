@@ -3,7 +3,7 @@ using Godot;
 [GlobalClass]
 public partial class Guiso : Consumable
 {
-    public override void OnUse()
+    public override bool OnUse()
     {
         if(PlayerData.Instance.health == PlayerData.Instance.maxHealth)
         {
@@ -14,8 +14,11 @@ public partial class Guiso : Consumable
             isUsable = true;
         }
 
-        base.OnUse();
+        if (!base.OnUse())
+            return false;
 
         PlayerData.Instance.AddHealth((int)value);
+
+        return true;
     }
 }
