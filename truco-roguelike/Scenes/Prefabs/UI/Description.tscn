@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dvdbem4a5fbcq"]
+
+[ext_resource type="Script" uid="uid://cmency855781x" path="res://Scripts/UI/DescriptionController.cs" id="1_osspn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_osspn"]
+font_color = Color(1, 1, 0, 1)
+
+[node name="Description" type="Control" unique_id=1895936680]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_osspn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=831434677]
+layout_mode = 0
+offset_right = 213.0
+offset_bottom = 116.0
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=2043270945]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1047861236]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=510592354]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_osspn")
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1403694345]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="OnShow"]
+[connection signal="mouse_exited" from="." to="." method="OnHide"]

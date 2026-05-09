@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://w5u5utajrw80"]
 
 [ext_resource type="Script" uid="uid://dytplfomjq6m0" path="res://Scripts/Relic/RelicView.cs" id="1_giuqx"]
+[ext_resource type="PackedScene" uid="uid://dvdbem4a5fbcq" path="res://Scenes/Prefabs/UI/Description.tscn" id="2_o64op"]
 
-[node name="Relic" type="Control" unique_id=447680689]
+[node name="Relic" type="Control" unique_id=447680689 node_paths=PackedStringArray("descriptionController")]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 script = ExtResource("1_giuqx")
+descriptionController = NodePath("Description")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=860619092]
 layout_mode = 0
@@ -26,6 +28,9 @@ offset_top = 175.0
 offset_right = 22.0
 offset_bottom = 206.0
 text = "SELL"
+
+[node name="Description" parent="." unique_id=1895936680 instance=ExtResource("2_o64op")]
+layout_mode = 1
 
 [connection signal="mouse_entered" from="TextureRect" to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="TextureRect" to="." method="OnMouseExited"]
