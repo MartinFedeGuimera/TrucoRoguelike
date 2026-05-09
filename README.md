@@ -65,8 +65,5 @@ This project is licensed under the terms specified in LICENSE.md
 At the moment of editing this file (03/23/26),
 the future features to be implemented are:
 
-- Let the player sell his relics and consumables.  
-- Create the shop and make it work.  
-- Add descriptions to the relics and consumables.  
 - Adding bosses with special effects.  
 - Creating more content (Relics, Consumables and Bosses).  
