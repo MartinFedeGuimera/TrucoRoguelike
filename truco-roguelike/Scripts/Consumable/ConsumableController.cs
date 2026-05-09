@@ -7,6 +7,8 @@ public partial class ConsumableController : Node
 
 	private Button sellButton;
 
+	[Export] private DescriptionController descriptionController;
+
 	public void SetUp(Consumable data, Hand hand)
 	{
 		GD.Print("Set Up called");
@@ -18,6 +20,8 @@ public partial class ConsumableController : Node
 
         data.hand = hand;
         this.data = data;
+
+		descriptionController.SetUp(data.name, data.description);
 
 		data.ConsumableUsed += OnUsed;
 	}
@@ -64,11 +68,13 @@ public partial class ConsumableController : Node
 	private void OnMouseEntered()
 	{
 		sellButton.Visible = true;
+		descriptionController.OnShow();
 	}
 
 	private void OnMouseExited()
 	{
 		sellButton.Visible = false;
+		descriptionController.OnHide();
 	}
 
     public override void _ExitTree()

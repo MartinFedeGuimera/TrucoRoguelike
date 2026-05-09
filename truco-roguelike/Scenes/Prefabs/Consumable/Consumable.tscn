@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d3iydfp1mxs8v" path="res://Scripts/Consumable/ConsumableView.cs" id="1_7dbh0"]
 [ext_resource type="Script" uid="uid://ck33qigyqbefn" path="res://Scripts/Consumable/ConsumableController.cs" id="1_fttsv"]
+[ext_resource type="PackedScene" uid="uid://dvdbem4a5fbcq" path="res://Scenes/Prefabs/UI/Description.tscn" id="3_th4xx"]
 
-[node name="Consumable" type="Control" unique_id=436735757]
+[node name="Consumable" type="Control" unique_id=436735757 node_paths=PackedStringArray("descriptionController")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fttsv")
+descriptionController = NodePath("Description")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=60669165 node_paths=PackedStringArray("button")]
 layout_mode = 0
@@ -36,6 +38,9 @@ offset_top = 3.0
 offset_bottom = 28.0
 theme_override_font_sizes/font_size = 12
 text = "SELL"
+
+[node name="Description" parent="." unique_id=1895936680 instance=ExtResource("3_th4xx")]
+layout_mode = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="Button" to="." method="OnMouseExited"]
