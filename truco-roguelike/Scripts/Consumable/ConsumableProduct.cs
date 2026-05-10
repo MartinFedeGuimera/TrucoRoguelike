@@ -9,7 +9,9 @@ public partial class ConsumableProduct : Control
 
     private Consumable consumableData;
 
-    public void SetUp(Consumable consumable, ShopController shop)
+    private DescriptionController descriptionController;
+
+    public void SetUp(Consumable consumable, ShopController shop, DescriptionController descriptionController)
     {
         nameLabel = GetNode<Label>("NameLabel");
         priceLabel = GetNode<Label>("PriceLabel");
@@ -19,7 +21,20 @@ public partial class ConsumableProduct : Control
 
         consumableData = consumable;
 
+        this.descriptionController = descriptionController;
+
+
         this.shop = shop;
+    }
+
+    private void OnMouseEntered()
+    {
+        descriptionController.ChangeData(consumableData.name, consumableData.description);
+        descriptionController.OnShow();
+    }
+    private void OnMouseExited()
+    {
+        descriptionController.OnHide();
     }
 
     public void OnTryBuy()

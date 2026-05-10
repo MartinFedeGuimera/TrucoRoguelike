@@ -9,7 +9,9 @@ public partial class RelicProduct : Control
 
 	private RelicController relicData;
 
-    public void SetUp(RelicController relicData, ShopController shop)
+	private DescriptionController descriptionController;
+
+    public void SetUp(RelicController relicData, ShopController shop, DescriptionController descriptionController)
 	{
 		textureRect = GetNode<TextureRect>("TextureRect");
 		priceLabel = GetNode<Label>("PriceLabel");
@@ -19,7 +21,19 @@ public partial class RelicProduct : Control
 
 		this.relicData = relicData;
 
+		this.descriptionController = descriptionController;
+
 		this.shop = shop;
+	}
+
+	private void OnMouseEntered()
+	{
+        descriptionController.ChangeData(relicData.name, relicData.description);
+        descriptionController.OnShow();
+	}
+	private void OnMouseExited()
+	{
+		descriptionController.OnHide();
 	}
 
 	public void OnTryBuy()

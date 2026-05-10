@@ -7,11 +7,23 @@ public partial class DescriptionController : Control
 
     private bool isVisible = false;
 
-    public void SetUp(string titleText, string descriptionText)
+    [Export] private float maxDescriptionWidth = 300f;
+
+    public void SetUp()
     {
         title = GetNode<Label>("MarginContainer/VBoxContainer/Title");
         description = GetNode<Label>("MarginContainer/VBoxContainer/Description");
 
+        description.AutowrapMode = TextServer.AutowrapMode.Word;
+
+        description.CustomMinimumSize = new Vector2(maxDescriptionWidth, 0);
+
+        description.SizeFlagsHorizontal = SizeFlags.ShrinkBegin;
+        description.SizeFlagsVertical = SizeFlags.ShrinkBegin;
+    }
+
+    public void ChangeData(string titleText, string descriptionText)
+    {
         title.Text = titleText;
         description.Text = descriptionText;
     }

@@ -5,9 +5,10 @@ public partial class RelicView : Node
 	private TextureRect textureRect;
     private Button sellButton;
     private RelicController data;
-    [Export] private DescriptionController descriptionController;
 
-    public void SetUp(RelicController data)
+    private DescriptionController descriptionController;
+
+    public void SetUp(RelicController data, DescriptionController descriptionController)
     {
         textureRect = GetNode<TextureRect>("TextureRect");
         sellButton = GetNode<Button>("SellButton");
@@ -16,7 +17,7 @@ public partial class RelicView : Node
 
         textureRect.Texture = data.spriteTexture;
 
-        descriptionController.SetUp(data.name, data.description);
+        this.descriptionController = descriptionController;
     }
 
     private void OnSell()
@@ -31,12 +32,15 @@ public partial class RelicView : Node
     private void OnMouseEntered()
     {
         sellButton.Visible = true;
+
+        descriptionController.ChangeData(data.name, data.description);
         descriptionController.OnShow();
     }
 
     private void OnMouseExited()
     {
         sellButton.Visible = false;
+
         descriptionController.OnHide();
     }
 }

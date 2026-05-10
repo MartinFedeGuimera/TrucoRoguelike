@@ -7,9 +7,9 @@ public partial class ConsumableController : Node
 
 	private Button sellButton;
 
-	[Export] private DescriptionController descriptionController;
+	private DescriptionController descriptionController;
 
-	public void SetUp(Consumable data, Hand hand)
+	public void SetUp(Consumable data, Hand hand, DescriptionController descriptionController)
 	{
 		GD.Print("Set Up called");
 
@@ -21,12 +21,12 @@ public partial class ConsumableController : Node
         data.hand = hand;
         this.data = data;
 
-		descriptionController.SetUp(data.name, data.description);
+		this.descriptionController = descriptionController;
 
 		data.ConsumableUsed += OnUsed;
 	}
 
-	public void SetUp(Consumable data)
+	public void SetUp(Consumable data, DescriptionController descriptionController)
 	{
         GD.Print("Set Up called");
 
@@ -37,6 +37,8 @@ public partial class ConsumableController : Node
 
 		data.isUsable = false;
 		this.data = data;
+
+        this.descriptionController = descriptionController;
 
         data.ConsumableUsed += OnUsed;
     }
@@ -68,7 +70,9 @@ public partial class ConsumableController : Node
 	private void OnMouseEntered()
 	{
 		sellButton.Visible = true;
-		descriptionController.OnShow();
+
+        descriptionController.ChangeData(data.name, data.description);
+        descriptionController.OnShow();
 	}
 
 	private void OnMouseExited()

@@ -6,6 +6,8 @@ public partial class ShopController : Node
     [Export] private GameData gameData;
     private RandomNumberGenerator seed;
 
+    [Export] private DescriptionController descriptionController;
+
     [ExportGroup("Shop Settings")]
     [Export] private int maxRelics = 3;
     [Export] private int maxConsumables = 2;
@@ -49,6 +51,8 @@ public partial class ShopController : Node
         consumablesContainer = GetNode<VBoxContainer>("PlayerData/ConsumablesContainer");
 
         sfxPlayer = GetNode<AudioStreamPlayer2D>("SfxPlayer");
+
+        descriptionController.SetUp();
 
         drawnRelics = new Array<RelicProduct>();
         drawnConsumables = new Array<ConsumableProduct>();
@@ -104,7 +108,7 @@ public partial class ShopController : Node
             foreach (RelicController relic in PlayerData.Instance.relics)
             {
                 RelicView relicView = relicScene.Instantiate<RelicView>();
-                relicView.SetUp(relic);
+                relicView.SetUp(relic, descriptionController);
                 relicsContainer.AddChild(relicView);
             }
         }
@@ -114,7 +118,7 @@ public partial class ShopController : Node
             foreach (Consumable consumable in PlayerData.Instance.consumables)
             {
                 ConsumableController controller = consumableScene.Instantiate<ConsumableController>();
-                controller.SetUp(consumable);
+                controller.SetUp(consumable, descriptionController);
                 consumablesContainer.AddChild(controller);
             }
         }
@@ -285,7 +289,7 @@ public partial class ShopController : Node
                 continue;
 
             RelicProduct newRelic = relicProductScene.Instantiate<RelicProduct>();
-            newRelic.SetUp(newRelicData, this);
+            newRelic.SetUp(newRelicData, this, descriptionController);
 
             drawnRelics.Add(newRelic);
             relicsProductsContainer.AddChild(newRelic);
@@ -331,7 +335,7 @@ public partial class ShopController : Node
             {
                 ConsumableProduct newConsumable = consumableProductScene.Instantiate<ConsumableProduct>();
 
-                newConsumable.SetUp(newConsumableData, this);
+                newConsumable.SetUp(newConsumableData, this, descriptionController);
 
                 drawnConsumables.Add(newConsumable);
                 consumablesProductsContainer.AddChild(newConsumable);

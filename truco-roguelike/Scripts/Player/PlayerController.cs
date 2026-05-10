@@ -5,6 +5,7 @@ public partial class PlayerController : Node
 {
     [Export] private GameController gameController;
     [Export] public Enemy enemy;
+    [Export] private DescriptionController descriptionController;
 
     private Hand hand;
 
@@ -22,6 +23,8 @@ public partial class PlayerController : Node
     public override void _Ready()
     {
         hand = GetNode<Hand>("Hand");
+
+        descriptionController.SetUp();
 
         hand.Attack += DealDamage;
         hand.OutOfCards += OnOutOfCards;
@@ -77,7 +80,7 @@ public partial class PlayerController : Node
         foreach (var relic in PlayerData.Instance.relics)
         {
             RelicView relicNode = relicScene.Instantiate<RelicView>();
-            relicNode.SetUp(relic);
+            relicNode.SetUp(relic, descriptionController);
             relicsParent.AddChild(relicNode);
         }
 
@@ -89,7 +92,7 @@ public partial class PlayerController : Node
             ConsumableController controller =
                 consumableScene.Instantiate<ConsumableController>();
 
-            controller.SetUp(consumable, hand);
+            controller.SetUp(consumable, hand, descriptionController);
             consumablesParent.AddChild(controller);
         }
     }

@@ -14,7 +14,8 @@ offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_kcg4o")
 
@@ -65,4 +66,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "BUY"
 
+[connection signal="mouse_entered" from="TextureRect" to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="OnMouseExited"]
 [connection signal="pressed" from="BuyButton" to="." method="OnTryBuy"]

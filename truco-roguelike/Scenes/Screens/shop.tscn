@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://r250u1q1a837" path="res://Sounds/Buy.wav" id="18_1hanx"]
 [ext_resource type="Resource" uid="uid://cnrlerc586ajl" path="res://Scenes/Resources/Consumables/Guiso.tres" id="19_m4ouy"]
 [ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="23_ou7or"]
+[ext_resource type="PackedScene" uid="uid://dvdbem4a5fbcq" path="res://Scenes/Prefabs/UI/Description.tscn" id="25_t73ka"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l52qc"]
 font_size = 64
@@ -32,7 +33,7 @@ font_size = 64
 font_size = 32
 font_color = Color(1, 0.8392157, 0, 1)
 
-[node name="Shop" type="Control" unique_id=1733835964]
+[node name="Shop" type="Control" unique_id=1733835964 node_paths=PackedStringArray("descriptionController")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,6 +43,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_twmb6")
 gameData = ExtResource("2_l52qc")
+descriptionController = NodePath("Description")
 rerollPrice = 5
 relicsData = Array[Object]([ExtResource("4_2vuo2"), ExtResource("5_i4yym"), ExtResource("6_p6pv5"), ExtResource("7_xt05f"), ExtResource("8_ysgmm"), ExtResource("9_1hanx"), ExtResource("10_qj1uu"), ExtResource("11_ysgmm"), ExtResource("11_h2dji"), ExtResource("12_04hdb"), ExtResource("13_dom4b"), ExtResource("14_04hdb"), ExtResource("15_dom4b")])
 relicProductScene = ExtResource("8_virt4")
@@ -71,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.74161845, 1, 0.68767875, 0.11372549)
 
 [node name="ShopLabel" type="Label" parent="ShopContent" unique_id=1659176980]
@@ -217,6 +220,9 @@ offset_top = 2.0
 offset_right = 140.0
 offset_bottom = 25.0
 horizontal_alignment = 1
+
+[node name="Description" parent="." unique_id=1895936680 instance=ExtResource("25_t73ka")]
+layout_mode = 1
 
 [connection signal="pressed" from="ShopContent/ButtonsContainer/ReRollButton" to="." method="OnReRoll"]
 [connection signal="pressed" from="ShopContent/ButtonsContainer/ContinueButton" to="." method="OnContinue"]

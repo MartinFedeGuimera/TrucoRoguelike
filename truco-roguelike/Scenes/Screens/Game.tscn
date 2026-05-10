@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bra22crfad4v1" path="res://Scripts/UI/EnemyHealthBar.cs" id="10_dahhg"]
 [ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="11_3so38"]
 [ext_resource type="AudioStream" uid="uid://bpxwxgo34li7a" path="res://Sounds/Mult.wav" id="13_m4ykv"]
+[ext_resource type="PackedScene" uid="uid://dvdbem4a5fbcq" path="res://Scenes/Prefabs/UI/Description.tscn" id="16_m4ykv"]
 [ext_resource type="Script" uid="uid://bv477fbni1r3y" path="res://Scripts/Player/Hand.cs" id="43_audqb"]
 [ext_resource type="Resource" uid="uid://udi674rbvyul" path="res://Scenes/Resources/Cards/Deck.tres" id="44_7w24h"]
 
@@ -24,10 +25,11 @@ enemy = NodePath("Enemy")
 gameData = ExtResource("2_83kr7")
 roundWinPrize = 10
 
-[node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("gameController", "enemy", "relicsParent", "consumablesParent")]
+[node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("gameController", "enemy", "descriptionController", "relicsParent", "consumablesParent")]
 script = ExtResource("2_kldst")
 gameController = NodePath("..")
 enemy = NodePath("../Enemy")
+descriptionController = NodePath("../Description")
 relicScene = ExtResource("6_3cx6b")
 consumableScene = ExtResource("10_8r6kd")
 relicsParent = NodePath("../CanvasLayer/RelicsContainer")
@@ -195,5 +197,7 @@ damage = 10
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=952824322]
 position = Vector2(800, 450)
+
+[node name="Description" parent="." unique_id=1895936680 instance=ExtResource("16_m4ykv")]
 
 [connection signal="pressed" from="CanvasLayer/DmgVBoxContainer/PlayButton" to="Player/Hand" method="OnCardPlayed"]
