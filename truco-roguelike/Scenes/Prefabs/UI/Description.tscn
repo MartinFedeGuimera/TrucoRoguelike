@@ -6,7 +6,6 @@
 font_color = Color(1, 1, 0, 1)
 
 [node name="Description" type="Control" unique_id=1895936680]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,8 +16,8 @@ script = ExtResource("1_osspn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=831434677]
 layout_mode = 0
-offset_right = 213.0
-offset_bottom = 116.0
+offset_right = 1.0
+offset_bottom = 50.0
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=2043270945]
 layout_mode = 2

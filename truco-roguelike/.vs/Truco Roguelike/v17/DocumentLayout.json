@@ -46,8 +46,7 @@
               "RelativeToolTip": "Scripts\\ShopController.cs",
               "ViewState": "AgIAAGYAAAAAAAAAAAAewHgAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T18:09:28.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-10T18:09:28.006Z"
             },
             {
               "$type": "Document",
@@ -59,8 +58,7 @@
               "RelativeToolTip": "Scripts\\Player\\PlayerController.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T18:08:41.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-10T18:08:41.126Z"
             },
             {
               "$type": "Document",
@@ -72,8 +70,7 @@
               "RelativeToolTip": "Scripts\\Relic\\RelicView.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T17:57:44.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-10T17:57:44.771Z"
             },
             {
               "$type": "Document",
@@ -85,8 +82,7 @@
               "RelativeToolTip": "Scripts\\Relic\\RelicProduct.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwB4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T03:15:33.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T03:15:33.719Z"
             },
             {
               "$type": "Document",
@@ -96,7 +92,7 @@
               "RelativeDocumentMoniker": "Scripts\\UI\\DescriptionController.cs",
               "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\UI\\DescriptionController.cs",
               "RelativeToolTip": "Scripts\\UI\\DescriptionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-09T02:41:03.46Z",
               "EditorCaption": ""
@@ -111,8 +107,7 @@
               "RelativeToolTip": "Scripts\\Consumable\\ConsumableController.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAgwCgAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T02:36:18.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T02:36:18.346Z"
             }
           ]
         }
