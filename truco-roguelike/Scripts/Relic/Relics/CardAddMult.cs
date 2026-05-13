@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class CardAddMult : RelicController
@@ -13,5 +14,16 @@ public partial class CardAddMult : RelicController
         }
 
         base.OnCardPlayed(card);
+    }
+
+    public override Dictionary<string, object> GetVarsDictionary()
+    {
+        var vars = new Dictionary<string, object>()
+        {
+            {"value", value},
+            {"relicCard", relicCard.name}
+        };
+
+        return vars;
     }
 }

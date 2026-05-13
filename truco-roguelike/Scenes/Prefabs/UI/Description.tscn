@@ -16,7 +16,7 @@ script = ExtResource("1_osspn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=831434677]
 layout_mode = 0
-offset_right = 1.0
+offset_right = 77.0
 offset_bottom = 50.0
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=2043270945]
@@ -29,8 +29,12 @@ layout_mode = 2
 layout_mode = 2
 label_settings = SubResource("LabelSettings_osspn")
 
-[node name="Description" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1403694345]
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1945923232]
+custom_minimum_size = Vector2(0, 15.255)
 layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
 
 [connection signal="mouse_entered" from="." to="." method="OnShow"]
 [connection signal="mouse_exited" from="." to="." method="OnHide"]

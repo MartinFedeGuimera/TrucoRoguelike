@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class RelicController : Resource
@@ -13,29 +13,39 @@ public partial class RelicController : Resource
 
 	public Hand playerHand;
 
-	public virtual void OnCardPlayed(Card card)
-	{
-		wasUsed = true;
-	}
-
-	public virtual void OnPlayerTurnStarted() 
-	{
-        wasUsed = true;
-    }
-
-	public virtual void OnPlayerTurnFinished()
-	{
-        wasUsed = true;
-    }
-
-	public virtual void OnEnemyAttacks()
-	{
-        wasUsed = true;
-    }
-
 	public virtual void SetUp(Hand hand)
 	{
 		playerHand = hand;
 		wasUsed = false;
 	}
+
+    public virtual Dictionary<string, object> GetVarsDictionary()
+    {
+        var vars = new Dictionary<string, object>()
+        {
+            {"value", value}
+        };
+
+        return vars;
+    }
+
+    public virtual void OnCardPlayed(Card card)
+    {
+        wasUsed = true;
+    }
+
+    public virtual void OnPlayerTurnStarted()
+    {
+        wasUsed = true;
+    }
+
+    public virtual void OnPlayerTurnFinished()
+    {
+        wasUsed = true;
+    }
+
+    public virtual void OnEnemyAttacks()
+    {
+        wasUsed = true;
+    }
 }

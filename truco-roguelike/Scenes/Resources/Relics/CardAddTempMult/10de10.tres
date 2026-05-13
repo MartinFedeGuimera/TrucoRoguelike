@@ -11,7 +11,7 @@
 script = ExtResource("1_sbbhi")
 relicCards = Array[Object]([ExtResource("1_oebi4"), ExtResource("2_5rnod"), ExtResource("3_xffp3"), ExtResource("4_5q23y")])
 name = "10de10"
-description = "+10 Temp Mult when a 10 is played"
+description = "+{value} temp mult when a 10 is played"
 spriteTexture = ExtResource("6_ex6ns")
 value = 10
 price = 15

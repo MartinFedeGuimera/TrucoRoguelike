@@ -29,7 +29,7 @@ public partial class ConsumableProduct : Control
 
     private void OnMouseEntered()
     {
-        descriptionController.ChangeData(consumableData.name, consumableData.description);
+        descriptionController.ChangeData(consumableData.name, consumableData.description, consumableData.GetVarsDictionary());
         descriptionController.OnShow();
     }
     private void OnMouseExited()

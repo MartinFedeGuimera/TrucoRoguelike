@@ -8,7 +8,7 @@
 script = ExtResource("2_h88aq")
 relicCard = ExtResource("1_wonax")
 name = "1 in 40"
-description = "Adds  to the general mult if the card played is 1 Espada"
+description = "+{value} general mult if the card played is {relicCard}"
 spriteTexture = ExtResource("3_h88aq")
 value = 3
 price = 10

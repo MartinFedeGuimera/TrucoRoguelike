@@ -28,7 +28,7 @@ public partial class RelicProduct : Control
 
 	private void OnMouseEntered()
 	{
-        descriptionController.ChangeData(relicData.name, relicData.description);
+        descriptionController.ChangeData(relicData.name, relicData.description, relicData.GetVarsDictionary());
         descriptionController.OnShow();
 	}
 	private void OnMouseExited()

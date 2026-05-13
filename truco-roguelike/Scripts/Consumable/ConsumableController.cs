@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 public partial class ConsumableController : Node
 {
@@ -71,7 +72,7 @@ public partial class ConsumableController : Node
 	{
 		sellButton.Visible = true;
 
-        descriptionController.ChangeData(data.name, data.description);
+        descriptionController.ChangeData(data.name, data.description, data.GetVarsDictionary());
         descriptionController.OnShow();
 	}
 

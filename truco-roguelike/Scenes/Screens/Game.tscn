@@ -29,7 +29,7 @@ roundWinPrize = 10
 script = ExtResource("2_kldst")
 gameController = NodePath("..")
 enemy = NodePath("../Enemy")
-descriptionController = NodePath("../Description")
+descriptionController = NodePath("../CanvasLayer/Description")
 relicScene = ExtResource("6_3cx6b")
 consumableScene = ExtResource("10_8r6kd")
 relicsParent = NodePath("../CanvasLayer/RelicsContainer")
@@ -188,6 +188,8 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 50
 
+[node name="Description" parent="CanvasLayer" unique_id=1895936680 instance=ExtResource("16_m4ykv")]
+
 [node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("gameController", "player")]
 script = ExtResource("7_fgofq")
 gameController = NodePath("..")
@@ -197,7 +199,5 @@ damage = 10
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=952824322]
 position = Vector2(800, 450)
-
-[node name="Description" parent="." unique_id=1895936680 instance=ExtResource("16_m4ykv")]
 
 [connection signal="pressed" from="CanvasLayer/DmgVBoxContainer/PlayButton" to="Player/Hand" method="OnCardPlayed"]

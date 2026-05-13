@@ -33,7 +33,7 @@ public partial class RelicView : Node
     {
         sellButton.Visible = true;
 
-        descriptionController.ChangeData(data.name, data.description);
+        descriptionController.ChangeData(data.name, data.description, data.GetVarsDictionary());
         descriptionController.OnShow();
     }
 

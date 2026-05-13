@@ -8,7 +8,7 @@
 script = ExtResource("1_vetxr")
 relicCard = ExtResource("1_adrpe")
 name = "Culo Sucio"
-description = "adds 5 mult to Oro 1 when played"
+description = "+{value} mult to {relicCard} when played"
 spriteTexture = ExtResource("3_igdrb")
 value = 5
 price = 10

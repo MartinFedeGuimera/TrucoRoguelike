@@ -1,10 +1,11 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class Cantora : RelicController
 {
-    public CardSuit suit = CardSuit.None;
+    public CardSuit suit = CardSuit.Basto;
     [Export] public int substractValue;
 
     public override void OnPlayerTurnStarted()
@@ -37,5 +38,17 @@ public partial class Cantora : RelicController
 
             playerHand.AddPermaMult(-substractValue);
         }
+    }
+
+    public override Dictionary<string, object> GetVarsDictionary()
+    {
+        var vars = new Dictionary<string, object>()
+        {
+            {"value", value },
+            {"suit", suit.ToString()},
+            {"substractValue", substractValue}
+        }; 
+
+        return vars;    
     }
 }

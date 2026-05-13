@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class Judas : RelicController
@@ -14,5 +14,17 @@ public partial class Judas : RelicController
             card.mult *= value;
             playerHand.AddGeneralMult(-secondValue);
         }
+    }
+
+    public override Dictionary<string, object> GetVarsDictionary()
+    {
+        var vars = new Dictionary<string, object>()
+        {
+            {"value", value},
+            {"relicCard", relicCard.name},
+            {"secondValue", secondValue}
+        };
+
+        return vars;
     }
 }

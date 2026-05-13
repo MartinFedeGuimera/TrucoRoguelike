@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class Consumable : Resource
@@ -9,7 +10,7 @@ public partial class Consumable : Resource
 	[Export] public string description;
     [Export] public Texture2D sprite;
     [Export] public int price;
-	[Export] public float value;
+	[Export] public int value;
 
     [Signal] public delegate void ConsumableUsedEventHandler();
 
@@ -33,5 +34,15 @@ public partial class Consumable : Resource
         EmitSignal("ConsumableUsed");
 
         return true;
+    }
+
+    public virtual Dictionary<string, object> GetVarsDictionary()
+    {
+        var vars = new Dictionary<string, object>()
+        {
+            {"value", value}
+        };
+
+        return vars;
     }
 }

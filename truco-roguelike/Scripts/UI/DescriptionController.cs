@@ -1,9 +1,12 @@
 using Godot;
+using Godot.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public partial class DescriptionController : Control
 {
     private Label title;
-    private Label description;
+    private RichTextLabel description;
     private MarginContainer margin;
 
     private bool isVisible = false;
@@ -15,17 +18,22 @@ public partial class DescriptionController : Control
         SetAnchorsPreset(LayoutPreset.TopLeft);
 
         title = GetNode<Label>("MarginContainer/VBoxContainer/Title");
-        description = GetNode<Label>("MarginContainer/VBoxContainer/Description");
+        description = GetNode<RichTextLabel>("MarginContainer/VBoxContainer/Description");
         margin = GetNode<MarginContainer>("MarginContainer");
 
         description.AutowrapMode = TextServer.AutowrapMode.Word;
         description.CustomMinimumSize = new Vector2(maxDescriptionWidth, 0);
     }
 
-    public async void ChangeData(string titleText, string descriptionText)
+    public async void ChangeData(string titleText, string descriptionText, System.Collections.Generic.Dictionary<string, object> vars)
     {
         title.Text = titleText;
-        description.Text = descriptionText;
+
+        string finalDescription = DescriptionFormatter.Format(descriptionText, vars);
+
+        description.Text = finalDescription;
+
+        GD.Print(description.Text);
 
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 

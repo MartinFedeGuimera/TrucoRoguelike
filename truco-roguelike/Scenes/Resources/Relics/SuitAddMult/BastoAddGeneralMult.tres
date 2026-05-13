@@ -7,7 +7,7 @@
 script = ExtResource("1_18liq")
 multSuit = 4
 name = "Indio"
-description = "Adds 2 to mult when a Basto card is played"
+description = "+{value} mult when a {multSuit} card is played"
 spriteTexture = ExtResource("2_l4ofw")
 value = 2
 price = 10

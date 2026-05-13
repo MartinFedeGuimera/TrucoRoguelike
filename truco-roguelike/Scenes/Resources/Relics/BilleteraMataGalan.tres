@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_uj0o0")
 name = "Billetera Mata Galan"
-description = "+2 General Mult for each $1"
+description = "+{value} general mult for each $1"
 spriteTexture = ExtResource("2_k2kdl")
 value = 2
 price = 15

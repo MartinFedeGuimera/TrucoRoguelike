@@ -19,7 +19,7 @@
 script = ExtResource("1_jd5my")
 relicCards = Array[Object]([ExtResource("1_2ynal"), ExtResource("2_h1f44"), ExtResource("3_ud8ik"), ExtResource("4_t3dcr"), ExtResource("5_8kqj1"), ExtResource("6_pukk6"), ExtResource("7_upetc"), ExtResource("8_5b07g"), ExtResource("9_twbay"), ExtResource("10_aw2oc"), ExtResource("11_olyit"), ExtResource("12_shqxb")])
 name = "MalaMano"
-description = "If the card played is <7, x3 card mult"
+description = "If the card played is less than a 7, x3 card mult"
 spriteTexture = ExtResource("14_h1f44")
 value = 3
 price = 10

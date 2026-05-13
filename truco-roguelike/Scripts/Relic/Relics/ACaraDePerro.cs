@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 [GlobalClass]
 public partial class ACaraDePerro : RelicController
@@ -31,5 +32,16 @@ public partial class ACaraDePerro : RelicController
 
         canUse = true;
         previousHealth = PlayerData.Instance.health;
+    }
+
+    public override Dictionary<string, object> GetVarsDictionary()
+    {
+        var vars = new Dictionary<string, object>()
+        {
+            {"value", value},
+            {"substractValue", substractValue}
+        };
+
+        return vars;
     }
 }

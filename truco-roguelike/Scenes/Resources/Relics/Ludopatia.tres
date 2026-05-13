@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_n5bae")
 name = "Ludopatia"
-description = "Adds a mult between 0 and 12"
+description = "+{1 | value} temp mult?"
 spriteTexture = ExtResource("2_jgy6j")
 value = 12
-price = 10
+price = 20
 metadata/_custom_type_script = "uid://ds5xnu77tkahi"
