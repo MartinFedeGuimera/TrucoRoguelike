@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SuitAddMultRelic" format=3 uid="uid://bhj2jq381o3x6"]
+[gd_resource type="Resource" script_class="SuitAddGeneralMult" format=3 uid="uid://bhj2jq381o3x6"]
 
 [ext_resource type="Script" uid="uid://dlvusihc37i7c" path="res://Scripts/Relic/Relics/SuitAddGeneralMult.cs" id="1_6nmjg"]
 [ext_resource type="Texture2D" uid="uid://bekg875heok4u" path="res://Sprites/CopaAddMult.jpeg" id="2_c7h2a"]
@@ -7,7 +7,7 @@
 script = ExtResource("1_6nmjg")
 multSuit = 2
 name = "El Rey de Copas"
-description = "Adds 5 to mult when a Copa card is played"
+description = "Adds 2 to mult when a Copa card is played"
 spriteTexture = ExtResource("2_c7h2a")
 value = 2
 price = 10
