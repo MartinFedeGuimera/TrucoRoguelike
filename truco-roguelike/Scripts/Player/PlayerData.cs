@@ -13,7 +13,7 @@ public partial class PlayerData : Node
 	public Array<Consumable> consumables = new Array<Consumable>();
     public int maxConsumables = 2;
 
-    public int maxHealth = 100;
+    public int maxHealth = 50;
 	public int health;
 
     public float permanentMult;
