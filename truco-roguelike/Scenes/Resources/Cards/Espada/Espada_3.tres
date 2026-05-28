@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://hlo8dfobc56k"]
 
-[ext_resource type="Script" uid="uid://b11wq8u7e7pjb" path="res://Scripts/Card/Card.cs" id="1_qfuxi"]
+[ext_resource type="Script" uid="uid://c8f2jro8pb1kn" path="res://Scripts/Card/Card.gd" id="1_qfuxi"]
 [ext_resource type="Texture2D" uid="uid://uoblk3jxxul" path="res://Sprites/Cards.png" id="2_0wdd0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwef2"]
@@ -11,6 +11,5 @@ region = Rect2(32, 0, 16, 32)
 script = ExtResource("1_qfuxi")
 name = "Espada_3"
 value = 10
-envidoValue = 3
 suit = 1
 texture = SubResource("AtlasTexture_pwef2")

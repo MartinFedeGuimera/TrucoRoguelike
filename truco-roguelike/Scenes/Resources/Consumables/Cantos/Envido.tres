@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Envido" format=3 uid="uid://b6cqtsa1l6pmh"]
 
-[ext_resource type="Script" uid="uid://b5jxxidlqcuei" path="res://Scripts/Consumable/Canto/Envido.cs" id="1_k6ux3"]
+[ext_resource type="Script" uid="uid://djfv6yx7e2wfc" path="res://Scripts/Consumable/Canto/Envido.gd" id="1_k6ux3"]
 
 [resource]
 script = ExtResource("1_k6ux3")

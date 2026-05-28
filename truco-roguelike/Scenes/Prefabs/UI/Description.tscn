@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dvdbem4a5fbcq"]
 
-[ext_resource type="Script" uid="uid://cmency855781x" path="res://Scripts/UI/DescriptionController.cs" id="1_osspn"]
+[ext_resource type="Script" uid="uid://ceqhpsyvjk171" path="res://Scripts/UI/DescriptionController.gd" id="1_osspn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_osspn"]
 font_color = Color(1, 1, 0, 1)
 
 [node name="Description" type="Control" unique_id=1895936680]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +36,3 @@ layout_mode = 2
 size_flags_vertical = 4
 bbcode_enabled = true
 fit_content = true
-
-[connection signal="mouse_entered" from="." to="." method="OnShow"]
-[connection signal="mouse_exited" from="." to="." method="OnHide"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://w5u5utajrw80"]
 
-[ext_resource type="Script" uid="uid://dytplfomjq6m0" path="res://Scripts/Relic/RelicView.cs" id="1_giuqx"]
+[ext_resource type="Script" uid="uid://diiev5ke8kcga" path="res://Scripts/Relic/RelicView.gd" id="1_giuqx"]
 
 [node name="Relic" type="Control" unique_id=447680689]
 layout_mode = 3

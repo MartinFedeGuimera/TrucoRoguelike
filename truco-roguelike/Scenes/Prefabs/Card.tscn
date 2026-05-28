@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ca0wlehqx6l8q"]
 
-[ext_resource type="Script" uid="uid://cbu5lciui7dq" path="res://Scripts/Card/CardController.cs" id="1_58ae4"]
+[ext_resource type="Script" uid="uid://dfa2lt34em0vg" path="res://Scripts/Card/CardController.gd" id="1_58ae4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntgjb"]
 size = Vector2(16, 32)
@@ -17,6 +17,6 @@ texture_repeat = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2052524889]
 shape = SubResource("RectangleShape2D_ntgjb")
 
-[connection signal="input_event" from="Area2D" to="." method="OnInputEvent"]
-[connection signal="mouse_entered" from="Area2D" to="." method="OnMouseEntered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="OnMouseExited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

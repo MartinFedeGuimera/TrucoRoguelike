@@ -1,62 +1,62 @@
 [gd_scene format=3 uid="uid://csiwbmdydhe33"]
 
-[ext_resource type="Script" uid="uid://bdibbsubjn4md" path="res://Scripts/GameController.cs" id="1_t2joc"]
+[ext_resource type="Script" uid="uid://btd0y15qnm6d4" path="res://Scripts/GameController.gd" id="1_t2joc"]
 [ext_resource type="Resource" uid="uid://dmpphthesrspc" path="res://Scenes/Resources/DataSaving/GameData.tres" id="2_83kr7"]
 [ext_resource type="PackedScene" uid="uid://ca0wlehqx6l8q" path="res://Scenes/Prefabs/Card.tscn" id="2_dctr5"]
-[ext_resource type="Script" uid="uid://cl834ig5dw28j" path="res://Scripts/Player/PlayerController.cs" id="2_kldst"]
+[ext_resource type="Script" uid="uid://bt1ct2akc7axn" path="res://Scripts/Player/PlayerController.gd" id="2_kldst"]
 [ext_resource type="PackedScene" uid="uid://w5u5utajrw80" path="res://Scenes/Prefabs/Relic/Relic.tscn" id="6_3cx6b"]
-[ext_resource type="Script" uid="uid://b8oh0i3pe2j3r" path="res://Scripts/UI/DmgUiController.cs" id="6_7lihs"]
-[ext_resource type="Script" uid="uid://clrd6f22hrh50" path="res://Scripts/Enemy/Enemy.cs" id="7_fgofq"]
+[ext_resource type="Script" uid="uid://c25ttm85iiuwu" path="res://Scripts/UI/DmgUiController.gd" id="6_7lihs"]
+[ext_resource type="Script" uid="uid://cry70hh04ej3w" path="res://Scripts/Enemy/Enemy.gd" id="7_fgofq"]
 [ext_resource type="AudioStream" uid="uid://budk7itdgh2j2" path="res://Sounds/DrawCard.wav" id="8_fhspi"]
 [ext_resource type="AudioStream" uid="uid://2lws7gd3npa" path="res://Sounds/PlayCard.wav" id="9_5wh84"]
 [ext_resource type="PackedScene" uid="uid://cfr25ymq0ee4d" path="res://Scenes/Prefabs/Consumable/Consumable.tscn" id="10_8r6kd"]
-[ext_resource type="Script" uid="uid://bra22crfad4v1" path="res://Scripts/UI/EnemyHealthBar.cs" id="10_dahhg"]
-[ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="11_3so38"]
+[ext_resource type="Script" uid="uid://b5mue3o8v5l8p" path="res://Scripts/UI/EnemyHealthBar.gd" id="10_dahhg"]
+[ext_resource type="Script" uid="uid://dnu18oduim56" path="res://Scripts/UI/PlayerHealthBar.gd" id="11_3so38"]
 [ext_resource type="AudioStream" uid="uid://bpxwxgo34li7a" path="res://Sounds/Mult.wav" id="13_m4ykv"]
 [ext_resource type="PackedScene" uid="uid://dvdbem4a5fbcq" path="res://Scenes/Prefabs/UI/Description.tscn" id="16_m4ykv"]
-[ext_resource type="Script" uid="uid://bv477fbni1r3y" path="res://Scripts/Player/Hand.cs" id="43_audqb"]
+[ext_resource type="Script" uid="uid://cu2al8wxdcjjs" path="res://Scripts/Player/Hand.gd" id="43_audqb"]
 [ext_resource type="Resource" uid="uid://udi674rbvyul" path="res://Scenes/Resources/Cards/Deck.tres" id="44_7w24h"]
 
-[node name="Game" type="Node2D" unique_id=737948972 node_paths=PackedStringArray("player", "playerHand", "enemy")]
+[node name="Game" type="Node2D" unique_id=737948972 node_paths=PackedStringArray("player", "player_hand", "enemy")]
 script = ExtResource("1_t2joc")
 player = NodePath("Player")
-playerHand = NodePath("Player/Hand")
+player_hand = NodePath("Player/Hand")
 enemy = NodePath("Enemy")
-gameData = ExtResource("2_83kr7")
-roundWinPrize = 10
+game_data = ExtResource("2_83kr7")
+round_win_prize = 10
 
-[node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("gameController", "enemy", "descriptionController", "relicsParent", "consumablesParent")]
+[node name="Player" type="Node2D" parent="." unique_id=750952452 node_paths=PackedStringArray("game_controller", "enemy", "description_controller", "relics_parent", "consumables_parent")]
 script = ExtResource("2_kldst")
-gameController = NodePath("..")
+game_controller = NodePath("..")
 enemy = NodePath("../Enemy")
-descriptionController = NodePath("../CanvasLayer/Description")
-relicScene = ExtResource("6_3cx6b")
-consumableScene = ExtResource("10_8r6kd")
-relicsParent = NodePath("../CanvasLayer/RelicsContainer")
-consumablesParent = NodePath("../CanvasLayer/ConsumablesContainer")
+description_controller = NodePath("../CanvasLayer/Description")
+relic_scene = ExtResource("6_3cx6b")
+consumable_scene = ExtResource("10_8r6kd")
+relics_parent = NodePath("../CanvasLayer/RelicsContainer")
+consumables_parent = NodePath("../CanvasLayer/ConsumablesContainer")
 
-[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("gameController", "enemy", "dmgUiController")]
+[node name="Hand" type="Node2D" parent="Player" unique_id=950221332 node_paths=PackedStringArray("game_controller", "enemy", "dmg_ui_controller")]
 script = ExtResource("43_audqb")
-drawCardSound = ExtResource("8_fhspi")
-playCardSound = ExtResource("9_5wh84")
-gameController = NodePath("../..")
+draw_card_sound = ExtResource("8_fhspi")
+play_card_sound = ExtResource("9_5wh84")
+game_controller = NodePath("../..")
 enemy = NodePath("../../Enemy")
-dmgUiController = NodePath("../../CanvasLayer/DmgVBoxContainer")
-cardScene = ExtResource("2_dctr5")
-deckResource = ExtResource("44_7w24h")
+dmg_ui_controller = NodePath("../../CanvasLayer/DmgVBoxContainer")
+card_scene = ExtResource("2_dctr5")
+deck_resource = ExtResource("44_7w24h")
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="Player/Hand" unique_id=1706380860]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1664855381]
 
-[node name="DmgVBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1162640196 node_paths=PackedStringArray("gameController")]
+[node name="DmgVBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1162640196 node_paths=PackedStringArray("game_controller")]
 offset_top = 425.0
 offset_right = 77.0
 offset_bottom = 475.0
 grow_vertical = 2
 script = ExtResource("6_7lihs")
-gameController = NodePath("../..")
-multSound = ExtResource("13_m4ykv")
+game_controller = NodePath("../..")
+mult_sound = ExtResource("13_m4ykv")
 
 [node name="AttackLabel" type="Label" parent="CanvasLayer/DmgVBoxContainer" unique_id=443017178]
 layout_mode = 2
@@ -102,6 +102,7 @@ offset_top = 180.0
 offset_right = 18.0
 offset_bottom = 220.0
 grow_horizontal = 2
+mouse_filter = 1
 script = ExtResource("10_dahhg")
 enemy = NodePath("../../Enemy")
 
@@ -140,6 +141,7 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
 script = ExtResource("11_3so38")
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/PlayerHealthBar" unique_id=549559071]
@@ -189,15 +191,16 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 
 [node name="Description" parent="CanvasLayer" unique_id=1895936680 instance=ExtResource("16_m4ykv")]
+mouse_filter = 1
 
-[node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("gameController", "player")]
+[node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("game_controller", "player")]
 script = ExtResource("7_fgofq")
-gameController = NodePath("..")
+game_controller = NodePath("..")
 player = NodePath("../Player")
-maxHealth = 15
+max_health = 15
 damage = 10
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=952824322]
 position = Vector2(800, 450)
 
-[connection signal="pressed" from="CanvasLayer/DmgVBoxContainer/PlayButton" to="Player/Hand" method="OnCardPlayed"]
+[connection signal="pressed" from="CanvasLayer/DmgVBoxContainer/PlayButton" to="Player/Hand" method="on_card_played"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Truco" format=3 uid="uid://dfvfkd7e31p27"]
 
-[ext_resource type="Script" uid="uid://cy354b5q4afon" path="res://Scripts/Consumable/Canto/Truco.cs" id="1_kwud1"]
+[ext_resource type="Script" uid="uid://n3of4y6blwcf" path="res://Scripts/Consumable/Canto/Truco.gd" id="1_kwud1"]
 
 [resource]
 script = ExtResource("1_kwud1")

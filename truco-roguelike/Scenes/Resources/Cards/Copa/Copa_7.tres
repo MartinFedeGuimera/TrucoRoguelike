@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://bg3bjxd4xwrqt"]
 
-[ext_resource type="Script" uid="uid://b11wq8u7e7pjb" path="res://Scripts/Card/Card.cs" id="1_hr7r2"]
+[ext_resource type="Script" uid="uid://c8f2jro8pb1kn" path="res://Scripts/Card/Card.gd" id="1_hr7r2"]
 [ext_resource type="Texture2D" uid="uid://uoblk3jxxul" path="res://Sprites/Cards.png" id="2_hxjod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohytl"]
@@ -11,6 +11,5 @@ region = Rect2(96, 96, 16, 32)
 script = ExtResource("1_hr7r2")
 name = "Copa_7"
 value = 4
-envidoValue = 7
 suit = 2
 texture = SubResource("AtlasTexture_ohytl")

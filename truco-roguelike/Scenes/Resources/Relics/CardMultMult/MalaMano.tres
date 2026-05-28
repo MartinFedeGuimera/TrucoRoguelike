@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="CardMultMult" format=3 uid="uid://8568flfh8hsa"]
 
 [ext_resource type="Resource" uid="uid://bor5yp574dbh3" path="res://Scenes/Resources/Cards/Basto/Basto_4.tres" id="1_2ynal"]
-[ext_resource type="Script" uid="uid://bbmija3e2suhd" path="res://Scripts/Relic/Relics/CardMultMult.cs" id="1_jd5my"]
+[ext_resource type="Script" uid="uid://bsfhc4j2fn6cu" path="res://Scripts/Relic/Relics/CardMultMult.gd" id="1_jd5my"]
+[ext_resource type="Script" uid="uid://c8f2jro8pb1kn" path="res://Scripts/Card/Card.gd" id="1_ud8ik"]
 [ext_resource type="Resource" uid="uid://bscqa1o0mucfr" path="res://Scenes/Resources/Cards/Basto/Basto_5.tres" id="2_h1f44"]
 [ext_resource type="Resource" uid="uid://dgk53vr7nsuil" path="res://Scenes/Resources/Cards/Basto/Basto_6.tres" id="3_ud8ik"]
 [ext_resource type="Resource" uid="uid://bdvq42w00jv6n" path="res://Scenes/Resources/Cards/Copa/Copa_4.tres" id="4_t3dcr"]
@@ -17,10 +18,9 @@
 
 [resource]
 script = ExtResource("1_jd5my")
-relicCards = Array[Object]([ExtResource("1_2ynal"), ExtResource("2_h1f44"), ExtResource("3_ud8ik"), ExtResource("4_t3dcr"), ExtResource("5_8kqj1"), ExtResource("6_pukk6"), ExtResource("7_upetc"), ExtResource("8_5b07g"), ExtResource("9_twbay"), ExtResource("10_aw2oc"), ExtResource("11_olyit"), ExtResource("12_shqxb")])
+relic_cards = Array[ExtResource("1_ud8ik")]([ExtResource("1_2ynal"), ExtResource("2_h1f44"), ExtResource("3_ud8ik"), ExtResource("4_t3dcr"), ExtResource("5_8kqj1"), ExtResource("6_pukk6"), ExtResource("7_upetc"), ExtResource("8_5b07g"), ExtResource("9_twbay"), ExtResource("10_aw2oc"), ExtResource("11_olyit"), ExtResource("12_shqxb")])
 name = "MalaMano"
 description = "If the card played is less than a 7, x3 card mult"
-spriteTexture = ExtResource("14_h1f44")
+sprite_texture = ExtResource("14_h1f44")
 value = 3
 price = 10
-metadata/_custom_type_script = "uid://bbmija3e2suhd"

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bvx5xh8gndpn5"]
 
-[ext_resource type="Script" uid="uid://b8rukfyuloyjp" path="res://Scripts/ShopController.cs" id="1_twmb6"]
+[ext_resource type="Script" uid="uid://gwu4xclg05rp" path="res://Scripts/ShopController.gd" id="1_twmb6"]
 [ext_resource type="Resource" uid="uid://dmpphthesrspc" path="res://Scenes/Resources/DataSaving/GameData.tres" id="2_l52qc"]
+[ext_resource type="Script" uid="uid://c4g7sx1rgkv2u" path="res://Scripts/Relic/RelicController.gd" id="3_uadv1"]
 [ext_resource type="Resource" uid="uid://7dcvrbh6twcb" path="res://Scenes/Resources/Relics/SuitAddMult/OroAddGeneralMult.tres" id="4_2vuo2"]
 [ext_resource type="Resource" uid="uid://bhj2jq381o3x6" path="res://Scenes/Resources/Relics/SuitAddMult/CopaAddGeneralMult.tres" id="5_i4yym"]
 [ext_resource type="Resource" uid="uid://pm748ktblyn5" path="res://Scenes/Resources/Relics/SuitAddMult/BastoAddGeneralMult.tres" id="6_p6pv5"]
@@ -22,8 +23,9 @@
 [ext_resource type="Resource" uid="uid://ckjxol631gnix" path="res://Scenes/Resources/Relics/BilleteraMataGalan.tres" id="14_04hdb"]
 [ext_resource type="Resource" uid="uid://cwqjcbg2dlb3m" path="res://Scenes/Resources/Relics/ACaraDePerro.tres" id="15_dom4b"]
 [ext_resource type="AudioStream" uid="uid://r250u1q1a837" path="res://Sounds/Buy.wav" id="18_1hanx"]
+[ext_resource type="Script" uid="uid://c1a1jg28mkrm4" path="res://Scripts/Consumable/Consumable.gd" id="18_p6to4"]
 [ext_resource type="Resource" uid="uid://cnrlerc586ajl" path="res://Scenes/Resources/Consumables/Guiso.tres" id="19_m4ouy"]
-[ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="23_ou7or"]
+[ext_resource type="Script" uid="uid://dnu18oduim56" path="res://Scripts/UI/PlayerHealthBar.gd" id="23_ou7or"]
 [ext_resource type="PackedScene" uid="uid://dvdbem4a5fbcq" path="res://Scenes/Prefabs/UI/Description.tscn" id="25_t73ka"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l52qc"]
@@ -33,7 +35,7 @@ font_size = 64
 font_size = 32
 font_color = Color(1, 0.8392157, 0, 1)
 
-[node name="Shop" type="Control" unique_id=1733835964 node_paths=PackedStringArray("descriptionController")]
+[node name="Shop" type="Control" unique_id=1733835964 node_paths=PackedStringArray("description_controller")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,16 +44,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_twmb6")
-gameData = ExtResource("2_l52qc")
-descriptionController = NodePath("Description")
-rerollPrice = 5
-relicsData = Array[Object]([ExtResource("4_2vuo2"), ExtResource("5_i4yym"), ExtResource("6_p6pv5"), ExtResource("7_xt05f"), ExtResource("8_ysgmm"), ExtResource("9_1hanx"), ExtResource("10_qj1uu"), ExtResource("11_ysgmm"), ExtResource("11_h2dji"), ExtResource("12_04hdb"), ExtResource("13_dom4b"), ExtResource("14_04hdb"), ExtResource("15_dom4b")])
-relicProductScene = ExtResource("8_virt4")
-consumablesData = Array[Object]([ExtResource("9_ysgmm"), ExtResource("10_1hanx"), ExtResource("19_m4ouy")])
-consumableProductScene = ExtResource("11_qj1uu")
-relicScene = ExtResource("12_i4yym")
-consumableScene = ExtResource("13_p6pv5")
-buySound = ExtResource("18_1hanx")
+game_data = ExtResource("2_l52qc")
+description_controller = NodePath("Description")
+reroll_price = 5
+relics_data = Array[ExtResource("3_uadv1")]([ExtResource("15_dom4b"), ExtResource("9_1hanx"), ExtResource("10_qj1uu"), ExtResource("11_h2dji"), ExtResource("12_04hdb"), ExtResource("6_p6pv5"), ExtResource("5_i4yym"), ExtResource("7_xt05f"), ExtResource("4_2vuo2"), ExtResource("14_04hdb"), ExtResource("13_dom4b"), ExtResource("8_ysgmm"), ExtResource("11_ysgmm")])
+relic_product_scene = ExtResource("8_virt4")
+consumables_data = Array[ExtResource("18_p6to4")]([ExtResource("9_ysgmm"), ExtResource("10_1hanx"), ExtResource("19_m4ouy")])
+consumable_product_scene = ExtResource("11_qj1uu")
+relic_scene = ExtResource("12_i4yym")
+consumable_scene = ExtResource("13_p6pv5")
+buy_sound = ExtResource("18_1hanx")
 
 [node name="ShopContent" type="Control" parent="." unique_id=671544109]
 layout_mode = 1
@@ -224,5 +226,5 @@ horizontal_alignment = 1
 [node name="Description" parent="." unique_id=1895936680 instance=ExtResource("25_t73ka")]
 layout_mode = 1
 
-[connection signal="pressed" from="ShopContent/ButtonsContainer/ReRollButton" to="." method="OnReRoll"]
-[connection signal="pressed" from="ShopContent/ButtonsContainer/ContinueButton" to="." method="OnContinue"]
+[connection signal="pressed" from="ShopContent/ButtonsContainer/ReRollButton" to="." method="on_reroll"]
+[connection signal="pressed" from="ShopContent/ButtonsContainer/ContinueButton" to="." method="on_continue"]

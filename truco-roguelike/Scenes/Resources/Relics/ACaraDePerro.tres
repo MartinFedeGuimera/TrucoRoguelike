@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="ACaraDePerro" format=3 uid="uid://cwqjcbg2dlb3m"]
 
-[ext_resource type="Script" uid="uid://crmqvarwkuoog" path="res://Scripts/Relic/Relics/ACaraDePerro.cs" id="1_b16u5"]
+[ext_resource type="Script" uid="uid://c6m6rmjfwvaoa" path="res://Scripts/Relic/Relics/ACaraDePerro.gd" id="1_b16u5"]
 [ext_resource type="Texture2D" uid="uid://hak0qvxvhm4r" path="res://Sprites/ACaraDePerro.jpeg" id="2_w6jvp"]
 
 [resource]
 script = ExtResource("1_b16u5")
-substractValue = 10
+substract_value = 1
 name = "A Cara De Perro"
 description = "+{value} perma mult when taking damage, -{substractValue} perma mult when healing"
-spriteTexture = ExtResource("2_w6jvp")
+sprite_texture = ExtResource("2_w6jvp")
 value = 2
 price = 10
-metadata/_custom_type_script = "uid://crmqvarwkuoog"

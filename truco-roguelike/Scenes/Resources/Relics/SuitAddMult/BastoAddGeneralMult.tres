@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="SuitAddGeneralMult" format=3 uid="uid://pm748ktblyn5"]
 
-[ext_resource type="Script" uid="uid://dlvusihc37i7c" path="res://Scripts/Relic/Relics/SuitAddGeneralMult.cs" id="1_18liq"]
+[ext_resource type="Script" uid="uid://bkcuk7rfmod1n" path="res://Scripts/Relic/Relics/SuitAddGeneralMult.gd" id="1_18liq"]
 [ext_resource type="Texture2D" uid="uid://4klflv05qgjw" path="res://Sprites/BastoAddMult.jpeg" id="2_l4ofw"]
 
 [resource]
 script = ExtResource("1_18liq")
-multSuit = 4
+mult_suit = 4
 name = "Indio"
 description = "+{value} mult when a {multSuit} card is played"
-spriteTexture = ExtResource("2_l4ofw")
+sprite_texture = ExtResource("2_l4ofw")
 value = 2
 price = 10
-metadata/_custom_type_script = "uid://dlvusihc37i7c"
