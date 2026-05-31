@@ -222,6 +222,7 @@ offset_bottom = 25.0
 horizontal_alignment = 1
 
 [node name="Description" parent="." unique_id=1895936680 instance=ExtResource("25_t73ka")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="ShopContent/ButtonsContainer/ReRollButton" to="." method="OnReRoll"]

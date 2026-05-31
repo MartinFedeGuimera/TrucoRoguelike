@@ -4,34 +4,35 @@ using System.Collections.Generic;
 [GlobalClass]
 public partial class ACaraDePerro : RelicController
 {
-    private bool canUse = false;
     private int previousHealth;
 
     [Export] public int substractValue;
+
 
     public override void OnPlayerTurnStarted()
     {
         base.OnPlayerTurnStarted();
 
-        if(canUse)
-        {
-            if(PlayerData.Instance.health > previousHealth)
-            {
-                playerHand.AddPermaMult(-substractValue);
-            }
-            else
-            {
-                playerHand.AddPermaMult(value);
-            }
-        }
+        previousHealth = PlayerData.Instance.health;
     }
 
     public override void OnPlayerTurnFinished()
     {
         base.OnPlayerTurnFinished();
 
-        canUse = true;
-        previousHealth = PlayerData.Instance.health;
+
+        GD.Print("Can Use");
+
+        if (PlayerData.Instance.health > previousHealth)
+        {
+            playerHand.AddPermaMult(-substractValue);
+
+            GD.Print("Player healed, -10 perma mult");
+        }
+        else
+        {
+            playerHand.AddPermaMult(value);
+        }
     }
 
     public override Dictionary<string, object> GetVarsDictionary()

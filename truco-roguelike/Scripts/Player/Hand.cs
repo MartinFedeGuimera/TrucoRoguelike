@@ -35,6 +35,7 @@ public partial class Hand : Node
     private float damageMultiplier = 1f;
 
     public bool hasFlor = false;
+    private bool turnFinished;
 
     [Signal] public delegate void CardSelectedEventHandler(CardController card);
     [Signal] public delegate void AttackEventHandler(int damage);
@@ -72,6 +73,8 @@ public partial class Hand : Node
         player = GetParent<PlayerController>();
         sfxPlayer = GetNode<AudioStreamPlayer2D>("SfxPlayer");
 
+        enemy.EnemyDead += FinishTurn;
+
         seed = gameController.GetSeed();
         deckResource.Shuffle(seed);
 
@@ -83,6 +86,7 @@ public partial class Hand : Node
         if (!canStart) return;
 
         canStart = false;
+        turnFinished = false;
 
         generalMult = permanentMult;
 
@@ -173,11 +177,7 @@ public partial class Hand : Node
 
         if (drawnCards.Count == 0)
         {
-            if (PlayerData.Instance.relics != null)
-            {
-                foreach (RelicController relic in PlayerData.Instance.relics)
-                    relic.OnPlayerTurnFinished();
-            }
+            FinishTurn();
 
             EmitSignal("OutOfCards");
         }
@@ -218,6 +218,20 @@ public partial class Hand : Node
         }
 
         return true;
+    }
+
+    private void FinishTurn()
+    {
+        if (turnFinished)
+            return;
+
+        turnFinished = true;
+
+        if (PlayerData.Instance.relics != null)
+        {
+            foreach (RelicController relic in PlayerData.Instance.relics)
+                relic.OnPlayerTurnFinished();
+        }
     }
 
     public void SetSelectedCard(CardController card)

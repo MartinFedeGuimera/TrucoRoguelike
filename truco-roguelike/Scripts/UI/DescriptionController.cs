@@ -33,8 +33,6 @@ public partial class DescriptionController : Control
 
         description.Text = finalDescription;
 
-        GD.Print(description.Text);
-
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
         ResetSize();

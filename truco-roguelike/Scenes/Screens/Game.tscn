@@ -189,6 +189,7 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 
 [node name="Description" parent="CanvasLayer" unique_id=1895936680 instance=ExtResource("16_m4ykv")]
+visible = false
 
 [node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("gameController", "player")]
 script = ExtResource("7_fgofq")
