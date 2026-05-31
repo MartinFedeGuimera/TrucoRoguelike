@@ -25,7 +25,7 @@ public partial class Enemy : Node
 
         player.TurnEnded += DealDamage;
 
-        gameController.DataLoaded += CalculateMaxHealth;
+        CalculateMaxHealth();
     }
 
     public override void _Process(double delta)
@@ -63,7 +63,9 @@ public partial class Enemy : Node
 
     private void CalculateMaxHealth()
     {
-        maxHealth *= gameController.GetRound();
+        GD.Print("Enemy Max Healt Calculated!");
+        
+        maxHealth *= GameData.Instance.round;
         health = maxHealth;
     }
 

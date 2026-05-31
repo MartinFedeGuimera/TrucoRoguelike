@@ -1,14 +1,19 @@
 using Godot;
 
-[GlobalClass]
-public partial class GameData : Resource
+public partial class GameData : Node
 {
-	public RandomNumberGenerator seed;
-    [Export] public int round;
+    public static GameData Instance { get; private set; }
 
-    public void Save(RandomNumberGenerator seed, int round)
+    public RandomNumberGenerator seed;
+
+    public int round;
+
+    public override void _Ready()
     {
-        this.seed = seed;
-        this.round = round;
+        GD.Print("GameData Ready");
+
+        Instance = this;
+        seed = new RandomNumberGenerator();
+        round = 1;
     }
 }

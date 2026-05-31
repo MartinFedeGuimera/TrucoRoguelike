@@ -1,5 +1,4 @@
 using Godot;
-using Godot.Collections;
 
 public partial class PlayerController : Node
 {
@@ -30,8 +29,6 @@ public partial class PlayerController : Node
         hand.OutOfCards += OnOutOfCards;
 
         enemy.TurnEnded += StartTurn;
-
-        gameController.DataLoaded += LoadData;
 
         UpdateUI();
     }
@@ -95,14 +92,6 @@ public partial class PlayerController : Node
             controller.SetUp(consumable, hand, descriptionController);
             consumablesParent.AddChild(controller);
         }
-    }
-
-    // ---------------- LOAD ----------------
-
-    public void LoadData()
-    {
-        GD.Print("Player Data Loaded");
-        UpdateUI();
     }
 
     private void OnOutOfCards()

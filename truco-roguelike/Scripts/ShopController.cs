@@ -3,9 +3,6 @@ using Godot.Collections;
 
 public partial class ShopController : Node
 {
-    [Export] private GameData gameData;
-    private RandomNumberGenerator seed;
-
     [Export] private DescriptionController descriptionController;
 
     [ExportGroup("Shop Settings")]
@@ -59,7 +56,6 @@ public partial class ShopController : Node
 
         PlayerData.Instance.DataChanged += UpdatePlayerDataUI;
 
-        seed = gameData.seed;
         rng.Randomize();
 
         relics = new Array<RelicController>();
@@ -258,7 +254,7 @@ public partial class ShopController : Node
         {
             for (int i = relics.Count - 1; i > 0; i--)
             {
-                int randomIndex = seed.RandiRange(0, i);
+                int randomIndex = GameData.Instance.seed.RandiRange(0, i);
 
                 RelicController currentRelic = relics[i];
                 relics[i] = relics[randomIndex];
@@ -302,7 +298,7 @@ public partial class ShopController : Node
         {
             for (int i = consumables.Count - 1; i > 0; i--)
             {
-                int randomIndex = seed.RandiRange(0, i);
+                int randomIndex = GameData.Instance.seed.RandiRange(0, i);
 
                 Consumable currentConsumable = consumables[i];
                 consumables[i] = consumables[randomIndex];

@@ -7,11 +7,7 @@ public partial class GameController : Node2D
 
     [Export] private Enemy enemy;
 
-    [Export] private GameData gameData;
-
     [Export] private int roundWinPrize;
-
-    private int round = 0;
 
     private bool gameLoaded = false;
 
@@ -23,23 +19,17 @@ public partial class GameController : Node2D
     [Signal]
     public delegate void LoadingSceneEventHandler();
 
-    [Signal]
-    public delegate void DataLoadedEventHandler();
-
     public override void _Ready()
     {
-        if(gameData.round != 0)
-        {
-            LoadData();
-        }
 
-        round++;
-        GD.Print("Current Round: " + round);
+        GameData.Instance.round++;
+        GD.Print("Current Round: " + GameData.Instance.round);
 
 
-        if(gameData.round == 1)
+        if(GameData.Instance.round == 1)
         {
             seed.Randomize();
+            GameData.Instance.seed = seed;
         }
 
         playerHand.CardSelected += OnCardSelected;
@@ -58,7 +48,7 @@ public partial class GameController : Node2D
     {
         player.AddMoney(roundWinPrize);
 
-        roundWinPrize = (int)(roundWinPrize * 1.5f) ;
+        roundWinPrize = (int)(roundWinPrize * 1.75f) ;
 
         LoadShop();
     }
@@ -67,27 +57,9 @@ public partial class GameController : Node2D
     {
         EmitSignal("LoadingScene");
 
-        SaveData();
-
         SceneManager.Instance.Load("res://Scenes/Screens/shop.tscn");
     }
 
-    private void SaveData()
-    {
-        gameData.Save(seed, round);
-        GD.Print("Game Data Saved");
-    }
-
-    private void LoadData()
-    {
-        seed = gameData.seed;
-        round = gameData.round;
-        GD.Print("Game Data Loaded");
-
-        EmitSignal("DataLoaded");
-    }
-
     public RandomNumberGenerator GetSeed() => seed;
-    public int GetRound() => round;
     public bool IsGameLoaded() => gameLoaded;
 }
