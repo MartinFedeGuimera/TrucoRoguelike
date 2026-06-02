@@ -13,7 +13,7 @@ public partial class Truco : Canto
         if (!base.OnUse())
             return false;
 
-        hand.AddGeneralMult((int)value);
+        hand.AddDamageMultiplier(value);
 
         return true;
     }

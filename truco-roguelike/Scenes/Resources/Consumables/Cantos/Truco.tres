@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_kwud1")
+valueUpgrade = 1
 maxLevel = 3
 name = "Truco"
 description = "You get x2 damage, but also does your enemy."

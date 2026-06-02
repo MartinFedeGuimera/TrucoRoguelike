@@ -33,6 +33,7 @@ public partial class Hand : Node
     private float generalMult = 0;
     private float permanentMult = 0;
     private float damageMultiplier = 1f;
+    private int trucoMultiplier = 1;
 
     public bool hasFlor = false;
     private bool turnFinished;
@@ -89,6 +90,7 @@ public partial class Hand : Node
         turnFinished = false;
 
         generalMult = permanentMult;
+        damageMultiplier = 1f;
 
         dmgUiController.ResetRound();
 
@@ -167,8 +169,6 @@ public partial class Hand : Node
             card = playedCard
         };
 
-        damageMultiplier = 1f;
-
         drawnCards.Remove(playedCard);
         playedCard.QueueFree();
         selectedCard = null;
@@ -199,6 +199,7 @@ public partial class Hand : Node
     {
         float finalDamage = attack.damage * (attack.cardMult + attack.generalMult + attack.tempMult);
 
+        GD.Print("Damage Multiplier: " + attack.damageMultiplier);
         finalDamage *= attack.damageMultiplier;
 
         EmitSignal("Attack", (int)finalDamage);
@@ -262,7 +263,7 @@ public partial class Hand : Node
 
     public void AddDamageMultiplier(float mult)
     {
-        damageMultiplier *= mult;
+        damageMultiplier += mult;
     }
 
     public Array<Card> GetDrawnCards()

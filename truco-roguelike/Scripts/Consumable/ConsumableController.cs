@@ -49,6 +49,7 @@ public partial class ConsumableController : Node
 	public void OnButtonPressed()
 	{
 		GD.Print("Consumable used");
+
 		data.OnUse();
     }
 
