@@ -42,8 +42,7 @@
               "RelativeToolTip": "Scripts\\Consumable\\ConsumableController.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAowDQAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T22:09:32.535Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-31T22:09:32.535Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Scripts\\Player\\PlayerController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T22:09:02.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-31T22:09:02.428Z"
             },
             {
               "$type": "Document",
@@ -68,8 +66,7 @@
               "RelativeToolTip": "Scripts\\Enemy\\Enemy.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T22:08:35.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-31T22:08:35.878Z"
             },
             {
               "$type": "Document",
@@ -81,8 +78,7 @@
               "RelativeToolTip": "Scripts\\Player\\Hand.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAwwFwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T21:58:56.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-31T21:58:56.131Z"
             },
             {
               "$type": "Document",
@@ -92,7 +88,7 @@
               "RelativeDocumentMoniker": "Scripts\\Consumable\\Canto\\Truco.cs",
               "ToolTip": "C:\\repos\\TrucoRoguelike\\truco-roguelike\\Scripts\\Consumable\\Canto\\Truco.cs",
               "RelativeToolTip": "Scripts\\Consumable\\Canto\\Truco.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-31T21:58:10.291Z",
               "EditorCaption": ""

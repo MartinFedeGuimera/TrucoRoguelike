@@ -52,7 +52,7 @@ public partial class Envido : Canto
 
             if (values.Count >= 2)
             {
-                int pairValue = values[0] + values[1] + 20;
+                int pairValue = values[0] + values[1];
                 bestPairValue = Mathf.Max(bestPairValue, pairValue);
             }
         }
