@@ -10,6 +10,8 @@ public partial class PlayerController : Node
 
     [Signal]
     public delegate void TurnEndedEventHandler();
+    [Signal]
+    public delegate void PlayerDeadEventHandler();
 
     [ExportGroup("Scenes")]
     [Export] private PackedScene relicScene;
@@ -36,7 +38,9 @@ public partial class PlayerController : Node
     public override void _Process(double delta)
     {
         if (PlayerData.Instance.health <= 0)
-            GD.Print("Game Over!");
+        {
+            EmitSignal("PlayerDead");
+        }
     }
 
     // ---------------- DAMAGE ----------------

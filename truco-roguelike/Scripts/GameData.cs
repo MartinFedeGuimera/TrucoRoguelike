@@ -16,4 +16,10 @@ public partial class GameData : Node
         seed = new RandomNumberGenerator();
         round = 1;
     }
+
+    public void RestartData()
+    {
+        round = 1;
+        seed = new RandomNumberGenerator();
+    }
 }

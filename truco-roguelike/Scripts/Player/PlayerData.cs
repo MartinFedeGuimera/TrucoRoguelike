@@ -14,6 +14,7 @@ public partial class PlayerData : Node
     public int maxConsumables = 2;
 
     public int maxHealth = 50;
+    private const int START_HEALTH = 50;
 	public int health;
 
     public float permanentMult;
@@ -24,7 +25,7 @@ public partial class PlayerData : Node
     public override void _Ready()
     {
 		Instance = this;
-		health = maxHealth;
+		health = START_HEALTH;
     }
 
 	public void AddMoney(int addedMoney)
@@ -68,5 +69,15 @@ public partial class PlayerData : Node
         }
 
         EmitSignal("DataChanged");
+    }
+
+    public void RestartData()
+    {
+        money = 0;
+        maxHealth = START_HEALTH;
+        health = START_HEALTH;
+        permanentMult = 0;
+        maxRelics = 4;
+        maxConsumables = 2;
     }
 }

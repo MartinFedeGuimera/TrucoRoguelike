@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://df7n2e3n0tv1c"]
+
+[ext_resource type="Script" uid="uid://bk16o5wtct6vx" path="res://Scripts/UI/GameOverController.cs" id="1_x266o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v528u"]
+font_size = 51
+font_color = Color(1, 0, 0, 1)
+
+[node name="GameOver" type="Control" unique_id=1407866875 node_paths=PackedStringArray("roundLabel", "moneyLabel")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x266o")
+roundLabel = NodePath("VBoxContainer/RoundLabel")
+moneyLabel = NodePath("VBoxContainer/MoneyLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1082718143]
+layout_mode = 1
+offset_left = -495.5
+offset_top = -285.0
+offset_right = 495.5
+offset_bottom = 285.0
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer" unique_id=1029415343]
+layout_mode = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_v528u")
+horizontal_alignment = 1
+
+[node name="RoundLabel" type="Label" parent="VBoxContainer" unique_id=443198712]
+layout_mode = 2
+text = "Round: 1"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="VBoxContainer" unique_id=1378799364]
+layout_mode = 2
+text = "Money: $0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1783055924]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1338494050]
+layout_mode = 2
+text = "Quit"
+
+[node name="RestartButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1989843109]
+layout_mode = 2
+text = "Restart"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/QuitButton" to="." method="OnQuit"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="OnRestart"]

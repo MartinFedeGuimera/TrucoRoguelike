@@ -34,6 +34,7 @@ public partial class GameController : Node2D
 
         playerHand.CardSelected += OnCardSelected;
         enemy.EnemyDead += OnEnemyKilled;
+        player.PlayerDead += OnGameOver;
 
         GD.Print("Seed: " + seed.Randi());
     }
@@ -58,6 +59,11 @@ public partial class GameController : Node2D
         EmitSignal("LoadingScene");
 
         SceneManager.Instance.Load("res://Scenes/Screens/shop.tscn");
+    }
+
+    private void OnGameOver()
+    {
+        SceneManager.Instance.Load("res://Scenes/Screens/GameOver.tscn");
     }
 
     public RandomNumberGenerator GetSeed() => seed;
