@@ -7,6 +7,7 @@ public partial class Cantora : RelicController
 {
     public CardSuit suit = CardSuit.Basto;
     [Export] public int substractValue;
+    private int multAdded = 0;
 
     public override void OnPlayerTurnStarted()
     {
@@ -30,6 +31,8 @@ public partial class Cantora : RelicController
             GD.Print("Suit played: " + card.suit + " Relic suit: " + suit);
 
             playerHand.AddPermaMult(value);
+
+            multAdded += value;
         }
         else
         {
@@ -37,7 +40,16 @@ public partial class Cantora : RelicController
             GD.Print("Suit played: " + card.suit + " Relic suit: " + suit);
 
             playerHand.AddPermaMult(-substractValue);
+
+            multAdded -= substractValue;
+            if(multAdded < 0)
+                multAdded = 0;
         }
+    }
+
+    public override void OnSell()
+    {
+        playerHand.AddPermaMult(-multAdded);
     }
 
     public override Dictionary<string, object> GetVarsDictionary()
