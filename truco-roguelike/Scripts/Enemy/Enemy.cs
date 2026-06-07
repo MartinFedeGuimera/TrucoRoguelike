@@ -28,23 +28,14 @@ public partial class Enemy : Node
         CalculateMaxHealth();
     }
 
-    public override void _Process(double delta)
-    {
-        if(health <= 0 && !isDead)
-        {
-            isDead = true;
-            GD.Print("Enemy Killed");
-
-            OnDeath();
-        }
-    }
-
     private void DealDamage()
     {
-        if(!isDead)
+        GD.Print("Enemy attacks. Health = " + health);
+
+        if (health > 0)
         {
-            player.TakeDamage(damage);
             GD.Print("Damage Taken: " + damage);
+            player.TakeDamage(damage);
 
             EmitSignal("TurnEnded");
         }
@@ -54,6 +45,14 @@ public partial class Enemy : Node
     {
         health -= damage;
         GD.Print("Enemy Health: " + health);
+
+        if (health <= 0)
+        {
+            isDead = true;
+            GD.Print("Enemy Killed");
+
+            OnDeath();
+        }
     }
 
     private void OnDeath()

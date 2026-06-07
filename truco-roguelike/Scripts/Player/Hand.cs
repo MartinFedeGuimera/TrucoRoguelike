@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using System.Threading.Tasks;
 
 public partial class Hand : Node
 {
@@ -138,7 +139,7 @@ public partial class Hand : Node
         }
     }
 
-    public void OnCardPlayed()
+    public async void OnCardPlayed()
     {
         if (selectedCard == null)
             return;
@@ -173,17 +174,16 @@ public partial class Hand : Node
         playedCard.QueueFree();
         selectedCard = null;
 
-        WaitForDamageAnimations(attack);
+        await WaitForDamageAnimations(attack);
 
         if (drawnCards.Count == 0)
         {
             FinishTurn();
-
-            EmitSignal("OutOfCards");
+            EmitSignal(SignalName.OutOfCards);
         }
     }
 
-    private async void WaitForDamageAnimations(AttackData attack)
+    private async Task WaitForDamageAnimations(AttackData attack)
     {
         sfxPlayer.Stream = playCardSound;
         sfxPlayer.PitchScale = seed.RandfRange(0.8f, 1.1f);
