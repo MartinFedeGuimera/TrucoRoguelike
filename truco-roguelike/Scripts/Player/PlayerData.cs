@@ -74,10 +74,16 @@ public partial class PlayerData : Node
     public void RestartData()
     {
         money = 0;
+
         maxHealth = START_HEALTH;
         health = START_HEALTH;
+
         permanentMult = 0;
+
         maxRelics = 4;
+        relics = new Array<RelicController>();
+
         maxConsumables = 2;
+        consumables = new Array<Consumable>();
     }
 }
