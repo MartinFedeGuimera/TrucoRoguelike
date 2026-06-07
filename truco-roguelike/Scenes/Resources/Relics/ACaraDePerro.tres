@@ -7,7 +7,7 @@
 script = ExtResource("1_b16u5")
 substractValue = 10
 name = "A Cara De Perro"
-description = "+{value} perma mult when taking damage, -{substractValue} perma mult when healing"
+description = "+{value} perma mult when  damaged, -{substractValue} perma mult when healing"
 spriteTexture = ExtResource("2_w6jvp")
 value = 2
 price = 10

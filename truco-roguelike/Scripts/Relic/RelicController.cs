@@ -48,4 +48,9 @@ public partial class RelicController : Resource
     {
         wasUsed = true;
     }
+
+    public virtual void OnSell()
+    {
+
+    }
 }

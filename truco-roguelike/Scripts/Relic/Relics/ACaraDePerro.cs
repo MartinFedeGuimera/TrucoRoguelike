@@ -7,11 +7,18 @@ public partial class ACaraDePerro : RelicController
     private int previousHealth;
 
     [Export] public int substractValue;
-
+    private int multAdded = 0;
 
     public override void OnPlayerTurnStarted()
     {
         base.OnPlayerTurnStarted();
+
+        if (PlayerData.Instance.health < previousHealth)
+        {
+            playerHand.AddPermaMult(value);
+
+            multAdded += value;
+        }
 
         previousHealth = PlayerData.Instance.health;
     }
@@ -26,13 +33,18 @@ public partial class ACaraDePerro : RelicController
         if (PlayerData.Instance.health > previousHealth)
         {
             playerHand.AddPermaMult(-substractValue);
+            multAdded -= substractValue;
 
-            GD.Print("Player healed, -10 perma mult");
+            if(multAdded < 0)
+                multAdded = 0;
+
+            GD.Print("Player healed, -" + substractValue + " perma mult");
         }
-        else
-        {
-            playerHand.AddPermaMult(value);
-        }
+    }
+
+    public override void OnSell()
+    {
+        playerHand.AddPermaMult(-multAdded);
     }
 
     public override Dictionary<string, object> GetVarsDictionary()

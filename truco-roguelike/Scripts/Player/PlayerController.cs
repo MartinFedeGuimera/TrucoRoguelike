@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 
 public partial class PlayerController : Node
 {
@@ -21,6 +22,10 @@ public partial class PlayerController : Node
     [Export] private Node relicsParent;
     [Export] private Node consumablesParent;
 
+    [ExportGroup("Debugging")]
+    [Export] private Array<RelicController> relicsAdded = new Array<RelicController>();
+    [Export] private Array<Consumable> consumablesAdded = new Array<Consumable>();
+
     public override void _Ready()
     {
         hand = GetNode<Hand>("Hand");
@@ -31,6 +36,18 @@ public partial class PlayerController : Node
         hand.OutOfCards += OnOutOfCards;
 
         enemy.TurnEnded += StartTurn;
+
+        if(GameData.Instance.round == 1)
+        {
+            foreach (var relic in relicsAdded)
+            {
+                PlayerData.Instance.relics.Add(relic);
+            }
+            foreach (var consumable in consumablesAdded)
+            {
+                PlayerData.Instance.consumables.Add(consumable);
+            }
+        }
 
         UpdateUI();
     }

@@ -22,6 +22,8 @@ public partial class RelicView : Node
 
     private void OnSell()
     {
+        data.OnSell();
+
         PlayerData.Instance.AddMoney(data.price/2);
         GD.Print("Relic Sold");
 
