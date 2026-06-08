@@ -59,7 +59,7 @@ public partial class Hand : Node
         {
             damage = damage,
             cardMult = mult,
-            generalMult = generalMult,
+            generalMult = generalMult + permanentMult,
             tempMult = tempMult + extraTempMult,
             damageMultiplier = damageMultiplier,
             card = null
@@ -164,7 +164,7 @@ public partial class Hand : Node
         {
             damage = cardData.value,
             cardMult = cardData.mult,
-            generalMult = generalMult,
+            generalMult = generalMult + permanentMult,
             tempMult = tempMult,
             damageMultiplier = damageMultiplier,
             card = playedCard
@@ -256,7 +256,6 @@ public partial class Hand : Node
     public void AddPermaMult(int addedMult)
     {
         permanentMult = Mathf.Max(0, permanentMult + addedMult);
-        generalMult = Mathf.Max(0, generalMult + addedMult);
 
         PlayerData.Instance.permanentMult = permanentMult;
     }

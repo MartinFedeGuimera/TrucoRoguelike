@@ -28,8 +28,6 @@ public partial class Cantora : RelicController
         if(card.suit == suit)
         {
             GD.Print("Cantora added perma mult.");
-            GD.Print("Suit played: " + card.suit + " Relic suit: " + suit);
-
             playerHand.AddPermaMult(value);
 
             multAdded += value;
@@ -37,8 +35,6 @@ public partial class Cantora : RelicController
         else
         {
             GD.Print("Cantora substracted perma mult");
-            GD.Print("Suit played: " + card.suit + " Relic suit: " + suit);
-
             playerHand.AddPermaMult(-substractValue);
 
             multAdded -= substractValue;
