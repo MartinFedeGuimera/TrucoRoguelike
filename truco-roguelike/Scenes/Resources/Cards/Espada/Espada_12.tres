@@ -10,6 +10,6 @@ region = Rect2(144, 0, 16, 32)
 [resource]
 script = ExtResource("1_jyssq")
 name = "Espada_12"
-value = 7
+value = 8
 suit = 1
 texture = SubResource("AtlasTexture_i1ovq")

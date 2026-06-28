@@ -7,14 +7,15 @@ public static class DescriptionFormatter
 {
     private static Dictionary<string, string> keywordColors = new Dictionary<string, string>()
     {
-        { "mult", "red" },
-        { "general mult", "red" },
-        { "temp mult", "red" },
-        { "perma mult", "red" },
-        { "card mult", "red" },
-        { "enemy", "darkRed" },
-        { "health", "green" },
-        { "damage", "cyan" },
+        { "Mult", "red" },
+        { "General Mult", "red" },
+        { "Temp Mult", "red" },
+        { "Perma Mult", "red" },
+        { "Card Mult", "red" },
+        { "Enemy", "darkRed" },
+        { "Health", "green" },
+        { "Damage", "cyan" },
+        { "Envido", "cyan" },
         { "Basto", "darkGreen" },
         { "Oro", "yellow" },
         { "Espada", "lightBlue" },
@@ -77,6 +78,21 @@ public static class DescriptionFormatter
                 result,
                 pattern,
                 match => $"[color={keyword.Value}]{match.Value}[/color]",
+                RegexOptions.IgnoreCase
+            );
+        }
+
+        foreach (var keyword in keywordColors)
+        {
+            string pattern = $@"\b({Regex.Escape(keyword.Key)})\s+([+-]?\d+)\b";
+
+            result = Regex.Replace(
+                result,
+                pattern,
+                match =>
+                {
+                    return $"[color={keyword.Value}]{match.Groups[1].Value} {match.Groups[2].Value}[/color]";
+                },
                 RegexOptions.IgnoreCase
             );
         }

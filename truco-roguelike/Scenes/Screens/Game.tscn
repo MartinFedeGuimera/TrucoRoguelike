@@ -8,10 +8,12 @@
 [ext_resource type="Script" uid="uid://clrd6f22hrh50" path="res://Scripts/Enemy/Enemy.cs" id="7_fgofq"]
 [ext_resource type="AudioStream" uid="uid://budk7itdgh2j2" path="res://Sounds/DrawCard.wav" id="8_fhspi"]
 [ext_resource type="AudioStream" uid="uid://2lws7gd3npa" path="res://Sounds/PlayCard.wav" id="9_5wh84"]
+[ext_resource type="PackedScene" uid="uid://c1p7ng0e3cq57" path="res://Scenes/Prefabs/UI/DeckCard.tscn" id="9_m4ykv"]
 [ext_resource type="PackedScene" uid="uid://cfr25ymq0ee4d" path="res://Scenes/Prefabs/Consumable/Consumable.tscn" id="10_8r6kd"]
 [ext_resource type="Script" uid="uid://bra22crfad4v1" path="res://Scripts/UI/EnemyHealthBar.cs" id="10_dahhg"]
 [ext_resource type="Script" uid="uid://c8464r1gkbtg0" path="res://Scripts/UI/PlayerHealthBar.cs" id="11_3so38"]
 [ext_resource type="AudioStream" uid="uid://bpxwxgo34li7a" path="res://Sounds/Mult.wav" id="13_m4ykv"]
+[ext_resource type="Script" uid="uid://bp3ltui5lxjsm" path="res://Scripts/UI/DeckController.cs" id="16_6ikvq"]
 [ext_resource type="PackedScene" uid="uid://dvdbem4a5fbcq" path="res://Scenes/Prefabs/UI/Description.tscn" id="16_m4ykv"]
 [ext_resource type="Script" uid="uid://bv477fbni1r3y" path="res://Scripts/Player/Hand.cs" id="43_audqb"]
 [ext_resource type="Resource" uid="uid://udi674rbvyul" path="res://Scenes/Resources/Cards/Deck.tres" id="44_7w24h"]
@@ -48,9 +50,9 @@ deckResource = ExtResource("44_7w24h")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1664855381]
 
 [node name="DmgVBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1162640196 node_paths=PackedStringArray("gameController")]
-offset_top = 425.0
+offset_top = 407.5
 offset_right = 77.0
-offset_bottom = 475.0
+offset_bottom = 492.5
 grow_vertical = 2
 script = ExtResource("6_7lihs")
 gameController = NodePath("../..")
@@ -80,7 +82,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = -50.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -186,8 +188,117 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 50
 
+[node name="Deck" type="Control" parent="CanvasLayer" unique_id=1728352080 node_paths=PackedStringArray("containers", "descriptionController")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("16_6ikvq")
+containers = [NodePath("HBoxContainer/VBoxContainer_0"), NodePath("HBoxContainer/VBoxContainer_1"), NodePath("HBoxContainer/VBoxContainer_2"), NodePath("HBoxContainer/VBoxContainer_3"), NodePath("HBoxContainer/VBoxContainer_4"), NodePath("HBoxContainer/VBoxContainer_5"), NodePath("HBoxContainer/VBoxContainer_6"), NodePath("HBoxContainer/VBoxContainer_7"), NodePath("HBoxContainer/VBoxContainer_8"), NodePath("HBoxContainer/VBoxContainer_9"), NodePath("HBoxContainer/VBoxContainer_10"), NodePath("HBoxContainer/VBoxContainer_11"), NodePath("HBoxContainer/VBoxContainer_12"), NodePath("HBoxContainer/VBoxContainer_13"), NodePath("HBoxContainer/VBoxContainer_14")]
+descriptionController = NodePath("../Description")
+deckResource = ExtResource("44_7w24h")
+deckCardScene = ExtResource("9_m4ykv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Deck" unique_id=217929989]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Deck/MarginContainer" unique_id=47926851]
+layout_mode = 2
+color = Color(0, 0, 0, 0.34509805)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Deck" unique_id=783014944]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_right = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer_0" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=1067352851]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_1" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=214010045]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_2" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=2057053835]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_3" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=1650477601]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_4" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=891698164]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_5" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=1401596588]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_6" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=505125227]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_7" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=288935909]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_8" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=1295339460]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_9" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=402960176]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_10" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=2002740362]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_11" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=287168824]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_12" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=1072478252]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_13" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=1483660307]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer_14" type="VBoxContainer" parent="CanvasLayer/Deck/HBoxContainer" unique_id=1057744358]
+layout_mode = 2
+theme_override_constants/separation = 100
+
 [node name="Description" parent="CanvasLayer" unique_id=1895936680 instance=ExtResource("16_m4ykv")]
 visible = false
+visibility_layer = 2
 
 [node name="Enemy" type="Node2D" parent="." unique_id=232580317 node_paths=PackedStringArray("gameController", "player")]
 script = ExtResource("7_fgofq")
@@ -200,3 +311,4 @@ damage = 10
 position = Vector2(800, 450)
 
 [connection signal="pressed" from="CanvasLayer/DmgVBoxContainer/PlayButton" to="Player/Hand" method="OnCardPlayed"]
+[connection signal="pressed" from="CanvasLayer/AspectRatioContainer/DeckButton" to="CanvasLayer/Deck" method="OnDeck"]

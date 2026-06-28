@@ -10,7 +10,7 @@ region = Rect2(0, 96, 16, 32)
 [resource]
 script = ExtResource("1_tmjvp")
 name = "Copa_1"
-value = 8
+value = 9
 envidoValue = 1
 suit = 2
 texture = SubResource("AtlasTexture_mbgqh")

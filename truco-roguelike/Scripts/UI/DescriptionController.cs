@@ -1,7 +1,5 @@
 using Godot;
-using Godot.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 public partial class DescriptionController : Control
 {
@@ -25,7 +23,7 @@ public partial class DescriptionController : Control
         description.CustomMinimumSize = new Vector2(maxDescriptionWidth, 0);
     }
 
-    public async void ChangeData(string titleText, string descriptionText, System.Collections.Generic.Dictionary<string, object> vars)
+    public async void ChangeData(string titleText, string descriptionText, Dictionary<string, object> vars)
     {
         title.Text = titleText;
 

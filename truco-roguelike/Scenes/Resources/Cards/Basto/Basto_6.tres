@@ -10,7 +10,7 @@ region = Rect2(80, 64, 16, 32)
 [resource]
 script = ExtResource("1_ltbgh")
 name = "Basto_6"
-value = 3
+value = 4
 envidoValue = 6
 suit = 4
 texture = SubResource("AtlasTexture_jtpax")

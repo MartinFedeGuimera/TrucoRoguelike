@@ -10,7 +10,7 @@ region = Rect2(48, 96, 16, 32)
 [resource]
 script = ExtResource("1_5hqu6")
 name = "Copa_4"
-value = 1
+value = 2
 envidoValue = 4
 suit = 2
 texture = SubResource("AtlasTexture_np3xr")

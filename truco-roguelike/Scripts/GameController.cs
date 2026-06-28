@@ -21,7 +21,6 @@ public partial class GameController : Node2D
 
     public override void _Ready()
     {
-
         GameData.Instance.round++;
         GD.Print("Current Round: " + GameData.Instance.round);
 
